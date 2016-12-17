@@ -1,4 +1,4 @@
-ALL_CARDS = [
+exports.ALL_CARDS = [
     {
         "name": "Jade",
         "type": "Gem",
@@ -251,4 +251,4 @@ ALL_CARDS = [
         "cost": 8,
         "expansion": "The Nameless"
     }
-]
+];
