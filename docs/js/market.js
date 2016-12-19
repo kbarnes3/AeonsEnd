@@ -495,7 +495,25 @@ function getCardsInMarket(market) {
         var card = eligibleCards[randNumber(eligibleCards.length)];
         retCards.push(card);
     }
+    sortCards(retCards);
     return retCards;
+}
+
+// 
+function sortCards(deck) {
+  var compareFn = function(c1, c2) {
+    var typeOrder = ['Gem', 'Relic', 'Spell'];
+    if (c1.type == c2.type) {
+        if (c1.cost == c2.cost) {
+            return c1.name.localeCompare(c2.name);
+        }
+        return c1.cost - c2.cost;
+    }
+    var c1TypeIndex = typeOrder.indexOf(c1.type);
+    var c2TypeIndex = typeOrder.indexOf(c2.type);
+    return c1TypeIndex - c2TypeIndex;
+  }
+  deck.sort(compareFn);
 }
 
 function randNumber(max) {
