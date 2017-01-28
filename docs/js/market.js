@@ -486,7 +486,7 @@ function getMatchingCards(cardMatchFn, deck, skipCards) {
     return matchingCards;
 }
 
-function getCardsInMarket(market) {
+function getCardsInMarket(market, expansions) {
     var deck = cards.ALL_CARDS;
     var retCards = [];
     for (var i = 0; i < market.cards.length; i++) {
@@ -520,9 +520,9 @@ function randNumber(max) {
     return Math.floor(Math.random() * max);
 }
 
-function createRandomMarket() {
+function createRandomMarket(expansions) {
     var marketNumber = randNumber(6);
-    return getCardsInMarket(markets.ALL_MARKETS[marketNumber]);
+    return getCardsInMarket(markets.ALL_MARKETS[marketNumber], expansions);
 }
 
 exports.createRandomMarket = createRandomMarket;
