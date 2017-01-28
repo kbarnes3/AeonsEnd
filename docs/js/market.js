@@ -486,8 +486,22 @@ function getMatchingCards(cardMatchFn, deck, skipCards) {
     return matchingCards;
 }
 
+function  getCardsInExpansions(expansions) {
+    var all_cards = cards.ALL_CARDS;
+    var all_cards_length = all_cards.length;
+    var matchingCards = [];
+    for (var i = 0; i < all_cards_length; i++) {
+        var card = all_cards[i];
+        if (expansions.indexOf(card.expansion) != -1) {
+            matchingCards.push(card);
+        }
+    }
+
+    return matchingCards;
+}
+
 function getCardsInMarket(market, expansions) {
-    var deck = cards.ALL_CARDS;
+    var deck = getCardsInExpansions(expansions);
     var retCards = [];
     for (var i = 0; i < market.cards.length; i++) {
         var cardFn = market.cards[i];
