@@ -26,10 +26,13 @@
 
         <div class="container">
             
-    <div class="jumbotron">
-        <h1>Maintenance</h1>
-        <p>Aeon's End Market Generator is currently down for scheduled or unscheduled maintenance. We will be back as soon as we can!</p>
-    </div>
+            <div class="jumbotron">
+                <h1>Aeon's End Random Market</h1>
+            </div>
+
+            <div>
+                <ul id="cards"></ul>
+            </div>
 
         </div> <!-- /container -->
 
@@ -41,7 +44,22 @@
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/market.js"></script>
-        
+        <script>
+            var market = require('market')
+            var expansions = [
+                'Base',
+                'The Depths',
+                'The Nameless',
+            ];
+            var generated = market.createRandomMarket(expansions);
+            var output = "";
+
+            generated.forEach(function (card) {
+                output += "<li>Card: " + card.name + " Type: " + card.type + " Cost: " + card.cost + "</li>\n";
+            });
+
+            $('#cards').html(output);
+        </script>
         
     </body>
 </html>
