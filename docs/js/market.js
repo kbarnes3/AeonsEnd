@@ -256,63 +256,63 @@ exports.ALL_CARDS = [
         "name": "Erratic Ingot",
         "type": "Gem",
         "cost": 5,
-        "expansion": "War Eternal 1",
-        "count": 7
-    },
-    {
-        "name": "Fossilized Scarab",
-        "type": "Gem",
-        "cost": 3,
-        "expansion": "War Eternal 1",
-        "count": 7
-    },
-    {
-        "name": "Scoria Slag",
-        "type": "Gem",
-        "cost": 4,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
         "count": 7
     },
     {
         "name": "Bloodstone Jewel",
         "type": "Gem",
         "cost": 6,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
+        "count": 7
+    },
+    {
+        "name": "Scoria Slag",
+        "type": "Gem",
+        "cost": 4,
+        "expansion": "War Eternal",
         "count": 7
     },
     {
         "name": "Breach Ore",
         "type": "Gem",
         "cost": 4,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
         "count": 7
     },
     {
         "name": "Dread Diamond",
         "type": "Gem",
         "cost": 3,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
         "count": 7
     },
     {
         "name": "Volcanic Glass",
         "type": "Gem",
         "cost": 3,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
+        "count": 7
+    },
+    {
+        "name": "Primordial Fetish",
+        "type": "Relic",
+        "cost": 3,
+        "expansion": "War Eternal",
+        "count": 5
+    },
+    {
+        "name": "Fossilized Scarab",
+        "type": "Gem",
+        "cost": 3,
+        "expansion": "The Void",
         "count": 7
     },
     {
         "name": "Dimensional Key",
         "type": "Relic",
         "cost": 8,
-        "expansion": "War Eternal 1",
-        "count": 5
-    },
-    {
-        "name": "Primordial Fetish",
-        "type": "Relic",
-        "cost": 3,
-        "expansion": "War Eternal 1",
+        "expansion": "The Void",
         "count": 5
     },
     {
