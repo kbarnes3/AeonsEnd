@@ -301,6 +301,27 @@ exports.ALL_CARDS = [
         "count": 5
     },
     {
+        "name": "Cairn Compass",
+        "type": "Relic",
+        "cost": 4,
+        "expansion": "War Eternal",
+        "count": 5
+    },
+    {
+        "name": "Mage's Totem",
+        "type": "Relic",
+        "cost": 2,
+        "expansion": "War Eternal",
+        "count": 5
+    },
+    {
+        "name": "Conjure The Lost",
+        "type": "Spell",
+        "cost": 6,
+        "expansion": "War Eternal",
+        "count": 5
+    },
+    {
         "name": "Fossilized Scarab",
         "type": "Gem",
         "cost": 3,
@@ -315,115 +336,94 @@ exports.ALL_CARDS = [
         "count": 5
     },
     {
-        "name": "Riddlesphere",
-        "type": "Relic",
-        "cost": 3,
-        "expansion": "War Eternal 1",
-        "count": 5
-    },
-    {
-        "name": "Cairn Compass",
-        "type": "Relic",
-        "cost": 4,
-        "expansion": "War Eternal 1",
-        "count": 5
-    },
-    {
-        "name": "Mage Totem",
-        "type": "Relic",
-        "cost": 2,
-        "expansion": "War Eternal 1",
-        "count": 5
-    },
-    {
         "name": "Conflagration",
         "type": "Spell",
         "cost": 3,
-        "expansion": "War Eternal 1",
+        "expansion": "The Void",
         "count": 5
     },
     {
         "name": "Thermal Dart",
         "type": "Spell",
         "cost": 4,
-        "expansion": "War Eternal 1",
-        "count": 5
-    },
-    {
-        "name": "Catalyst",
-        "type": "Spell",
-        "cost": 6,
-        "expansion": "War Eternal 1",
+        "expansion": "The Void",
         "count": 5
     },
     {
         "name": "Celestial Spire",
         "type": "Spell",
         "cost": 5,
-        "expansion": "War Eternal 1",
+        "expansion": "The Void",
         "count": 5
     },
     {
-        "name": "Conjure The Lost",
+        "name": "Riddlesphere",
+        "type": "Relic",
+        "cost": 3,
+        "expansion": "The Outer Dark",
+        "count": 5
+    },
+    {
+        "name": "Catalyst",
         "type": "Spell",
         "cost": 6,
-        "expansion": "War Eternal 1",
+        "expansion": "The Outer Dark",
         "count": 5
     },
     {
         "name": "Crystallize",
         "type": "Spell",
         "cost": 8,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
         "count": 5
     },
     {
         "name": "Equilibrium",
         "type": "Spell",
         "cost": 7,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
         "count": 5
     },
     {
         "name": "Fiery Torrent",
         "type": "Spell",
         "cost": 5,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
         "count": 5
     },
     {
         "name": "Kindle",
         "type": "Spell",
         "cost": 4,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
         "count": 5
     },
     {
         "name": "Pyromancy",
         "type": "Spell",
         "cost": 7,
-        "expansion": "War Eternal 1",
+        "expansion": "The Outer Dark",
         "count": 5
     },
     {
         "name": "Pyrotechnic Surge",
         "type": "Spell",
         "cost": 4,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
         "count": 5
     },
     {
         "name": "Thoughtform Familiar",
         "type": "Spell",
         "cost": 3,
-        "expansion": "War Eternal 1",
+        "expansion": "War Eternal",
         "count": 5
     },
     {
         "name": "Scorch",
         "type": "Spell",
         "cost": 5,
-        "expansion": "War Eternal 1",
+        "expansion": "The Outer Dark",
         "count": 5
     },
 ];
