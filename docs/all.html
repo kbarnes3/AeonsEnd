@@ -31,10 +31,7 @@
             </div>
 
             <div>
-                <h1>Choose your set</h1>
-                <ul><a href="all.html">All</a></ul>
-                <ul><a href="classic.html">Classic</a></ul>
-                <ul><a href="we.html">War Eternal</a></ul>
+                <ul id="cards"></ul>
             </div>
 
         </div> <!-- /container -->
@@ -46,6 +43,27 @@
         </footer>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/market.js"></script>
+        <script>
+            var market = require('market')
+            var expansions = [
+                'Base',
+                'The Depths',
+                'The Nameless',
+                'War Eternal',
+                'The Void',
+                'The Outer Dark',
+            ];
+            var generated = market.createRandomMarket(expansions);
+            var output = "";
+
+            generated.forEach(function (card) {
+                output += "<li>Card: " + card.name + " Type: " + card.type + " Cost: " + card.cost + "</li>\n";
+            });
+
+            $('#cards').html(output);
+        </script>
+        
     </body>
 </html>
 
