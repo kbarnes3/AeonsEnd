@@ -11,6 +11,18 @@
     border-top: 1px solid #e5e5e5;
 }
 
+.Gem {
+    color: #880099;
+}
+
+.Relic {
+    color: #4286f4;
+}
+
+.Spell {
+    color: #CC9900;
+}
+
 @media (min-width: 768px) {
     .footer {
         text-align: left;

@@ -55,7 +55,7 @@
             var output = "";
 
             generated.forEach(function (card) {
-                output += "<li>Card: " + card.name + " Type: " + card.type + " Cost: " + card.cost + "</li>\n";
+                output += "<li class='" + card.type + "'>Card: " + card.name + " Type: " + card.type + " Cost: " + card.cost + "</li>\n";
             });
 
             $('#cards').html(output);
