@@ -1,3 +1,6 @@
-<p>
-  market-selection works!
-</p>
+<h2 *ngIf="cards">Market</h2>
+<ul *ngIf="cards">
+  <li *ngFor="let card of cards">
+    {{ card.name }}
+  </li>
+</ul>

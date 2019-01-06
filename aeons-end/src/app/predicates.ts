@@ -24,6 +24,46 @@ export class Predicates {
         return this.ItemMatchesAnyCost(MarketCardType.Gem);
     }
 
+    static RelicCostInRangeInclusive(lower:number, upper:number): Predicate {
+        return this.ItemMatchesRangeCost(MarketCardType.Relic, lower, upper);
+    }
+
+    static RelicLessThan(cost:number): Predicate {
+        return this.ItemMatchesLessThanCost(MarketCardType.Relic, cost);
+    }
+
+    static RelicEquals(cost:number): Predicate {
+        return this.ItemMatchesEqualCost(MarketCardType.Relic, cost);
+    }
+
+    static RelicGreaterThan(cost:number): Predicate {
+        return this.ItemMatchesGreaterThanCost(MarketCardType.Relic, cost);
+    }
+
+    static AnyRelic(): Predicate {
+        return this.ItemMatchesAnyCost(MarketCardType.Relic);
+    }
+
+    static SpellCostInRangeInclusive(lower:number, upper:number): Predicate {
+        return this.ItemMatchesRangeCost(MarketCardType.Spell, lower, upper);
+    }
+
+    static SpellLessThan(cost:number): Predicate {
+        return this.ItemMatchesLessThanCost(MarketCardType.Spell, cost);
+    }
+
+    static SpellEquals(cost:number): Predicate {
+        return this.ItemMatchesEqualCost(MarketCardType.Spell, cost);
+    }
+
+    static SpellGreaterThan(cost:number): Predicate {
+        return this.ItemMatchesGreaterThanCost(MarketCardType.Spell, cost);
+    }
+
+    static AnySpell(): Predicate {
+        return this.ItemMatchesAnyCost(MarketCardType.Spell);
+    }
+
     private static ItemMatchesRangeCost(type:MarketCardType, lower:number, upper:number) : Predicate {
         let costPredicate = function(itemCost: number): boolean {
             return itemCost >= lower && itemCost <= upper;
