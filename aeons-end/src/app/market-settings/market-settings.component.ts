@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import {Expansion} from "../expansion";
+import {MarketSource} from "../market-source";
 
 @Component({
   selector: 'app-market-settings',
@@ -12,7 +12,7 @@ export class MarketSettingsComponent implements OnInit {
 
   constructor() { }
 
-  marketSource: Expansion = Expansion.All;
+  marketSource: MarketSource = MarketSource.All;
 
   ngOnInit() {
     this.onGenerate();

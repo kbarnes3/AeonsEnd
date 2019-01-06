@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Expansion } from "../expansion";
+import { MarketSource } from "../market-source";
 
 @Component({
   selector: 'app-market-selection',
@@ -13,7 +13,7 @@ export class MarketSelectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  generateMarket(marketSource: Expansion) {
+  generateMarket(marketSource: MarketSource) {
 
   }
 

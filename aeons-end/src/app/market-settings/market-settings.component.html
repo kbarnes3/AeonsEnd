@@ -10,7 +10,9 @@
         <select id="market-source" class="custom-select" [(ngModel)]="marketSource" (ngModelChange)="onSourceChanged()">
           <option value="1">All</option>
           <option value="2">Classic</option>
-          <option value="3">War Eternal</option>
+          <option value="3">Classic + Expansions</option>
+          <option value="4">War Eternal</option>
+          <option value="5">War Eternal + Expansions</option>
         </select>
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" type="button" (click)="onGenerate()">Generate</button>
