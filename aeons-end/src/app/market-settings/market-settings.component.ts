@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
-enum MarketSource {
-  All = 1,
-  Classic = 2,
-  WarEternal = 3
-}
+import {Expansion} from "../expansion";
 
 @Component({
   selector: 'app-market-settings',
@@ -12,10 +8,11 @@ enum MarketSource {
   styleUrls: ['./market-settings.component.css']
 })
 export class MarketSettingsComponent implements OnInit {
+  @ViewChild('marketSelection') marketList;
 
   constructor() { }
 
-  marketSource: MarketSource = MarketSource.All;
+  marketSource: Expansion = Expansion.All;
 
   ngOnInit() {
     this.onGenerate();
@@ -26,6 +23,7 @@ export class MarketSettingsComponent implements OnInit {
   }
 
   onGenerate(): void {
+    this.marketList.generateMarket(this.marketSource);
   }
 
 }

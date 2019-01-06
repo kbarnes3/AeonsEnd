@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MarketSettingsComponent } from './market-settings/market-settings.component';
+import { MarketSelectionComponent } from './market-selection/market-selection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MarketSettingsComponent
+    MarketSettingsComponent,
+    MarketSelectionComponent
   ],
   imports: [
     BrowserModule,
