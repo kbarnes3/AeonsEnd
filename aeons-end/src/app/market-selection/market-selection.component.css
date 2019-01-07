@@ -1,0 +1,25 @@
+.card-name {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.card-cost {
+    text-align: right;
+    margin-bottom: 60px;
+}
+
+.card-type {
+    text-align: center;
+}
+
+.gem-card {
+    background-color: mediumpurple;
+}
+
+.relic-card {
+    background-color: cornflowerblue;
+}
+
+.spell-card {
+    background-color: lightyellow;
+}

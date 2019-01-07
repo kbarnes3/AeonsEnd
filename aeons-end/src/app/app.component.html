@@ -1,20 +1,52 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <span class="navbar-brand">{{ title }}</span>
+  </div>
+</nav>
 
+<div class="container main-container">
+  <app-market-settings></app-market-settings>
+  <h2>Setup quick reference</h2>
+  <table class="table table-sm">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Basic Nemesis Cards</th>
+        <th scope="col">1 Player</th>
+        <th scope="col">2 Players</th>
+        <th scope="col">3 Players</th>
+        <th scope="col">4 Players</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Tier 1</th>
+        <td>1</td>
+        <td>3</td>
+        <td>5</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <th scope="row">Tier 2</th>
+        <td>3</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <th scope="row">Tier 3</th>
+        <td>7</td>
+        <td>7</td>
+        <td>7</td>
+        <td>7</td>
+      </tr>
+    </tbody>
+  </table>
+</div> <!-- /container -->
+
+<a class="github-fork-ribbon right-top d-none d-md-block" href="https://github.com/kbarnes3/AeonsEnd" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <p>&copy; 2019 Kevin &amp; Kaitlin Barnes</p>
+  </div>
+</footer>
