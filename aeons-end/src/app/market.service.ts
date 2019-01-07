@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BASE_CARDS} from "./base-cards-data";
-import {MarketConfiguration, ALL_MAKRET_CONFIGURATIONS} from "./market-configuration";
+import {ALL_MAKRET_CONFIGURATIONS, MarketConfiguration} from "./market-configuration";
 import {MarketSource} from "./market-source";
 import {MarketCard} from "./market-card";
 import {Predicate} from "./predicates";
+import {MarketCardType} from "./martet-card-type";
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,7 @@ export class MarketService {
       returnedCards.push(pickedCard);
     });
 
+    MarketService.sortCards(returnedCards);
     return returnedCards;
   }
 
@@ -54,5 +56,24 @@ export class MarketService {
     });
 
     return matchingCards;
+  }
+
+  private static sortCards(cards:MarketCard[]):void {
+    // Sorts first by type, then cost, and finally by name
+    let compareFn:(c1:MarketCard, c2:MarketCard)=>number =
+        function (c1:MarketCard, c2:MarketCard):number {
+          let typeOrder:MarketCardType[] = [MarketCardType.Gem, MarketCardType.Relic, MarketCardType.Spell];
+          if (c1.type === c2.type) {
+            if (c1.cost === c2.cost) {
+              return c1.name.localeCompare(c2.name);
+            }
+            return c1.cost - c2.cost;
+          }
+          let c1TypeIndex:number = typeOrder.indexOf(c1.type);
+          let c2TypeIndex:number = typeOrder.indexOf(c2.type);
+          return c1TypeIndex - c2TypeIndex;
+        };
+
+    cards.sort(compareFn);
   }
 }
