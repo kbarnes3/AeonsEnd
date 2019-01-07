@@ -13,6 +13,8 @@ export class MarketSettingsComponent implements OnInit {
   constructor() { }
 
   marketSource: MarketSource = MarketSource.All;
+  MarketSources = MarketSource;
+
 
   ngOnInit() {
     this.onGenerate();

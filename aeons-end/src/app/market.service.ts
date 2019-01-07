@@ -5,6 +5,7 @@ import {MarketSource} from "./market-source";
 import {MarketCard} from "./market-card";
 import {Predicate} from "./predicates";
 import {MarketCardType} from "./martet-card-type";
+import {WAR_ETERNAL_CARDS} from "./war-eternal-cards-data";
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +43,22 @@ export class MarketService {
   }
 
   private static getCardsInExpansions(source:MarketSource):MarketCard[] {
-    return Object.assign([], BASE_CARDS);
+    switch (source) {
+      case MarketSource.All:
+        let allCards:MarketCard[] = BASE_CARDS.concat(WAR_ETERNAL_CARDS);
+        return allCards;
+
+      case MarketSource.BasePlusExpansions:
+        return Object.assign([], BASE_CARDS);
+
+      case MarketSource.WarEternalPlusExpansions:
+        return Object.assign([], WAR_ETERNAL_CARDS);
+
+      default:
+        debugger;
+        return [];
+    }
+
   }
 
   private static getMatchingCards(predicate:Predicate, deck:MarketCard[], usedCards:MarketCard[]) {

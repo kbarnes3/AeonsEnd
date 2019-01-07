@@ -8,11 +8,11 @@
     <div class="col-md-4 offset-md-4">
       <div class="input-group">
         <select id="market-source" class="custom-select" [(ngModel)]="marketSource" (ngModelChange)="onSourceChanged()">
-          <option value="1">All</option>
+          <option [ngValue]="1">All</option>
           <!--<option value="2">Classic</option>-->
-          <option value="3">Classic + Expansions</option>
+          <option [ngValue]="3">Classic + Expansions</option>
           <!--<option value="4">War Eternal</option>-->
-          <option value="5">War Eternal + Expansions</option>
+          <option [ngValue]="5">War Eternal + Expansions</option>
         </select>
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" type="button" (click)="onGenerate()">Generate</button>
