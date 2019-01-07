@@ -6,6 +6,7 @@ import {MarketCard} from "./market-card";
 import {Predicate} from "./predicates";
 import {MarketCardType} from "./martet-card-type";
 import {WAR_ETERNAL_CARDS} from "./war-eternal-cards-data";
+import {PROMO_CARDS} from "./promo-cards-data";
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,7 @@ export class MarketService {
   private static getCardsInExpansions(source:MarketSource):MarketCard[] {
     switch (source) {
       case MarketSource.All:
-        let allCards:MarketCard[] = BASE_CARDS.concat(WAR_ETERNAL_CARDS);
+        let allCards:MarketCard[] = BASE_CARDS.concat(WAR_ETERNAL_CARDS, PROMO_CARDS);
         return allCards;
 
       case MarketSource.BasePlusExpansions:
