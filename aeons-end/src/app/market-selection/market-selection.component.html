@@ -1,6 +1,14 @@
 <h2 *ngIf="cards">Market</h2>
-<ul *ngIf="cards">
-  <li *ngFor="let card of cards">
-    {{ card.name }}
-  </li>
-</ul>
+<div class="row">
+  <div *ngFor="let card of cards" class="border col-md-4 {{ getCardCssClass(card.type) }}">
+    <div class="card-cost">
+      {{ card.cost }}
+    </div>
+    <div class="card-name">
+      {{ card.name }}
+    </div>
+    <div class="card-type">
+      {{ getCardTypeLabel(card.type) }}
+    </div>
+  </div>
+</div>
