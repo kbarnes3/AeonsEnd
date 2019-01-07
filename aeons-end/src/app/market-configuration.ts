@@ -1,4 +1,4 @@
-import {Predicate, Predicates} from "./Predicates";
+import {Predicate, Predicates} from "./predicates";
 
 export class MarketConfiguration {
     name: string;
