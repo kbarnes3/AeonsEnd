@@ -1,12 +1,20 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { MarketSelectionComponent } from './market-selection/market-selection.component';
+import { MarketSettingsComponent } from './market-settings/market-settings.component';
+import {FormsModule} from "@angular/forms";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        MarketSelectionComponent,
+        MarketSettingsComponent
       ],
+      imports: [
+        FormsModule
+      ]
     }).compileComponents();
   }));
 
