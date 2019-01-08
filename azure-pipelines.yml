@@ -20,5 +20,9 @@ steps:
     npm install -g npm
     npm install -g @angular/cli
     npm ci
+  displayName: 'npm install'
+
+- script: |
+    cd aeons-end
     npm run-script build
-  displayName: 'npm install and build'
+  displayName: 'build prod'
