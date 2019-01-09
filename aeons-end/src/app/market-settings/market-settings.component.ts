@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import {MarketSource} from "../market-source";
+import { MarketSource } from '../market-source';
 
 @Component({
   selector: 'app-market-settings',

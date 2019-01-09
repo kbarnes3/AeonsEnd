@@ -93,14 +93,14 @@ export class Predicates {
     }
 
     private static ItemMatchesAnyCost(type: MarketCardType): Predicate {
-        return function(card:MarketCard): boolean {
+        return function(card: MarketCard): boolean {
             return card.type === type;
-        }
+        };
     }
 
-    private static ItemMatchesCostPredicate(type:MarketCardType, costPredicate:(itemCost: number) => boolean) : Predicate {
-        return function(card:MarketCard): boolean {
+    private static ItemMatchesCostPredicate(type: MarketCardType, costPredicate: (itemCost: number) => boolean): Predicate {
+        return function(card: MarketCard): boolean {
             return card.type === type && costPredicate(card.cost);
-        }
+        };
     }
 }

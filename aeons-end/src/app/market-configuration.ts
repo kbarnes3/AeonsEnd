@@ -1,4 +1,4 @@
-import {Predicate, Predicates} from "./predicates";
+import {Predicate, Predicates} from './predicates';
 
 export class MarketConfiguration {
     name: string;
@@ -7,7 +7,7 @@ export class MarketConfiguration {
 
 export const ALL_MAKRET_CONFIGURATIONS: MarketConfiguration[] = [
     {
-        name: "Market Setup 1",
+        name: 'Market Setup 1',
         cards: [
             Predicates.GemLessThan(4),
             Predicates.GemEquals(4),
@@ -21,7 +21,7 @@ export const ALL_MAKRET_CONFIGURATIONS: MarketConfiguration[] = [
         ]
     },
     {
-        name: "Market Setup 2",
+        name: 'Market Setup 2',
         cards: [
             Predicates.GemGreaterThan(3),
             Predicates.GemGreaterThan(3),
@@ -35,7 +35,7 @@ export const ALL_MAKRET_CONFIGURATIONS: MarketConfiguration[] = [
         ]
     },
     {
-        name: "Market Setup 3",
+        name: 'Market Setup 3',
         cards: [
             Predicates.GemLessThan(4),
             Predicates.GemCostInRangeInclusive(4, 5),
@@ -49,7 +49,7 @@ export const ALL_MAKRET_CONFIGURATIONS: MarketConfiguration[] = [
         ]
     },
     {
-        name: "Market Setup 4",
+        name: 'Market Setup 4',
         cards: [
             Predicates.GemGreaterThan(4),
             Predicates.AnyGem(),
@@ -63,7 +63,7 @@ export const ALL_MAKRET_CONFIGURATIONS: MarketConfiguration[] = [
         ]
     },
     {
-        name: "Market Setup 5",
+        name: 'Market Setup 5',
         cards: [
             Predicates.GemEquals(2),
             Predicates.GemEquals(3),
@@ -77,7 +77,7 @@ export const ALL_MAKRET_CONFIGURATIONS: MarketConfiguration[] = [
       ]
     },
     {
-        name: "Market Setup 6",
+        name: 'Market Setup 6',
         cards: [
             Predicates.GemEquals(3),
             Predicates.GemEquals(4),

@@ -20,9 +20,14 @@ steps:
     npm install -g npm
     npm install -g @angular/cli
     npm ci
-  displayName: 'npm install'
+  displayName: 'Install required packages (npm install)'
 
 - script: |
     cd aeons-end
     npm run-script build
-  displayName: 'build prod'
+  displayName: 'Compile production app (ng build)'
+
+- script: |
+    cd aeons-end
+    ng lint
+  displayName: 'Run linting (ng lint)'

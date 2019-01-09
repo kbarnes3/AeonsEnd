@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = "Aeon's End Market Generator";
+  title = 'Aeon\'s End Market Generator';
 }

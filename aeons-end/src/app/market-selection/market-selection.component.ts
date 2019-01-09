@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {MarketCard} from "../market-card";
-import {MarketCardType} from "../martet-card-type";
-import {MarketSource} from "../market-source";
-import {MarketService} from "../market.service";
+import {MarketCard} from '../market-card';
+import {MarketCardType} from '../martet-card-type';
+import {MarketSource} from '../market-source';
+import {MarketService} from '../market.service';
 
 @Component({
   selector: 'app-market-selection',
@@ -25,22 +25,22 @@ export class MarketSelectionComponent implements OnInit {
   getCardCssClass(type: MarketCardType): string {
     switch (type) {
       case MarketCardType.Gem:
-        return "gem-card";
+        return 'gem-card';
       case MarketCardType.Relic:
-        return "relic-card";
+        return 'relic-card';
       case MarketCardType.Spell:
-        return "spell-card";
+        return 'spell-card';
     }
   }
 
   getCardTypeLabel(type: MarketCardType): string {
     switch (type) {
       case MarketCardType.Gem:
-        return "Spell";
+        return 'Spell';
       case MarketCardType.Relic:
-        return "Relic";
+        return 'Relic';
       case MarketCardType.Spell:
-        return "Spell";
+        return 'Spell';
     }
   }
 
