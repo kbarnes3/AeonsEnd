@@ -1,5 +1,5 @@
-import {Expansion} from "./expansion";
-import {MarketCardType} from "./martet-card-type";
+import {Expansion} from './expansion';
+import {MarketCardType} from './martet-card-type';
 
 export class MarketCard {
     name: string;
