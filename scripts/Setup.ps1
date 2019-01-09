@@ -20,3 +20,6 @@ if (Test-Path $node_modules) {
 }
 
 . $PSScriptRoot\Bootstrap.ps1 -Verbose
+# Run npm install a second time because npm produces inconsistent
+# package-lock.json files on first run
+. $PSScriptRoot\Invoke-Npm install
