@@ -24,16 +24,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'aeons-end'`, () => {
+  it(`should have as title 'Aeon's End Market Generator'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('aeons-end');
+    expect(app.title).toEqual('Aeon\'s End Market Generator');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render title in as a navbar brand', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to aeons-end!');
+    expect(compiled.querySelector('.navbar-brand').textContent).toContain('Aeon\'s End Market Generator');
   });
 });
