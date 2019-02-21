@@ -1,19 +1,20 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { MarketSelectionComponent } from './market-selection/market-selection.component';
-import { MarketSettingsComponent } from './market-settings/market-settings.component';
-import {FormsModule} from '@angular/forms';
+import {Component} from "@angular/core";
+import {MarketSource} from "./market-source";
+
+@Component({
+  selector: 'app-market-settings',
+  template: '<p>Market Settings</p>'
+})
+class MockMarketSettingsComponent {}
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        MarketSelectionComponent,
-        MarketSettingsComponent
-      ],
-      imports: [
-        FormsModule
+        MockMarketSettingsComponent
       ]
     }).compileComponents();
   }));
