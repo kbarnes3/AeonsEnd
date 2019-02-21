@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build --prod --base-href https://kbarnes3.github.io/AeonsEnd/",
     "test": "ng test",
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
