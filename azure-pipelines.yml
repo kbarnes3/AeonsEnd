@@ -29,5 +29,10 @@ steps:
 
 - script: |
     cd aeons-end
+    npm run-script test-headless
+  displayName: 'Run tests (ng test)'
+
+- script: |
+    cd aeons-end
     ng lint
   displayName: 'Run linting (ng lint)'
