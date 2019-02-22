@@ -10,7 +10,7 @@ import {MarketSource} from '../market-source';
   template: '<p>Market Selection</p>'
 })
 class MockMarketSelectionComponent {
-  generateMarket(marketSource: MarketSource) {
+  generateMorket(marketSource: MarketSource) {
 
   }
 }
