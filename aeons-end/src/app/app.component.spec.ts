@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import {Component} from "@angular/core";
-import {MarketSource} from "./market-source";
+import {Component} from '@angular/core';
+import {MarketSource} from './market-source';
 
 @Component({
   selector: 'app-market-settings',
