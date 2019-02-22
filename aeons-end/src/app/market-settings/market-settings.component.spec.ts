@@ -1,6 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MarketSettingsComponent } from './market-settings.component';
+import {FormsModule} from '@angular/forms';
+import {Component} from '@angular/core';
+import {MarketSource} from '../market-source';
+
+@Component({
+  selector: 'app-market-selection',
+  template: '<p>Market Selection</p>'
+})
+class MockMarketSelectionComponent {
+  generateMarket(marketSource: MarketSource) {
+
+  }
+}
 
 describe('MarketSettingsComponent', () => {
   let component: MarketSettingsComponent;
@@ -8,7 +21,13 @@ describe('MarketSettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarketSettingsComponent ]
+      declarations: [
+        MarketSettingsComponent,
+        MockMarketSelectionComponent],
+      imports: [
+        FormsModule
+      ]
+
     })
     .compileComponents();
   }));
