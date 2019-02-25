@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BASE_CARDS} from './cards-data/base-cards-data';
+import {DEPTHS_CARDS} from './cards-data/depths-cards-data';
+import {NAMELESS_CARDS} from './cards-data/nameless-cards-data';
 import {ALL_MAKRET_CONFIGURATIONS, MarketConfiguration} from './market-configuration';
 import {MarketSource} from './market-source';
 import {MarketCard} from './market-card';
@@ -41,10 +43,10 @@ export class MarketService {
   private static getCardsInExpansions(source: MarketSource): MarketCard[] {
     switch (source) {
       case MarketSource.All:
-        return BASE_CARDS.concat(WAR_ETERNAL_CARDS, PROMO_CARDS);
+        return BASE_CARDS.concat(DEPTHS_CARDS, NAMELESS_CARDS, WAR_ETERNAL_CARDS, PROMO_CARDS);
 
       case MarketSource.BasePlusExpansions:
-        return Object.assign([], BASE_CARDS);
+        return BASE_CARDS.concat(DEPTHS_CARDS, NAMELESS_CARDS);
 
       case MarketSource.WarEternalPlusExpansions:
         return Object.assign([], WAR_ETERNAL_CARDS);
