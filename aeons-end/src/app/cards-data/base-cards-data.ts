@@ -1,6 +1,6 @@
-import {Expansion} from './expansion';
-import {MarketCard} from './market-card';
-import {MarketCardType} from './martet-card-type';
+import {Expansion} from '../expansion';
+import {MarketCard} from '../market-card';
+import {MarketCardType} from '../martet-card-type';
 
 export const BASE_CARDS: MarketCard[] = [
     {

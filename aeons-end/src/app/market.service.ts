@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {BASE_CARDS} from './base-cards-data';
+import {BASE_CARDS} from './cards-data/base-cards-data';
 import {ALL_MAKRET_CONFIGURATIONS, MarketConfiguration} from './market-configuration';
 import {MarketSource} from './market-source';
 import {MarketCard} from './market-card';
 import {Predicate} from './predicates';
 import {MarketCardType} from './martet-card-type';
-import {WAR_ETERNAL_CARDS} from './war-eternal-cards-data';
-import {PROMO_CARDS} from './promo-cards-data';
+import {WAR_ETERNAL_CARDS} from './cards-data/war-eternal-cards-data';
+import {PROMO_CARDS} from './cards-data/promo-cards-data';
 
 @Injectable({
   providedIn: 'root'
