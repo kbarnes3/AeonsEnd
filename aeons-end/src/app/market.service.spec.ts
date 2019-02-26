@@ -41,8 +41,7 @@ describe('MarketService', () => {
     let theDepthsSeen = false;
 
     cards.forEach((card: MarketCard) => {
-      switch (card.expansion)
-      {
+      switch (card.expansion) {
         case Expansion.WarEternal:
           warEternalSeen = true;
           break;
@@ -58,5 +57,5 @@ describe('MarketService', () => {
     expect(warEternalSeen).toBeTruthy();
     expect(theVoidSeen).toBeTruthy();
     expect(theDepthsSeen).toBeTruthy();
-  })
+  });
 });

@@ -3,7 +3,7 @@ import {MarketCard} from '../market-card';
 import {MarketCardType} from '../martet-card-type';
 import {MarketSource} from '../market-source';
 import {MarketService} from '../market.service';
-import {Expansion} from "../expansion";
+import {Expansion} from '../expansion';
 
 @Component({
   selector: 'app-market-selection',

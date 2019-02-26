@@ -46,7 +46,7 @@ export class MarketService {
 
   static getCardsInExpansions(sources: Expansion[]): MarketCard[] {
     let cards: MarketCard[] = [];
-    sources.forEach((expansion:Expansion) => {
+    sources.forEach((expansion: Expansion) => {
       switch (expansion) {
         case Expansion.Base:
           cards = cards.concat(BASE_CARDS);

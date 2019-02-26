@@ -25,7 +25,7 @@ describe('CardsData', () => {
         { cards: DICE_TOWER_PROMO_CARDS, expansion: Expansion.DiceTowerPromo, name: 'Dice Tower Promo' },
     ];
 
-    expectedSets.forEach((cardSet:CardSet) => {
+    expectedSets.forEach((cardSet: CardSet) => {
         it('"' + cardSet.name + '" card data should only contain cards from "' + cardSet.name + '" set', () => {
             cardSet.cards.forEach((card: MarketCard) => {
                 expect(card.expansion).toEqual(cardSet.expansion);
