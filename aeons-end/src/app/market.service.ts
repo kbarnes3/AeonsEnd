@@ -1,13 +1,16 @@
 import {Injectable} from '@angular/core';
-import {BASE_CARDS} from './cards-data/base-cards-data';
-import {DEPTHS_CARDS} from './cards-data/depths-cards-data';
-import {NAMELESS_CARDS} from './cards-data/nameless-cards-data';
 import {ALL_MAKRET_CONFIGURATIONS, MarketConfiguration} from './market-configuration';
 import {MarketSource} from './market-source';
 import {MarketCard} from './market-card';
 import {Predicate} from './predicates';
 import {MarketCardType} from './martet-card-type';
+
+import {BASE_CARDS} from './cards-data/base-cards-data';
+import {DEPTHS_CARDS} from './cards-data/depths-cards-data';
+import {NAMELESS_CARDS} from './cards-data/nameless-cards-data';
 import {WAR_ETERNAL_CARDS} from './cards-data/war-eternal-cards-data';
+import {VOID_CARDS} from './cards-data/void-cards-data';
+import {OUTER_DARK_CARDS} from './cards-data/outer-dark-cards-data';
 import {PROMO_CARDS} from './cards-data/promo-cards-data';
 
 @Injectable({
@@ -43,13 +46,13 @@ export class MarketService {
   private static getCardsInExpansions(source: MarketSource): MarketCard[] {
     switch (source) {
       case MarketSource.All:
-        return BASE_CARDS.concat(DEPTHS_CARDS, NAMELESS_CARDS, WAR_ETERNAL_CARDS, PROMO_CARDS);
+        return BASE_CARDS.concat(DEPTHS_CARDS, NAMELESS_CARDS, WAR_ETERNAL_CARDS, VOID_CARDS, OUTER_DARK_CARDS, PROMO_CARDS);
 
       case MarketSource.BasePlusExpansions:
         return BASE_CARDS.concat(DEPTHS_CARDS, NAMELESS_CARDS);
 
       case MarketSource.WarEternalPlusExpansions:
-        return Object.assign([], WAR_ETERNAL_CARDS);
+        return WAR_ETERNAL_CARDS.concat(VOID_CARDS, OUTER_DARK_CARDS);
 
       default:
         return [];
