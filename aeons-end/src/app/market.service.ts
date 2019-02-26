@@ -11,7 +11,7 @@ import {NAMELESS_CARDS} from './cards-data/nameless-cards-data';
 import {WAR_ETERNAL_CARDS} from './cards-data/war-eternal-cards-data';
 import {VOID_CARDS} from './cards-data/void-cards-data';
 import {OUTER_DARK_CARDS} from './cards-data/outer-dark-cards-data';
-import {PROMO_CARDS} from './cards-data/promo-cards-data';
+import {DICE_TOWER_PROMO_CARDS} from './cards-data/dice-tower-promo-cards-data';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +46,7 @@ export class MarketService {
   private static getCardsInExpansions(source: MarketSource): MarketCard[] {
     switch (source) {
       case MarketSource.All:
-        return BASE_CARDS.concat(DEPTHS_CARDS, NAMELESS_CARDS, WAR_ETERNAL_CARDS, VOID_CARDS, OUTER_DARK_CARDS, PROMO_CARDS);
+        return BASE_CARDS.concat(DEPTHS_CARDS, NAMELESS_CARDS, WAR_ETERNAL_CARDS, VOID_CARDS, OUTER_DARK_CARDS, DICE_TOWER_PROMO_CARDS);
 
       case MarketSource.BasePlusExpansions:
         return BASE_CARDS.concat(DEPTHS_CARDS, NAMELESS_CARDS);
