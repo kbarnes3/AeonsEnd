@@ -3,6 +3,7 @@ import {MarketCard} from '../market-card';
 import {MarketCardType} from '../martet-card-type';
 import {MarketSource} from '../market-source';
 import {MarketService} from '../market.service';
+import {Expansion} from "../expansion";
 
 @Component({
   selector: 'app-market-selection',
@@ -19,7 +20,7 @@ export class MarketSelectionComponent implements OnInit {
   }
 
   generateMarket(marketSource: MarketSource) {
-    this.cards = this.marketService.generateRandomMarket(marketSource);
+    this.cards = this.marketService.generateRandomMarket([Expansion.Base]);
   }
 
   getCardCssClass(type: MarketCardType): string {

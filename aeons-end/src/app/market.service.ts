@@ -4,6 +4,7 @@ import {MarketSource} from './market-source';
 import {MarketCard} from './market-card';
 import {Predicate} from './predicates';
 import {MarketCardType} from './martet-card-type';
+import {Expansion} from './expansion';
 
 import {BASE_CARDS} from './cards-data/base-cards-data';
 import {DEPTHS_CARDS} from './cards-data/depths-cards-data';
@@ -29,7 +30,7 @@ export class MarketService {
     return Math.floor(Math.random() * max);
   }
 
-  private static getCardsInMarket(configuration: MarketConfiguration, source: MarketSource): MarketCard[] {
+  private static getCardsInMarket(configuration: MarketConfiguration, source: Expansion[]): MarketCard[] {
     const deck: MarketCard[] = MarketService.getCardsInExpansions(source);
     const returnedCards: MarketCard[] = [];
 
@@ -43,21 +44,35 @@ export class MarketService {
     return returnedCards;
   }
 
-  private static getCardsInExpansions(source: MarketSource): MarketCard[] {
-    switch (source) {
-      case MarketSource.All:
-        return BASE_CARDS.concat(DEPTHS_CARDS, NAMELESS_CARDS, WAR_ETERNAL_CARDS, VOID_CARDS, OUTER_DARK_CARDS, DICE_TOWER_PROMO_CARDS);
+  static getCardsInExpansions(sources: Expansion[]): MarketCard[] {
+    let cards: MarketCard[] = [];
+    sources.forEach((expansion:Expansion) => {
+      switch (expansion) {
+        case Expansion.Base:
+          cards = cards.concat(BASE_CARDS);
+          break;
+        case Expansion.TheDepths:
+          cards = cards.concat(DEPTHS_CARDS);
+          break;
+        case Expansion.TheNameless:
+          cards = cards.concat(NAMELESS_CARDS);
+          break;
+        case Expansion.WarEternal:
+          cards = cards.concat(WAR_ETERNAL_CARDS);
+          break;
+        case Expansion.TheVoid:
+          cards = cards.concat(VOID_CARDS);
+          break;
+        case Expansion.TheOuterDark:
+          cards = cards.concat(OUTER_DARK_CARDS);
+          break;
+        case Expansion.DiceTowerPromo:
+          cards = cards.concat(DICE_TOWER_PROMO_CARDS);
+          break;
+      }
+    });
 
-      case MarketSource.BasePlusExpansions:
-        return BASE_CARDS.concat(DEPTHS_CARDS, NAMELESS_CARDS);
-
-      case MarketSource.WarEternalPlusExpansions:
-        return WAR_ETERNAL_CARDS.concat(VOID_CARDS, OUTER_DARK_CARDS);
-
-      default:
-        return [];
-    }
-
+    return cards;
   }
 
   private static getMatchingCards(predicate: Predicate, deck: MarketCard[], usedCards: MarketCard[]) {
@@ -92,7 +107,7 @@ export class MarketService {
     cards.sort(compareFn);
   }
 
-  generateRandomMarket(source: MarketSource): MarketCard[] {
+  generateRandomMarket(source: Expansion[]): MarketCard[] {
     const configuration: MarketConfiguration = MarketService.getRandomItem(ALL_MAKRET_CONFIGURATIONS);
     return MarketService.getCardsInMarket(configuration, source);
   }
