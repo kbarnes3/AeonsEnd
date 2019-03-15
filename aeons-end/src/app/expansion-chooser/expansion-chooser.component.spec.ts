@@ -37,5 +37,8 @@ describe('ExpansionChooserComponent', () => {
 
     component.base = true;
     expectEqualArrays<Expansion>([Expansion.Base], component.getSelectedExpansions());
+
+    component.diceTowerPromo = true;
+    expectEqualArrays<Expansion>([Expansion.Base, Expansion.DiceTowerPromo], component.getSelectedExpansions());
   });
 });
