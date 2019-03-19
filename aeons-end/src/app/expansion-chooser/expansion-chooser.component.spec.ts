@@ -2,6 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {Expansion} from '../expansion';
 import {ExpansionChooserComponent} from './expansion-chooser.component';
+import {AppComponent} from '../app.component';
 
 describe('ExpansionChooserComponent', () => {
   let component: ExpansionChooserComponent;
@@ -22,6 +23,11 @@ describe('ExpansionChooserComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain a list of expansions', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelectorAll('.expansion-list-item').length).toEqual(2);
   });
 
   function expectEqualArrays<T>(expectedArr: T[], actualArr: T[]): void {
