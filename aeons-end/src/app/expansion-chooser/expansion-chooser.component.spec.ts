@@ -40,5 +40,32 @@ describe('ExpansionChooserComponent', () => {
 
     component.diceTowerPromo = true;
     expectEqualArrays<Expansion>([Expansion.Base, Expansion.DiceTowerPromo], component.getSelectedExpansions());
+
+    component.base = false;
+    component.diceTowerPromo = false;
+
+    component.theDepths = true;
+    expectEqualArrays<Expansion>([Expansion.TheDepths], component.getSelectedExpansions());
+    component.theDepths = false;
+
+    component.theNameless = true;
+    expectEqualArrays<Expansion>([Expansion.TheNameless], component.getSelectedExpansions());
+    component.theNameless = false;
+
+    component.warEternal = true;
+    expectEqualArrays<Expansion>([Expansion.WarEternal], component.getSelectedExpansions());
+    component.warEternal = false;
+
+    component.theVoid = true;
+    expectEqualArrays<Expansion>([Expansion.TheVoid], component.getSelectedExpansions());
+    component.theVoid = false;
+
+    component.theOuterDark = true;
+    expectEqualArrays<Expansion>([Expansion.TheOuterDark], component.getSelectedExpansions());
+    component.theOuterDark = false;
+
+    component.diceTowerPromo = true;
+    expectEqualArrays<Expansion>([Expansion.DiceTowerPromo], component.getSelectedExpansions());
+    component.diceTowerPromo = false;
   });
 });
