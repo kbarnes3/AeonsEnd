@@ -7,14 +7,9 @@
   <div class="row">
     <div class="col-md-4 offset-md-4 input-group">
       <div class="dropdown input-group-prepend">
-        <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" type="button">Cards</button>
+        <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" type="button" id="market-source">Cards</button>
         <div class="dropdown-menu">
-          <form class="px-4 py-3">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="base-check">
-              <label class="form-check-label" for="base-check">Base</label>
-            </div>
-          </form>
+          <app-expansion-chooser></app-expansion-chooser>
         </div>
       </div>
       <div class="input-group-append">
