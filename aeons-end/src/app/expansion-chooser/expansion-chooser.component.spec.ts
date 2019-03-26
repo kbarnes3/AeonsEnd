@@ -3,6 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {Expansion} from '../expansion';
 import {ExpansionChooserComponent} from './expansion-chooser.component';
 import {AppComponent} from '../app.component';
+import {FormsModule} from "@angular/forms";
 
 describe('ExpansionChooserComponent', () => {
   let component: ExpansionChooserComponent;
@@ -10,7 +11,10 @@ describe('ExpansionChooserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExpansionChooserComponent ]
+      declarations: [ ExpansionChooserComponent ],
+      imports: [
+        FormsModule
+      ]
     })
     .compileComponents();
   }));

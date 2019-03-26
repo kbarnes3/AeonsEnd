@@ -15,6 +15,13 @@ class MockMarketSelectionComponent {
   }
 }
 
+@Component({
+  selector: 'app-expansion-chooser',
+  template: '<p>Expansions</p>'
+})
+class MockExpansionChooserComponent {
+}
+
 describe('MarketSettingsComponent', () => {
   let component: MarketSettingsComponent;
   let fixture: ComponentFixture<MarketSettingsComponent>;
@@ -23,7 +30,8 @@ describe('MarketSettingsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         MarketSettingsComponent,
-        MockMarketSelectionComponent],
+        MockMarketSelectionComponent,
+        MockExpansionChooserComponent],
       imports: [
         FormsModule
       ]
