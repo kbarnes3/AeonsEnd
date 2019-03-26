@@ -20,7 +20,11 @@
     "@angular/platform-browser": "~7.2.10",
     "@angular/platform-browser-dynamic": "~7.2.10",
     "@angular/router": "~7.2.10",
+    "@ng-bootstrap/ng-bootstrap": "^4.1.0",
+    "bootstrap": "^4.3.1",
     "core-js": "^2.6.3",
+    "font-awesome": "^4.7.0",
+    "github-fork-ribbon-css": "^0.2.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.29"
