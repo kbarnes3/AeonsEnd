@@ -22,9 +22,10 @@ export class MarketSettingsComponent implements OnInit {
     this.onGenerate();
   }
 
-  @HostListener('hidden.bs.dropdown')
-  onDropdownClosed(): void {
-    this.onGenerate();
+  onDropdownChanged(opened:boolean): void {
+    if (!opened) {
+      this.onGenerate();
+    }
   }
 
   onGenerate(): void {

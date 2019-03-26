@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-md-4 offset-md-4 input-group">
-      <div class="input-group-prepend" ngbDropdown autoClose="outside">
+      <div class="input-group-prepend" ngbDropdown autoClose="outside" (openChange)="onDropdownChanged($event)" >
         <button class="btn btn-secondary" ngbDropdownToggle type="button" id="market-source">Cards</button>
         <div ngbDropdownMenu>
           <app-expansion-chooser></app-expansion-chooser>
