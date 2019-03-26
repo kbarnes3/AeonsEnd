@@ -6,14 +6,14 @@
   </div>
   <div class="row">
     <div class="col-md-4 offset-md-4 input-group">
-      <div class="dropdown input-group-prepend">
-        <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" type="button" id="market-source">Cards</button>
-        <div class="dropdown-menu">
+      <div class="input-group-prepend" ngbDropdown autoClose="outside">
+        <button class="btn btn-secondary" ngbDropdownToggle type="button" id="market-source">Cards</button>
+        <div ngbDropdownMenu>
           <app-expansion-chooser></app-expansion-chooser>
         </div>
       </div>
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" >Generate</button>
+        <button class="btn btn-outline-secondary" type="button" (click)="onGenerate()">Generate</button>
       </div>
     </div>
   </div>
