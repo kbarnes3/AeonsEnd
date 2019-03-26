@@ -1,6 +1,6 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
-import { MarketSource } from '../market-source';
+import { Expansion } from '../expansion';
 
 @Component({
   selector: 'app-market-settings',
@@ -9,10 +9,11 @@ import { MarketSource } from '../market-source';
 })
 export class MarketSettingsComponent implements OnInit {
   @ViewChild('marketSelection') marketList;
+  @ViewChild('expansionChooser') expansionChooser;
 
   constructor() { }
 
-  marketSource: MarketSource = MarketSource.All;
+  private lastMarketSources: Expansion[] = [];
 
   ngOnInit() {
     this.onGenerate();
@@ -29,7 +30,8 @@ export class MarketSettingsComponent implements OnInit {
   }
 
   onGenerate(): void {
-    this.marketList.generateMarket(this.marketSource);
+    this.lastMarketSources = this.expansionChooser.getSelectedExpansions();
+    this.marketList.generateMarket(this.lastMarketSources);
   }
 
 }

@@ -9,7 +9,7 @@
       <div class="input-group-prepend" ngbDropdown autoClose="outside" (openChange)="onDropdownChanged($event)" >
         <button class="btn btn-secondary" ngbDropdownToggle type="button" id="market-source">Cards</button>
         <div ngbDropdownMenu>
-          <app-expansion-chooser></app-expansion-chooser>
+          <app-expansion-chooser #expansionChooser></app-expansion-chooser>
         </div>
       </div>
       <div class="input-group-append">

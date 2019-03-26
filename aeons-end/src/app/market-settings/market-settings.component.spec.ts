@@ -1,16 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MarketSettingsComponent } from './market-settings.component';
+import {MarketSettingsComponent} from './market-settings.component';
 import {FormsModule} from '@angular/forms';
 import {Component} from '@angular/core';
 import {MarketSource} from '../market-source';
+import {Expansion} from '../expansion';
 
 @Component({
   selector: 'app-market-selection',
   template: '<p>Market Selection</p>'
 })
 class MockMarketSelectionComponent {
-  generateMarket(marketSource: MarketSource) {
+  generateMarket(marketSources: Expansion[]): void {
 
   }
 }
@@ -20,6 +21,9 @@ class MockMarketSelectionComponent {
   template: '<p>Expansions</p>'
 })
 class MockExpansionChooserComponent {
+  getSelectedExpansions(): Expansion[] {
+    return [Expansion.Base];
+  }
 }
 
 describe('MarketSettingsComponent', () => {

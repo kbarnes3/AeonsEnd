@@ -19,8 +19,8 @@ export class MarketSelectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  generateMarket(marketSource: MarketSource) {
-    this.cards = this.marketService.generateRandomMarket([Expansion.Base]);
+  generateMarket(marketSources: Expansion[]) {
+    this.cards = this.marketService.generateRandomMarket(marketSources);
   }
 
   getCardCssClass(type: MarketCardType): string {
