@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 
 import { MarketSource } from '../market-source';
 
@@ -19,6 +19,11 @@ export class MarketSettingsComponent implements OnInit {
   }
 
   onSourceChanged(): void {
+    this.onGenerate();
+  }
+
+  @HostListener('hidden.bs.dropdown')
+  onDropdownClosed(): void {
     this.onGenerate();
   }
 
