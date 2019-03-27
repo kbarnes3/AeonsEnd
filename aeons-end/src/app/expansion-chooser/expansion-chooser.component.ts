@@ -8,7 +8,9 @@ import {Expansion} from '../expansion';
 })
 export class ExpansionChooserComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    this.base = true;
+  }
 
   base: boolean;
   theDepths: boolean;
@@ -18,8 +20,10 @@ export class ExpansionChooserComponent implements OnInit {
   theOuterDark: boolean;
   diceTowerPromo: boolean;
 
-  ngOnInit() {
-  }
+  shortLabel: string = 'Cards';
+
+  ngOnInit() {}
+
 
   getSelectedExpansions(): Expansion[] {
     const expansions: Expansion[] = [];

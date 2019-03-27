@@ -37,7 +37,9 @@ export class MarketService {
     configuration.cards.forEach(function(value: Predicate) {
       const eligibleCards: MarketCard[] = MarketService.getMatchingCards(value, deck, returnedCards);
       const pickedCard: MarketCard = MarketService.getRandomItem(eligibleCards);
-      returnedCards.push(pickedCard);
+      if (pickedCard) {
+        returnedCards.push(pickedCard);
+      }
     });
 
     MarketService.sortCards(returnedCards);
