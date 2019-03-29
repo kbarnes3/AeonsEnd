@@ -29,16 +29,27 @@ Set-Item function:global:Invoke-Npm {
 } -Force
 
 Set-Item function:global:Invoke-Ng {
-    . $PSScriptRoot\Invoke-Ng.ps1 @args
+    param([switch]$Async)
+    . $PSScriptRoot\Invoke-Ng.ps1 -Async:$Async @args
 } -Force
 
 Set-Item function:global:Start-Server {
-    param([switch]$OpenBrowser)
+    param(
+        [switch]$Async,
+        [switch]$OpenBrowser
+    )
     $open = ""
     if ($OpenBrowser) {
         $open = "--open"
     }
-    Invoke-Ng serve $open
+    Invoke-Ng -Async:$Async serve $open
+} -Force
+
+Set-Item function:global:Start-Tests {
+    param(
+        [switch]$Async
+    )
+    Invoke-Ng -Async:$Async test
 } -Force
 
 Set-Item function:global:Invoke-Build {
