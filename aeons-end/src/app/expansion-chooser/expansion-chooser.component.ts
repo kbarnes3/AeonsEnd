@@ -1,6 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {Expansion} from '../expansion';
 
+export class ExpansionDisplay {
+  constructor(expansion: Expansion, name: string) {
+    this.expansion = expansion;
+    this.name = name;
+    this.included = false;
+  }
+  expansion: Expansion;
+  name: string;
+  included: boolean;
+}
+
 @Component({
   selector: 'app-expansion-chooser',
   templateUrl: './expansion-chooser.component.html',
@@ -9,16 +20,20 @@ import {Expansion} from '../expansion';
 export class ExpansionChooserComponent implements OnInit {
 
   constructor() {
-    this.base = true;
+    this.displayedExpansions = {};
+    this.displayedExpansions[Expansion.Base] = new ExpansionDisplay(Expansion.Base, 'Base');
+    this.displayedExpansions[Expansion.Base].included = true;
+    this.displayedExpansions[Expansion.TheDepths] = new ExpansionDisplay(Expansion.TheDepths, 'The Depths');
+    this.displayedExpansions[Expansion.WarEternal] = new ExpansionDisplay(Expansion.WarEternal, 'War Eternal');
+
+    this.expansionOrder = [];
+    this.expansionOrder.push(Expansion.Base);
+    this.expansionOrder.push(Expansion.TheDepths);
+    this.expansionOrder.push(Expansion.WarEternal);
   }
 
-  base: boolean;
-  theDepths: boolean;
-  theNameless: boolean;
-  warEternal: boolean;
-  theVoid: boolean;
-  theOuterDark: boolean;
-  diceTowerPromo: boolean;
+  expansionOrder: Expansion[];
+  displayedExpansions: { [id:number]: ExpansionDisplay };
 
   shortLabel: string = 'Cards';
 
@@ -27,26 +42,11 @@ export class ExpansionChooserComponent implements OnInit {
 
   getSelectedExpansions(): Expansion[] {
     const expansions: Expansion[] = [];
-    if (this.base) {
-      expansions.push(Expansion.Base);
-    }
-    if (this.theDepths) {
-      expansions.push(Expansion.TheDepths);
-    }
-    if (this.theNameless) {
-      expansions.push(Expansion.TheNameless);
-    }
-    if (this.warEternal) {
-      expansions.push(Expansion.WarEternal);
-    }
-    if (this.theVoid) {
-      expansions.push(Expansion.TheVoid);
-    }
-    if (this.theOuterDark) {
-      expansions.push(Expansion.TheOuterDark);
-    }
-    if (this.diceTowerPromo) {
-      expansions.push(Expansion.DiceTowerPromo);
+    for (let key in this.displayedExpansions) {
+      let value:ExpansionDisplay = this.displayedExpansions[key];
+      if (value.included) {
+        expansions.push(value.expansion)
+      }
     }
 
     return expansions;

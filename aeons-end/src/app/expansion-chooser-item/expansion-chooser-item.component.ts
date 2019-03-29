@@ -8,16 +8,16 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class ExpansionChooserItemComponent implements OnInit {
 
   @Input() title: string;
-  private _checked: boolean;
-  get checked(): boolean {
-    return this._checked;
+  private _included: boolean;
+  get included(): boolean {
+    return this._included;
   }
   @Input()
-  set checked(checked: boolean) {
-    this._checked = checked;
-    this.checkedChanged.emit(this._checked);
+  set included(included: boolean) {
+    this._included = included;
+    this.includedChange.emit(this._included);
   }
-  @Output() checkedChanged: EventEmitter<boolean> = new EventEmitter();
+  @Output() includedChange: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 

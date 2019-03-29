@@ -1,5 +1,3 @@
 <form class="px-4 py-3">
-  <app-expansion-chooser-item title="Base" checked="{{ base }}" (checkedChanged)="base=$event;"></app-expansion-chooser-item>
-  <app-expansion-chooser-item title="The Depths" checked="{{ theDepths }}" (checkedChanged)="theDepths=$event;"></app-expansion-chooser-item>
-  <app-expansion-chooser-item title="War Eternal" checked="{{ warEternal }}" (checkedChanged)="warEternal=$event;"></app-expansion-chooser-item>
+  <app-expansion-chooser-item *ngFor="let expansion of expansionOrder" [title]="displayedExpansions[expansion].name" [(included)]="displayedExpansions[expansion].included"></app-expansion-chooser-item>
 </form>
