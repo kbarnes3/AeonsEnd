@@ -3,8 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {Expansion} from '../expansion';
 import {ExpansionChooserComponent} from './expansion-chooser.component';
 import {AppComponent} from '../app.component';
-import {FormsModule} from "@angular/forms";
-import {Component, Input} from "@angular/core";
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-expansion-chooser-item',
@@ -28,9 +27,9 @@ describe('ExpansionChooserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExpansionChooserComponent, MockExpansionChooserItemComponent ],
-      imports: [
-        FormsModule
+      declarations: [
+          ExpansionChooserComponent,
+          MockExpansionChooserItemComponent
       ]
     })
     .compileComponents();

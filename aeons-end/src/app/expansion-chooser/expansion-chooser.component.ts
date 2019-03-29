@@ -2,12 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {Expansion} from '../expansion';
 
 export class ExpansionDisplay {
-  constructor(expansion:Expansion, name: string) {
+  constructor(expansion: Expansion, name: string) {
     this.expansion = expansion;
     this.name = name;
     this.included = false;
   }
-  expansion: Expansion
+  expansion: Expansion;
   name: string;
   included: boolean;
 }
@@ -37,7 +37,7 @@ export class ExpansionChooserComponent implements OnInit {
   }
 
   expansionOrder: Expansion[];
-  displayedExpansions: { [id:number]: ExpansionDisplay };
+  displayedExpansions: { [id: number]: ExpansionDisplay };
 
   shortLabel: string = 'Cards';
 
@@ -46,10 +46,10 @@ export class ExpansionChooserComponent implements OnInit {
 
   getSelectedExpansions(): Expansion[] {
     const expansions: Expansion[] = [];
-    for (let key in this.displayedExpansions) {
-      let value:ExpansionDisplay = this.displayedExpansions[key];
+    for (const key of Object.keys(this.displayedExpansions)) {
+      const value: ExpansionDisplay = this.displayedExpansions[key];
       if (value.included) {
-        expansions.push(value.expansion)
+        expansions.push(value.expansion);
       }
     }
 
