@@ -25,13 +25,30 @@ export class MarketSettingsComponent implements OnInit {
 
   onDropdownChanged(opened:boolean): void {
     if (!opened) {
-      this.onGenerate();
+      const newMarketSources: Expansion[] = this.expansionChooser.getSelectedExpansions();
+      if (!this.areMarketSourcesEqual(newMarketSources)) {
+        this.onGenerate();
+      }
     }
   }
 
   onGenerate(): void {
     this.lastMarketSources = this.expansionChooser.getSelectedExpansions();
     this.marketList.generateMarket(this.lastMarketSources);
+  }
+
+  private areMarketSourcesEqual(newMarketSources: Expansion[]): boolean {
+    if (newMarketSources.length !== this.lastMarketSources.length) {
+      return false;
+    }
+
+    for (let i = 0; i < this.lastMarketSources.length; i++) {
+      if (newMarketSources[i] !== this.lastMarketSources[i]) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
 }

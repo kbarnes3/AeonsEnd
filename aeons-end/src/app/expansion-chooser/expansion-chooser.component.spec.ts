@@ -4,6 +4,23 @@ import {Expansion} from '../expansion';
 import {ExpansionChooserComponent} from './expansion-chooser.component';
 import {AppComponent} from '../app.component';
 import {FormsModule} from "@angular/forms";
+import {Component, Input} from "@angular/core";
+
+@Component({
+  selector: 'app-expansion-chooser-item',
+  template: '<div class="expansion-list-item">Expansion</div>'
+})
+class MockExpansionChooserItemComponent {
+  @Input() title: string;
+  private _included: boolean;
+  get included(): boolean {
+    return this._included;
+  }
+  @Input()
+  set included(included: boolean) {
+    this._included = included;
+  }
+}
 
 describe('ExpansionChooserComponent', () => {
   let component: ExpansionChooserComponent;
@@ -11,7 +28,7 @@ describe('ExpansionChooserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExpansionChooserComponent ],
+      declarations: [ ExpansionChooserComponent, MockExpansionChooserItemComponent ],
       imports: [
         FormsModule
       ]
@@ -31,7 +48,7 @@ describe('ExpansionChooserComponent', () => {
 
   it('should contain a list of expansions', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('.expansion-list-item').length).toEqual(2);
+    expect(compiled.querySelectorAll('.expansion-list-item').length).toEqual(3);
   });
 
   function expectEqualArrays<T>(expectedArr: T[], actualArr: T[]): void {
@@ -43,39 +60,40 @@ describe('ExpansionChooserComponent', () => {
   }
 
   it('should set \'expansions\' based on the selected options', () => {
+    component.displayedExpansions[Expansion.Base].included = false;
     expectEqualArrays<Expansion>([], component.getSelectedExpansions());
 
-    component.base = true;
+    component.displayedExpansions[Expansion.Base].included = true;
     expectEqualArrays<Expansion>([Expansion.Base], component.getSelectedExpansions());
 
-    component.diceTowerPromo = true;
+    component.displayedExpansions[Expansion.DiceTowerPromo].included = true;
     expectEqualArrays<Expansion>([Expansion.Base, Expansion.DiceTowerPromo], component.getSelectedExpansions());
 
-    component.base = false;
-    component.diceTowerPromo = false;
+    component.displayedExpansions[Expansion.Base].included = false;
+    component.displayedExpansions[Expansion.DiceTowerPromo].included = false;
 
-    component.theDepths = true;
+    component.displayedExpansions[Expansion.TheDepths].included = true;
     expectEqualArrays<Expansion>([Expansion.TheDepths], component.getSelectedExpansions());
-    component.theDepths = false;
+    component.displayedExpansions[Expansion.TheDepths].included = false;
 
-    component.theNameless = true;
+    component.displayedExpansions[Expansion.TheNameless].included = true;
     expectEqualArrays<Expansion>([Expansion.TheNameless], component.getSelectedExpansions());
-    component.theNameless = false;
+    component.displayedExpansions[Expansion.TheNameless].included = false;
 
-    component.warEternal = true;
+    component.displayedExpansions[Expansion.WarEternal].included = true;
     expectEqualArrays<Expansion>([Expansion.WarEternal], component.getSelectedExpansions());
-    component.warEternal = false;
+    component.displayedExpansions[Expansion.WarEternal].included = false;
 
-    component.theVoid = true;
+    component.displayedExpansions[Expansion.TheVoid].included = true;
     expectEqualArrays<Expansion>([Expansion.TheVoid], component.getSelectedExpansions());
-    component.theVoid = false;
+    component.displayedExpansions[Expansion.TheVoid].included = false;
 
-    component.theOuterDark = true;
+    component.displayedExpansions[Expansion.TheOuterDark].included = true;
     expectEqualArrays<Expansion>([Expansion.TheOuterDark], component.getSelectedExpansions());
-    component.theOuterDark = false;
+    component.displayedExpansions[Expansion.TheOuterDark].included = false;
 
-    component.diceTowerPromo = true;
+    component.displayedExpansions[Expansion.DiceTowerPromo].included = true;
     expectEqualArrays<Expansion>([Expansion.DiceTowerPromo], component.getSelectedExpansions());
-    component.diceTowerPromo = false;
+    component.displayedExpansions[Expansion.DiceTowerPromo].included = false;
   });
 });

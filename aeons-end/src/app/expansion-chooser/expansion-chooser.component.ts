@@ -2,12 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {Expansion} from '../expansion';
 
 export class ExpansionDisplay {
-  constructor(expansion: Expansion, name: string) {
+  constructor(expansion:Expansion, name: string) {
     this.expansion = expansion;
     this.name = name;
     this.included = false;
   }
-  expansion: Expansion;
+  expansion: Expansion
   name: string;
   included: boolean;
 }
@@ -24,7 +24,11 @@ export class ExpansionChooserComponent implements OnInit {
     this.displayedExpansions[Expansion.Base] = new ExpansionDisplay(Expansion.Base, 'Base');
     this.displayedExpansions[Expansion.Base].included = true;
     this.displayedExpansions[Expansion.TheDepths] = new ExpansionDisplay(Expansion.TheDepths, 'The Depths');
+    this.displayedExpansions[Expansion.TheNameless] = new ExpansionDisplay(Expansion.TheNameless, 'The Nameless');
     this.displayedExpansions[Expansion.WarEternal] = new ExpansionDisplay(Expansion.WarEternal, 'War Eternal');
+    this.displayedExpansions[Expansion.TheVoid] = new ExpansionDisplay(Expansion.TheVoid, 'The Void');
+    this.displayedExpansions[Expansion.TheOuterDark] = new ExpansionDisplay(Expansion.TheOuterDark, 'The Outer Dark');
+    this.displayedExpansions[Expansion.DiceTowerPromo] = new ExpansionDisplay(Expansion.DiceTowerPromo, 'Dice Tower Promo');
 
     this.expansionOrder = [];
     this.expansionOrder.push(Expansion.Base);

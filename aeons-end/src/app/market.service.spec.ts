@@ -25,7 +25,6 @@ describe('MarketService', () => {
   it('should generate a market with War Eternal cards', () => {
     const service: MarketService = TestBed.get(MarketService);
     const cards: MarketCard[] = service.generateRandomMarket([Expansion.WarEternal]);
-    expect(cards.length).toEqual(9);
     expect(cards[0]).toBeTruthy();
     expect(cards[0].expansion).toEqual(Expansion.WarEternal);
     // Note that we don't check all the cards because sometimes this will fail to generate a full market
