@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {ALL_MAKRET_CONFIGURATIONS, MarketConfiguration} from './market-configuration';
-import {MarketSource} from './market-source';
 import {MarketCard} from './market-card';
 import {Predicate} from './predicates';
 import {MarketCardType} from './martet-card-type';

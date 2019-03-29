@@ -1,9 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {MarketSettingsComponent} from './market-settings.component';
-import {FormsModule} from '@angular/forms';
 import {Component} from '@angular/core';
-import {MarketSource} from '../market-source';
 import {Expansion} from '../expansion';
 
 @Component({
@@ -35,10 +33,7 @@ describe('MarketSettingsComponent', () => {
       declarations: [
         MarketSettingsComponent,
         MockMarketSelectionComponent,
-        MockExpansionChooserComponent],
-      imports: [
-        FormsModule
-      ]
+        MockExpansionChooserComponent]
 
     })
     .compileComponents();
