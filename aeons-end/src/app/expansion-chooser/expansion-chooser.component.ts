@@ -79,14 +79,11 @@ export class ExpansionChooserComponent implements OnInit {
 
     if (countOfIncludedExpansions === 0) {
       this.shortLabel = 'Expansions';
-    }
-    else if (countOfIncludedExpansions === 1) {
+    } else if (countOfIncludedExpansions === 1) {
       this.shortLabel = singleExpansionName;
-    }
-    else if (countOfIncludedExpansions === this.expansionOrder.length) {
+    } else if (countOfIncludedExpansions === this.expansionOrder.length) {
       this.shortLabel = 'All expansions';
-    }
-    else {
+    } else {
       this.shortLabel = `${countOfIncludedExpansions} expansions`;
     }
   }

@@ -47,7 +47,7 @@ describe('ExpansionChooserComponent', () => {
 
   it('should contain a list of expansions', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('.expansion-list-item').length).toEqual(3);
+    expect(compiled.querySelectorAll('.expansion-list-item').length).toEqual(7);
   });
 
   function expectEqualArrays<T>(expectedArr: T[], actualArr: T[]): void {
