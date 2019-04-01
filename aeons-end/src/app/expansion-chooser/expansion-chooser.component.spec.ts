@@ -5,6 +5,8 @@ import {ExpansionChooserComponent} from './expansion-chooser.component';
 import {AppComponent} from '../app.component';
 import {Component, Input} from '@angular/core';
 
+const numberOfExpansions: number = 7;
+
 @Component({
   selector: 'app-expansion-chooser-item',
   template: '<div class="expansion-list-item">Expansion</div>'
@@ -47,7 +49,7 @@ describe('ExpansionChooserComponent', () => {
 
   it('should contain a list of expansions', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('.expansion-list-item').length).toEqual(7);
+    expect(compiled.querySelectorAll('.expansion-list-item').length).toEqual(numberOfExpansions + 1);
   });
 
   function expectEqualArrays<T>(expectedArr: T[], actualArr: T[]): void {

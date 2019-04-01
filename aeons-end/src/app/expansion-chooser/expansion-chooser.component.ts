@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Expansion} from '../expansion';
+import {ExpansionChooserItemComponent} from '../expansion-chooser-item/expansion-chooser-item.component';
 
 export class ExpansionDisplay {
   constructor(expansion: Expansion, name: string) {
@@ -18,8 +19,10 @@ export class ExpansionDisplay {
   styleUrls: ['./expansion-chooser.component.css']
 })
 export class ExpansionChooserComponent implements OnInit {
+  @ViewChild('allCheck') allCheck: ExpansionChooserItemComponent;
 
   constructor() {
+    this._allIncluded = false;
     this.displayedExpansions = {};
     this.displayedExpansions[Expansion.Base] = new ExpansionDisplay(Expansion.Base, 'Base');
     this.displayedExpansions[Expansion.Base].included = true;
@@ -39,17 +42,41 @@ export class ExpansionChooserComponent implements OnInit {
       Expansion.TheOuterDark,
       Expansion.DiceTowerPromo,
     ];
+
+    this.updateShortLabel();
   }
 
   expansionOrder: Expansion[];
   displayedExpansions: { [id: number]: ExpansionDisplay };
 
-  shortLabel: string = 'Cards';
+  shortLabel: string;
+
+  private _allIncluded: boolean;
+
+  get allIncluded(): boolean {
+    return this._allIncluded;
+  }
+
+  set allIncluded(allIncluded: boolean) {
+    if (this._allIncluded === allIncluded) {
+      return;
+    }
+
+    this._allIncluded = allIncluded;
+
+    for (const key of Object.keys(this.displayedExpansions)) {
+      const value: ExpansionDisplay = this.displayedExpansions[key];
+      value.included = allIncluded;
+    }
+
+    this.updateSelectedExpansions();
+  }
 
   ngOnInit() {}
 
   updateSelectedExpansions(): void {
     this.updateShortLabel();
+    this.updateAllCheckbox();
   }
 
   getSelectedExpansions(): Expansion[] {
@@ -63,10 +90,9 @@ export class ExpansionChooserComponent implements OnInit {
 
     return expansions;
   }
-
   private updateShortLabel(): void {
     // The short label will either say "n expansions" or the name of a single expansion
-    // if exactly 1 is selected, or "Expansions" if none are, or "All expansions" if all are.
+    // if exactly 1 is selected, or "Choose expansions" if none are, or "All expansions" if all are.
     let singleExpansionName: string;
     let countOfIncludedExpansions: number = 0;
     for (const key of Object.keys(this.displayedExpansions)) {
@@ -78,13 +104,33 @@ export class ExpansionChooserComponent implements OnInit {
     }
 
     if (countOfIncludedExpansions === 0) {
-      this.shortLabel = 'Expansions';
+      this.shortLabel = 'Choose expansions';
     } else if (countOfIncludedExpansions === 1) {
       this.shortLabel = singleExpansionName;
     } else if (countOfIncludedExpansions === this.expansionOrder.length) {
       this.shortLabel = 'All expansions';
     } else {
       this.shortLabel = `${countOfIncludedExpansions} expansions`;
+    }
+  }
+
+  private updateAllCheckbox(): void {
+    let countOfIncludedExpansions: number = 0;
+    for (const key of Object.keys(this.displayedExpansions)) {
+      const value: ExpansionDisplay = this.displayedExpansions[key];
+      if (value.included) {
+        countOfIncludedExpansions++;
+      }
+    }
+
+    if (countOfIncludedExpansions === 0) {
+      this.allCheck.setIndeterminate(false);
+      this.allIncluded = false;
+    } else if (countOfIncludedExpansions === this.expansionOrder.length) {
+      this.allCheck.setIndeterminate(false);
+      this.allIncluded = true;
+    } else {
+      this.allCheck.setIndeterminate(true);
     }
   }
 
