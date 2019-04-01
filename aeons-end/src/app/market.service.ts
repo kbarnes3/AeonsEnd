@@ -1,12 +1,17 @@
 import {Injectable} from '@angular/core';
-import {BASE_CARDS} from './base-cards-data';
 import {ALL_MAKRET_CONFIGURATIONS, MarketConfiguration} from './market-configuration';
-import {MarketSource} from './market-source';
 import {MarketCard} from './market-card';
 import {Predicate} from './predicates';
 import {MarketCardType} from './martet-card-type';
-import {WAR_ETERNAL_CARDS} from './war-eternal-cards-data';
-import {PROMO_CARDS} from './promo-cards-data';
+import {Expansion} from './expansion';
+
+import {BASE_CARDS} from './cards-data/base-cards-data';
+import {DEPTHS_CARDS} from './cards-data/depths-cards-data';
+import {NAMELESS_CARDS} from './cards-data/nameless-cards-data';
+import {WAR_ETERNAL_CARDS} from './cards-data/war-eternal-cards-data';
+import {VOID_CARDS} from './cards-data/void-cards-data';
+import {OUTER_DARK_CARDS} from './cards-data/outer-dark-cards-data';
+import {DICE_TOWER_PROMO_CARDS} from './cards-data/dice-tower-promo-cards-data';
 
 @Injectable({
   providedIn: 'root'
@@ -24,35 +29,51 @@ export class MarketService {
     return Math.floor(Math.random() * max);
   }
 
-  private static getCardsInMarket(configuration: MarketConfiguration, source: MarketSource): MarketCard[] {
+  private static getCardsInMarket(configuration: MarketConfiguration, source: Expansion[]): MarketCard[] {
     const deck: MarketCard[] = MarketService.getCardsInExpansions(source);
     const returnedCards: MarketCard[] = [];
 
     configuration.cards.forEach(function(value: Predicate) {
       const eligibleCards: MarketCard[] = MarketService.getMatchingCards(value, deck, returnedCards);
       const pickedCard: MarketCard = MarketService.getRandomItem(eligibleCards);
-      returnedCards.push(pickedCard);
+      if (pickedCard) {
+        returnedCards.push(pickedCard);
+      }
     });
 
     MarketService.sortCards(returnedCards);
     return returnedCards;
   }
 
-  private static getCardsInExpansions(source: MarketSource): MarketCard[] {
-    switch (source) {
-      case MarketSource.All:
-        return BASE_CARDS.concat(WAR_ETERNAL_CARDS, PROMO_CARDS);
+  static getCardsInExpansions(sources: Expansion[]): MarketCard[] {
+    let cards: MarketCard[] = [];
+    sources.forEach((expansion: Expansion) => {
+      switch (expansion) {
+        case Expansion.Base:
+          cards = cards.concat(BASE_CARDS);
+          break;
+        case Expansion.TheDepths:
+          cards = cards.concat(DEPTHS_CARDS);
+          break;
+        case Expansion.TheNameless:
+          cards = cards.concat(NAMELESS_CARDS);
+          break;
+        case Expansion.WarEternal:
+          cards = cards.concat(WAR_ETERNAL_CARDS);
+          break;
+        case Expansion.TheVoid:
+          cards = cards.concat(VOID_CARDS);
+          break;
+        case Expansion.TheOuterDark:
+          cards = cards.concat(OUTER_DARK_CARDS);
+          break;
+        case Expansion.DiceTowerPromo:
+          cards = cards.concat(DICE_TOWER_PROMO_CARDS);
+          break;
+      }
+    });
 
-      case MarketSource.BasePlusExpansions:
-        return Object.assign([], BASE_CARDS);
-
-      case MarketSource.WarEternalPlusExpansions:
-        return Object.assign([], WAR_ETERNAL_CARDS);
-
-      default:
-        return [];
-    }
-
+    return cards;
   }
 
   private static getMatchingCards(predicate: Predicate, deck: MarketCard[], usedCards: MarketCard[]) {
@@ -87,7 +108,7 @@ export class MarketService {
     cards.sort(compareFn);
   }
 
-  generateRandomMarket(source: MarketSource): MarketCard[] {
+  generateRandomMarket(source: Expansion[]): MarketCard[] {
     const configuration: MarketConfiguration = MarketService.getRandomItem(ALL_MAKRET_CONFIGURATIONS);
     return MarketService.getCardsInMarket(configuration, source);
   }

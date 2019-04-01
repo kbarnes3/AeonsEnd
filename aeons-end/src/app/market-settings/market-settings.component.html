@@ -5,18 +5,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 offset-md-4">
-      <div class="input-group">
-        <select id="market-source" class="custom-select" [(ngModel)]="marketSource" (ngModelChange)="onSourceChanged()">
-          <option [ngValue]="1">All</option>
-          <!--<option value="2">Classic</option>-->
-          <option [ngValue]="3">Classic + Expansions</option>
-          <!--<option value="4">War Eternal</option>-->
-          <option [ngValue]="5">War Eternal + Expansions</option>
-        </select>
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" (click)="onGenerate()">Generate</button>
+    <div class="col-md-4 offset-md-4 input-group">
+      <div class="input-group-prepend" ngbDropdown autoClose="outside" (openChange)="onDropdownChanged($event)" >
+        <button class="btn btn-secondary" ngbDropdownToggle type="button" id="market-source">{{ expansionChooser.shortLabel }}</button>
+        <div ngbDropdownMenu>
+          <app-expansion-chooser #expansionChooser></app-expansion-chooser>
         </div>
+      </div>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="onGenerate()">Generate</button>
       </div>
     </div>
   </div>

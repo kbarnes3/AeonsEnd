@@ -5,5 +5,5 @@ export enum Expansion {
   WarEternal,
   TheVoid,
   TheOuterDark,
-  Promo,
+  DiceTowerPromo,
 }

@@ -1,6 +1,6 @@
-import {Expansion} from './expansion';
-import {MarketCard} from './market-card';
-import {MarketCardType} from './martet-card-type';
+import {Expansion} from '../expansion';
+import {MarketCard} from '../market-card';
+import {MarketCardType} from '../martet-card-type';
 
 export const WAR_ETERNAL_CARDS: MarketCard[] = [
     {
@@ -164,119 +164,5 @@ export const WAR_ETERNAL_CARDS: MarketCard[] = [
         type: MarketCardType.Spell,
         cost: 3,
         expansion: Expansion.WarEternal,
-    },
-    {
-        name: 'Fossilized Scarab',
-        type: MarketCardType.Gem,
-        cost: 3,
-        expansion: Expansion.TheVoid,
-    },
-    {
-        name: 'Dimensional Key',
-        type: MarketCardType.Relic,
-        cost: 8,
-        expansion: Expansion.TheVoid,
-    },
-    {
-        name: 'Eternity Charm',
-        type: MarketCardType.Relic,
-        cost: 3,
-        expansion: Expansion.TheVoid,
-    },
-    {
-        name: 'Resonate',
-        type: MarketCardType.Spell,
-        cost: 6,
-        expansion: Expansion.TheVoid,
-    },
-    {
-        name: 'Conflagration',
-        type: MarketCardType.Spell,
-        cost: 3,
-        expansion: Expansion.TheVoid,
-    },
-    {
-        name: 'Fulminate',
-        type: MarketCardType.Spell,
-        cost: 5,
-        expansion: Expansion.TheVoid,
-    },
-    {
-        name: 'Inner Fire',
-        type: MarketCardType.Spell,
-        cost: 2,
-        expansion: Expansion.TheVoid,
-    },
-    {
-        name: 'Thermal Dart',
-        type: MarketCardType.Spell,
-        cost: 4,
-        expansion: Expansion.TheVoid,
-    },
-    {
-        name: 'Alien Element',
-        type: MarketCardType.Gem,
-        cost: 4,
-        expansion: Expansion.TheOuterDark,
-    },
-    {
-        name: 'Haunted Berylite',
-        type: MarketCardType.Gem,
-        cost: 3,
-        expansion: Expansion.TheOuterDark,
-    },
-    {
-        name: 'Pain Stone',
-        type: MarketCardType.Gem,
-        cost: 6,
-        expansion: Expansion.TheOuterDark,
-    },
-    {
-        name: 'Astral Cube',
-        type: MarketCardType.Relic,
-        cost: 5,
-        expansion: Expansion.TheOuterDark,
-    },
-    {
-        name: 'Riddlesphere',
-        type: MarketCardType.Relic,
-        cost: 3,
-        expansion: Expansion.TheOuterDark,
-    },
-    {
-        name: 'Char',
-        type: MarketCardType.Spell,
-        cost: 8,
-        expansion: Expansion.TheOuterDark,
-    },
-    {
-        name: 'Catalyst',
-        type: MarketCardType.Spell,
-        cost: 6,
-        expansion: Expansion.TheOuterDark,
-    },
-    {
-        name: 'Feedback Aura',
-        type: MarketCardType.Spell,
-        cost: 5,
-        expansion: Expansion.TheOuterDark,
-    },
-    {
-        name: 'Nether Conduit',
-        type: MarketCardType.Spell,
-        cost: 7,
-        expansion: Expansion.TheOuterDark,
-    },
-    {
-        name: 'Pyromancy',
-        type: MarketCardType.Spell,
-        cost: 7,
-        expansion: Expansion.TheOuterDark,
-    },
-    {
-        name: 'Scorch',
-        type: MarketCardType.Spell,
-        cost: 5,
-        expansion: Expansion.TheOuterDark,
     },
 ];

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MarketCard} from '../market-card';
 import {MarketCardType} from '../martet-card-type';
-import {MarketSource} from '../market-source';
 import {MarketService} from '../market.service';
+import {Expansion} from '../expansion';
 
 @Component({
   selector: 'app-market-selection',
@@ -18,8 +18,8 @@ export class MarketSelectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  generateMarket(marketSource: MarketSource) {
-    this.cards = this.marketService.generateRandomMarket(marketSource);
+  generateMarket(marketSources: Expansion[]) {
+    this.cards = this.marketService.generateRandomMarket(marketSources);
   }
 
   getCardCssClass(type: MarketCardType): string {

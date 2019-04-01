@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import { MarketSource } from '../market-source';
+import { Expansion } from '../expansion';
 
 @Component({
   selector: 'app-market-settings',
@@ -9,12 +9,11 @@ import { MarketSource } from '../market-source';
 })
 export class MarketSettingsComponent implements OnInit {
   @ViewChild('marketSelection') marketList;
+  @ViewChild('expansionChooser') expansionChooser;
 
   constructor() { }
 
-  marketSource: MarketSource = MarketSource.All;
-  MarketSources = MarketSource;
-
+  private lastMarketSources: Expansion[] = [];
 
   ngOnInit() {
     this.onGenerate();
@@ -24,8 +23,32 @@ export class MarketSettingsComponent implements OnInit {
     this.onGenerate();
   }
 
+  onDropdownChanged(opened: boolean): void {
+    if (!opened) {
+      const newMarketSources: Expansion[] = this.expansionChooser.getSelectedExpansions();
+      if (!this.areMarketSourcesEqual(newMarketSources)) {
+        this.onGenerate();
+      }
+    }
+  }
+
   onGenerate(): void {
-    this.marketList.generateMarket(this.marketSource);
+    this.lastMarketSources = this.expansionChooser.getSelectedExpansions();
+    this.marketList.generateMarket(this.lastMarketSources);
+  }
+
+  private areMarketSourcesEqual(newMarketSources: Expansion[]): boolean {
+    if (newMarketSources.length !== this.lastMarketSources.length) {
+      return false;
+    }
+
+    for (let i = 0; i < this.lastMarketSources.length; i++) {
+      if (newMarketSources[i] !== this.lastMarketSources[i]) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
 }
