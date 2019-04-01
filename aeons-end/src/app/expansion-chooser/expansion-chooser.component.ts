@@ -30,10 +30,15 @@ export class ExpansionChooserComponent implements OnInit {
     this.displayedExpansions[Expansion.TheOuterDark] = new ExpansionDisplay(Expansion.TheOuterDark, 'The Outer Dark');
     this.displayedExpansions[Expansion.DiceTowerPromo] = new ExpansionDisplay(Expansion.DiceTowerPromo, 'Dice Tower Promo');
 
-    this.expansionOrder = [];
-    this.expansionOrder.push(Expansion.Base);
-    this.expansionOrder.push(Expansion.TheDepths);
-    this.expansionOrder.push(Expansion.WarEternal);
+    this.expansionOrder = [
+      Expansion.Base,
+      Expansion.TheDepths,
+      Expansion.TheNameless,
+      Expansion.WarEternal,
+      Expansion.TheVoid,
+      Expansion.TheOuterDark,
+      Expansion.DiceTowerPromo,
+    ];
   }
 
   expansionOrder: Expansion[];
@@ -43,6 +48,9 @@ export class ExpansionChooserComponent implements OnInit {
 
   ngOnInit() {}
 
+  updateSelectedExpansions(): void {
+    this.updateShortLabel();
+  }
 
   getSelectedExpansions(): Expansion[] {
     const expansions: Expansion[] = [];
@@ -54,6 +62,33 @@ export class ExpansionChooserComponent implements OnInit {
     }
 
     return expansions;
+  }
+
+  private updateShortLabel(): void {
+    // The short label will either say "n expansions" or the name of a single expansion
+    // if exactly 1 is selected, or "Expansions" if none are, or "All expansions" if all are.
+    let singleExpansionName: string;
+    let countOfIncludedExpansions: number = 0;
+    for (const key of Object.keys(this.displayedExpansions)) {
+      const value: ExpansionDisplay = this.displayedExpansions[key];
+      if (value.included) {
+        singleExpansionName = value.name;
+        countOfIncludedExpansions++;
+      }
+    }
+
+    if (countOfIncludedExpansions === 0) {
+      this.shortLabel = 'Expansions';
+    }
+    else if (countOfIncludedExpansions === 1) {
+      this.shortLabel = singleExpansionName;
+    }
+    else if (countOfIncludedExpansions === this.expansionOrder.length) {
+      this.shortLabel = 'All expansions';
+    }
+    else {
+      this.shortLabel = `${countOfIncludedExpansions} expansions`;
+    }
   }
 
 }
