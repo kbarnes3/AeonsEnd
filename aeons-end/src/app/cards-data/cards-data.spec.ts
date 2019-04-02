@@ -5,6 +5,7 @@ import {WAR_ETERNAL_CARDS} from './war-eternal-cards-data';
 import {VOID_CARDS} from './void-cards-data';
 import {OUTER_DARK_CARDS} from './outer-dark-cards-data';
 import {LEGACY_CARDS} from './legacy-cards-data';
+import {BURIED_SECRETS_CARDS} from './buried-secrets-cards-data';
 import {DICE_TOWER_PROMO_CARDS} from './dice-tower-promo-cards-data';
 import {Expansion} from '../expansion';
 import {MarketCard} from '../market-card';
@@ -24,6 +25,7 @@ describe('CardsData', () => {
         { cards: VOID_CARDS, expansion: Expansion.TheVoid, name: 'The Void' },
         { cards: OUTER_DARK_CARDS, expansion: Expansion.TheOuterDark, name: 'The Outer Dark' },
         { cards: LEGACY_CARDS, expansion: Expansion.Legacy, name: 'Legacy' },
+        { cards: BURIED_SECRETS, expansion: Expansion.BuriedSecrets, name: 'Buried Secrets'},
         { cards: DICE_TOWER_PROMO_CARDS, expansion: Expansion.DiceTowerPromo, name: 'Dice Tower Promo' },
     ];
 
