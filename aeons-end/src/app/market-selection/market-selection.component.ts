@@ -36,7 +36,7 @@ export class MarketSelectionComponent implements OnInit {
   getCardTypeLabel(type: MarketCardType): string {
     switch (type) {
       case MarketCardType.Gem:
-        return 'Spell';
+        return 'Gem';
       case MarketCardType.Relic:
         return 'Relic';
       case MarketCardType.Spell:
