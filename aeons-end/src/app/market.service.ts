@@ -11,6 +11,7 @@ import {NAMELESS_CARDS} from './cards-data/nameless-cards-data';
 import {WAR_ETERNAL_CARDS} from './cards-data/war-eternal-cards-data';
 import {VOID_CARDS} from './cards-data/void-cards-data';
 import {OUTER_DARK_CARDS} from './cards-data/outer-dark-cards-data';
+import {LEGACY_CARDS} from './cards-data/legacy-cards-data';
 import {DICE_TOWER_PROMO_CARDS} from './cards-data/dice-tower-promo-cards-data';
 
 @Injectable({
@@ -66,6 +67,9 @@ export class MarketService {
           break;
         case Expansion.TheOuterDark:
           cards = cards.concat(OUTER_DARK_CARDS);
+          break;
+        case Expansion.Legacy:
+          cards = cards.concat(LEGACY_CARDS);
           break;
         case Expansion.DiceTowerPromo:
           cards = cards.concat(DICE_TOWER_PROMO_CARDS);

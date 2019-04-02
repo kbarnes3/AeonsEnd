@@ -31,6 +31,7 @@ export class ExpansionChooserComponent implements OnInit {
     this.displayedExpansions[Expansion.WarEternal] = new ExpansionDisplay(Expansion.WarEternal, 'War Eternal');
     this.displayedExpansions[Expansion.TheVoid] = new ExpansionDisplay(Expansion.TheVoid, 'The Void');
     this.displayedExpansions[Expansion.TheOuterDark] = new ExpansionDisplay(Expansion.TheOuterDark, 'The Outer Dark');
+    this.displayedExpansions[Expansion.Legacy] = new ExpansionDisplay(Expansion.Legacy, 'Legacy III/IV');
     this.displayedExpansions[Expansion.DiceTowerPromo] = new ExpansionDisplay(Expansion.DiceTowerPromo, 'Dice Tower Promo');
 
     this.expansionOrder = [
@@ -40,6 +41,7 @@ export class ExpansionChooserComponent implements OnInit {
       Expansion.WarEternal,
       Expansion.TheVoid,
       Expansion.TheOuterDark,
+      Expansion.Legacy,
       Expansion.DiceTowerPromo,
     ];
 
