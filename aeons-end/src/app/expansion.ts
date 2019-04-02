@@ -6,6 +6,7 @@ export enum Expansion {
   TheVoid,
   TheOuterDark,
   Legacy,
+  LegacyPromo,
   BuriedSecrets,
   DiceTowerPromo,
 }

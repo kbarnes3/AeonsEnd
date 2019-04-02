@@ -5,7 +5,7 @@ import {ExpansionChooserComponent} from './expansion-chooser.component';
 import {AppComponent} from '../app.component';
 import {Component, Input} from '@angular/core';
 
-const numberOfExpansions: number = 7;
+const numberOfExpansions: number = 10;
 
 @Component({
   selector: 'app-expansion-chooser-item',

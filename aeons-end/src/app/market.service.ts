@@ -12,6 +12,7 @@ import {WAR_ETERNAL_CARDS} from './cards-data/war-eternal-cards-data';
 import {VOID_CARDS} from './cards-data/void-cards-data';
 import {OUTER_DARK_CARDS} from './cards-data/outer-dark-cards-data';
 import {LEGACY_CARDS} from './cards-data/legacy-cards-data';
+import {LEGACY_PROMO_CARDS} from './cards-data/legacy-promo-cards-data';
 import {BURIED_SECRETS_CARDS} from './cards-data/buried-secrets-cards-data';
 import {DICE_TOWER_PROMO_CARDS} from './cards-data/dice-tower-promo-cards-data';
 
@@ -71,6 +72,9 @@ export class MarketService {
           break;
         case Expansion.Legacy:
           cards = cards.concat(LEGACY_CARDS);
+          break;
+        case Expansion.LegacyPromo:
+          cards = cards.concat(LEGACY_PROMO_CARDS);
           break;
         case Expansion.BuriedSecrets:
           cards = cards.concat(BURIED_SECRETS_CARDS);
