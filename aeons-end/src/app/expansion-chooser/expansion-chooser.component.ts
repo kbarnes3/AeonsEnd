@@ -19,7 +19,7 @@ export class ExpansionDisplay {
   styleUrls: ['./expansion-chooser.component.css']
 })
 export class ExpansionChooserComponent implements OnInit {
-  @ViewChild('allCheck') allCheck: ExpansionChooserItemComponent;
+  @ViewChild('allCheck', { static: true }) allCheck: ExpansionChooserItemComponent;
 
   constructor() {
     this._allIncluded = false;

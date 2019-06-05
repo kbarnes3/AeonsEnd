@@ -8,8 +8,8 @@ import { Expansion } from '../expansion';
   styleUrls: ['./market-settings.component.css']
 })
 export class MarketSettingsComponent implements OnInit {
-  @ViewChild('marketSelection') marketList;
-  @ViewChild('expansionChooser') expansionChooser;
+  @ViewChild('marketSelection', { static: true }) marketList;
+  @ViewChild('expansionChooser', { static: true }) expansionChooser;
 
   constructor() { }
 
