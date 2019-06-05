@@ -6,7 +6,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
   styleUrls: ['./expansion-chooser-item.component.css']
 })
 export class ExpansionChooserItemComponent implements OnInit {
-  @ViewChild('checkboxElement') checkboxElement: ElementRef;
+  @ViewChild('checkboxElement', { static: true }) checkboxElement: ElementRef;
 
   @Input() title: string;
   private _included: boolean;
