@@ -29,8 +29,8 @@ Set-Item function:global:Invoke-Npm {
 } -Force
 
 Set-Item function:global:Invoke-Ng {
-    param([switch]$Async)
-    . $PSScriptRoot\Invoke-Ng.ps1 -Async:$Async @args
+    param([switch]$Async, $NgArgs)
+    . $PSScriptRoot\Invoke-Ng.ps1 -Async:$Async $NgArgs
 } -Force
 
 Set-Item function:global:Start-Server {
@@ -38,11 +38,11 @@ Set-Item function:global:Start-Server {
         [switch]$Async,
         [switch]$OpenBrowser
     )
-    $open = ""
+    $ngArgs = @("serve")
     if ($OpenBrowser) {
-        $open = "--open"
+        $ngArgs += "--open"
     }
-    Invoke-Ng -Async:$Async serve $open
+    Invoke-Ng -Async:$Async $ngArgs
 } -Force
 
 Set-Item function:global:Start-Tests {
