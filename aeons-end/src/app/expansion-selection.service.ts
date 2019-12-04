@@ -34,5 +34,6 @@ export class ExpansionSelectionService {
   set selectedExpansions(newSelection: Expansion[]) {
     const jsonExpansions: string = JSON.stringify(newSelection);
     localStorage.setItem(this.storageId, jsonExpansions);
+    this.selectedExpansionsSubject.next(newSelection);
   }
 }
