@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Expansion} from '../expansion';
 import {ExpansionChooserItemComponent} from '../expansion-chooser-item/expansion-chooser-item.component';
+import {ExpansionSelectionService} from '../expansion-selection.service';
 
 export class ExpansionDisplay {
   constructor(expansion: Expansion, name: string) {
@@ -21,11 +22,9 @@ export class ExpansionDisplay {
 export class ExpansionChooserComponent implements OnInit {
   @ViewChild('allCheck', { static: true }) allCheck: ExpansionChooserItemComponent;
 
-  constructor() {
-    this._allIncluded = false;
+  constructor(private expansionSelectionService: ExpansionSelectionService) {
     this.displayedExpansions = {};
     this.displayedExpansions[Expansion.Base] = new ExpansionDisplay(Expansion.Base, 'Base');
-    this.displayedExpansions[Expansion.Base].included = true;
     this.displayedExpansions[Expansion.TheDepths] = new ExpansionDisplay(Expansion.TheDepths, 'The Depths');
     this.displayedExpansions[Expansion.TheNameless] = new ExpansionDisplay(Expansion.TheNameless, 'The Nameless');
     this.displayedExpansions[Expansion.WarEternal] = new ExpansionDisplay(Expansion.WarEternal, 'War Eternal');
@@ -48,6 +47,20 @@ export class ExpansionChooserComponent implements OnInit {
       Expansion.BuriedSecrets,
       Expansion.DiceTowerPromo,
     ];
+
+    const enabledExpansions: Expansion[] = this.expansionSelectionService.selectedExpansions;
+    enabledExpansions.forEach((expansion: Expansion) => {
+      this.displayedExpansions[expansion].included = true;
+    });
+
+    let allIncluded: boolean = true;
+    this.expansionOrder.forEach((expansion: Expansion) => {
+      if (!this.displayedExpansions[expansion].included) {
+        allIncluded = false;
+      }
+    });
+
+    this._allIncluded = allIncluded;
 
     this.updateShortLabel();
   }
@@ -138,6 +151,10 @@ export class ExpansionChooserComponent implements OnInit {
     } else {
       this.allCheck.setIndeterminate(true);
     }
+  }
+
+  private updateService(): void {
+
   }
 
 }
