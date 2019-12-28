@@ -100,17 +100,6 @@ export class ExpansionChooserComponent implements OnInit {
     this.updateService();
   }
 
-  getSelectedExpansions(): Expansion[] {
-    const expansions: Expansion[] = [];
-    for (const key of Object.keys(this.displayedExpansions)) {
-      const value: ExpansionDisplay = this.displayedExpansions[key];
-      if (value.included) {
-        expansions.push(value.expansion);
-      }
-    }
-
-    return expansions;
-  }
   private updateShortLabel(): void {
     // The short label will either say "n expansions" or the name of a single expansion
     // if exactly 1 is selected, or "Choose expansions" if none are, or "All expansions" if all are.
