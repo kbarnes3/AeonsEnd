@@ -54,11 +54,12 @@ export class ExpansionChooserComponent implements OnInit {
     });
 
     let allIncluded: boolean = true;
-    this.expansionOrder.forEach((expansion: Expansion) => {
-      if (!this.displayedExpansions[expansion].included) {
+    for (const key of Object.keys(this.displayedExpansions)) {
+      const value: ExpansionDisplay = this.displayedExpansions[key];
+      if (!value.included) {
         allIncluded = false;
       }
-    });
+    }
 
     this._allIncluded = allIncluded;
 
@@ -96,6 +97,7 @@ export class ExpansionChooserComponent implements OnInit {
   updateSelectedExpansions(): void {
     this.updateShortLabel();
     this.updateAllCheckbox();
+    this.updateService();
   }
 
   getSelectedExpansions(): Expansion[] {
@@ -154,7 +156,15 @@ export class ExpansionChooserComponent implements OnInit {
   }
 
   private updateService(): void {
+    const enabledExpansions: Expansion[] = [];
+    for (const key of Object.keys(this.displayedExpansions)) {
+      const value: ExpansionDisplay = this.displayedExpansions[key];
+      if (value.included) {
+        enabledExpansions.push(value.expansion);
+      }
+    }
 
+    this.expansionSelectionService.selectedExpansions = enabledExpansions;
   }
 
 }
