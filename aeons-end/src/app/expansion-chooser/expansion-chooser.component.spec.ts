@@ -4,6 +4,7 @@ import { Expansion } from '../expansion';
 import { ExpansionChooserComponent } from './expansion-chooser.component';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ExpansionSelectionService } from '../expansion-selection.service';
+import { MockExpansionSelectionService } from '../mocks/mock-expansion-selection-service';
 
 const numberOfExpansions: number = 10;
 
@@ -25,17 +26,6 @@ class MockExpansionChooserItemComponent {
   @Output() includedChange: EventEmitter<boolean> = new EventEmitter();
 
   setIndeterminate(indeterminate: boolean): void {
-  }
-}
-
-class MockExpansionSelectionService {
-  private _selectedExpansions: Expansion[] = [ Expansion.Base ];
-  get selectedExpansions(): Expansion[] {
-    return this._selectedExpansions;
-  }
-
-  set selectedExpansions(newSelection: Expansion[]) {
-    this._selectedExpansions = newSelection;
   }
 }
 

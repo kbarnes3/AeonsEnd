@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {ALL_MAKRET_CONFIGURATIONS, MarketConfiguration} from './market-configuration';
 import {MarketCard} from './market-card';
 import {Predicate} from './predicates';
 import {MarketCardType} from './martet-card-type';
 import {Expansion} from './expansion';
+import { ExpansionSelectionService } from './expansion-selection.service';
 
 import {BASE_CARDS} from './cards-data/base-cards-data';
 import {DEPTHS_CARDS} from './cards-data/depths-cards-data';
@@ -20,8 +22,22 @@ import {DICE_TOWER_PROMO_CARDS} from './cards-data/dice-tower-promo-cards-data';
   providedIn: 'root'
 })
 export class MarketService {
+  private marketCardsSubject: BehaviorSubject<MarketCard[]>;
 
-  constructor() { }
+  marketCards$: Observable<MarketCard[]>;
+
+  constructor(private expansionSelectionService: ExpansionSelectionService) {
+    this.marketCardsSubject = new BehaviorSubject<MarketCard[]>([]);
+    this.marketCards$ = this.marketCardsSubject.asObservable();
+    this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {
+      this.generateRandomMarket(expansions);
+    });
+    this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
+  }
+
+  get marketCards(): MarketCard[] {
+    return this.marketCardsSubject.getValue();
+  }
 
   private static getRandomItem<T>(items: T[]): T {
     const itemIndex = MarketService.randNumber(items.length);
@@ -120,8 +136,9 @@ export class MarketService {
     cards.sort(compareFn);
   }
 
-  generateRandomMarket(source: Expansion[]): MarketCard[] {
+  private generateRandomMarket(source: Expansion[]): void {
     const configuration: MarketConfiguration = MarketService.getRandomItem(ALL_MAKRET_CONFIGURATIONS);
-    return MarketService.getCardsInMarket(configuration, source);
+    const newCards: MarketCard[] = MarketService.getCardsInMarket(configuration, source);
+    this.marketCardsSubject.next(newCards);
   }
 }

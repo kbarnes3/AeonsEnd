@@ -16,10 +16,10 @@ export class MarketSelectionComponent implements OnInit {
   cards: MarketCard[];
 
   ngOnInit() {
-  }
-
-  generateMarket(marketSources: Expansion[]) {
-    this.cards = this.marketService.generateRandomMarket(marketSources);
+    this.marketService.marketCards$.subscribe((cards: MarketCard[]) => {
+      this.cards = cards;
+    });
+    this.cards = this.marketService.marketCards;
   }
 
   getCardCssClass(type: MarketCardType): string {
