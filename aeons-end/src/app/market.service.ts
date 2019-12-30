@@ -26,19 +26,6 @@ export class MarketService {
 
   marketCards$: Observable<MarketCard[]>;
 
-  constructor(private expansionSelectionService: ExpansionSelectionService) {
-    this.marketCardsSubject = new BehaviorSubject<MarketCard[]>([]);
-    this.marketCards$ = this.marketCardsSubject.asObservable();
-    this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {
-      this.generateRandomMarket(expansions);
-    });
-    this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
-  }
-
-  get marketCards(): MarketCard[] {
-    return this.marketCardsSubject.getValue();
-  }
-
   private static getRandomItem<T>(items: T[]): T {
     const itemIndex = MarketService.randNumber(items.length);
     return items[itemIndex];
@@ -134,6 +121,23 @@ export class MarketService {
         };
 
     cards.sort(compareFn);
+  }
+
+  constructor(private expansionSelectionService: ExpansionSelectionService) {
+    this.marketCardsSubject = new BehaviorSubject<MarketCard[]>([]);
+    this.marketCards$ = this.marketCardsSubject.asObservable();
+    this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {
+      this.generateRandomMarket(expansions);
+    });
+    this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
+  }
+
+  get marketCards(): MarketCard[] {
+    return this.marketCardsSubject.getValue();
+  }
+
+  regenerateMarket(): void {
+    this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
   }
 
   private generateRandomMarket(source: Expansion[]): void {
