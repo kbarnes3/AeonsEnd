@@ -1,7 +1,7 @@
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MarketDisplayComponent } from './market-display.component';
-import {Component} from "@angular/core";
 
 @Component({
   selector: 'app-single-game-market-display',
