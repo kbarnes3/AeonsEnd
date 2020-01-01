@@ -1,0 +1,16 @@
+export enum GameMode {
+    SingleGame,
+    ExpeditionUnknown,
+    ExpeditionStartGame1,
+    ExpeditionWinGame1,
+    ExpeditionLoseGame1,
+    ExpeditionStartGame2,
+    ExpeditionWinGame2,
+    ExpeditionLoseGame2,
+    ExpeditionStartGame3,
+    ExpeditionWinGame3,
+    ExpeditionLoseGame3,
+    ExpeditionStartGame4,
+    ExpeditionWinGame4,
+    ExpeditionLoseGame4,
+}

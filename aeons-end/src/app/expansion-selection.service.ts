@@ -6,14 +6,14 @@ import {BehaviorSubject, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ExpansionSelectionService {
-  private initalExpansionSelection: Expansion[] = [ Expansion.Base ];
-  private storageId = 'Expansions';
+  private initialExpansionSelection: Expansion[] = [ Expansion.Base ];
+  private storageId: string = 'Expansions';
   private selectedExpansionsSubject: BehaviorSubject<Expansion[]>;
 
   selectedExpansions$: Observable<Expansion[]>;
 
   constructor() {
-    const selectedExpansions = this.initializeSelectedExpansions();
+    const selectedExpansions: Expansion[] = this.initializeSelectedExpansions();
     this.selectedExpansionsSubject = new BehaviorSubject<Expansion[]>(selectedExpansions);
     this.selectedExpansions$ = this.selectedExpansionsSubject.asObservable();
   }
@@ -21,7 +21,7 @@ export class ExpansionSelectionService {
   private initializeSelectedExpansions(): Expansion[] {
     const jsonExpansions: string = localStorage.getItem(this.storageId);
     if (!jsonExpansions) {
-      return this.initalExpansionSelection;
+      return this.initialExpansionSelection;
     } else {
       return JSON.parse(jsonExpansions);
     }
