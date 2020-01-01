@@ -1,5 +1,5 @@
 import {MarketCard} from './market-card';
-import {MarketCardType} from './martet-card-type';
+import {MarketCardType} from './market-card-type';
 
 export type Predicate = (card: MarketCard) => boolean;
 

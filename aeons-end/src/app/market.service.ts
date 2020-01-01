@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {ALL_MAKRET_CONFIGURATIONS, MarketConfiguration} from './market-configuration';
 import {MarketCard} from './market-card';
 import {Predicate} from './predicates';
-import {MarketCardType} from './martet-card-type';
+import {MarketCardType} from './market-card-type';
 import {Expansion} from './expansion';
 import { ExpansionSelectionService } from './expansion-selection.service';
 

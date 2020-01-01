@@ -1,6 +1,6 @@
 import {Expansion} from '../expansion';
 import {MarketCard} from '../market-card';
-import {MarketCardType} from '../martet-card-type';
+import {MarketCardType} from '../market-card-type';
 
 export const DICE_TOWER_PROMO_CARDS: MarketCard[] = [
     {
