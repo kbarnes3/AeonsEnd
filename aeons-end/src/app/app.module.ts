@@ -7,6 +7,8 @@ import { MarketSettingsComponent } from './market-settings/market-settings.compo
 import { MarketSelectionComponent } from './market-selection/market-selection.component';
 import { ExpansionChooserComponent } from './expansion-chooser/expansion-chooser.component';
 import { ExpansionChooserItemComponent } from './expansion-chooser-item/expansion-chooser-item.component';
+import { MarketDisplayComponent } from './market-display/market-display.component';
+import { SingleGameMarketDisplayComponent } from './single-game-market-display/single-game-market-display.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ExpansionChooserItemComponent } from './expansion-chooser-item/expansio
     MarketSettingsComponent,
     MarketSelectionComponent,
     ExpansionChooserComponent,
-    ExpansionChooserItemComponent
+    ExpansionChooserItemComponent,
+    MarketDisplayComponent,
+    SingleGameMarketDisplayComponent
   ],
   imports: [
     BrowserModule,
