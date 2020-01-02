@@ -14,4 +14,4 @@ export const NAMELESS_NEMESES: Nemesis[] = [
         expansion: Expansion.TheNameless,
         battle_number: 3
     },
-]
+];

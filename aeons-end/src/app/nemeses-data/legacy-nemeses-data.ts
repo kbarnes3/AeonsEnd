@@ -16,7 +16,7 @@ export const LEGACY_NEMESES: Nemesis[] = [
     },
     {
         name: 'Final Legacy Nemesis',
-        rules: 'Fight the final nemsis in Aeon\'s End: Legacy. During setup, include three fewer upgraded basic nemesis cards in each tier.',
+        rules: 'Fight the final nemsis in Aeon\'s End: Legacy. During setup, include 3 fewer upgraded basic nemesis cards in each tier.',
         expansion: Expansion.Legacy,
         battle_number: 4
     },
@@ -38,4 +38,4 @@ export const LEGACY_NEMESES: Nemesis[] = [
         expansion: Expansion.Legacy,
         battle_number: 1
     },
-]
+];

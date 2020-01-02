@@ -6,4 +6,4 @@ export const NAMELESS_MAGES: Mage[] = [
         name: 'Malastar',
         expansion: Expansion.TheNameless
     },
-]
+];

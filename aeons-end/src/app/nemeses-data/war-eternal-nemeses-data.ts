@@ -26,4 +26,4 @@ export const WAR_ETERNAL_NEMESES: Nemesis[] = [
         expansion: Expansion.WarEternal,
         battle_number: 1
     },
-]
+];

@@ -26,4 +26,4 @@ export const BASE_NEMESES: Nemesis[] = [
         expansion: Expansion.Base,
         battle_number: 1
     },
-]
+];

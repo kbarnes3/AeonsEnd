@@ -8,4 +8,4 @@ export const SHATTERED_DREAMS_NEMESES: Nemesis[] = [
         expansion: Expansion.ShatteredDreams,
         battle_number: 3
     },
-]
+];

@@ -14,4 +14,4 @@ export const OUTER_DARK_NEMESES: Nemesis[] = [
         expansion: Expansion.TheOuterDark,
         battle_number: 4
     },
-]
+];

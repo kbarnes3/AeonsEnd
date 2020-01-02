@@ -26,4 +26,4 @@ export const NEW_AGE_NEMESES: Nemesis[] = [
         expansion: Expansion.TheNewAge,
         battle_number: 1
     },
-]
+];

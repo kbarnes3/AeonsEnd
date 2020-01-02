@@ -34,4 +34,4 @@ export const BASE_MAGES: Mage[] = [
         name: 'Xaxos (Adept)',
         expansion: Expansion.Base
     },
-]
+];

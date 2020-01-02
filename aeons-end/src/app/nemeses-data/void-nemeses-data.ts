@@ -20,4 +20,4 @@ export const VOID_NEMESES: Nemesis[] = [
         expansion: Expansion.TheVoid,
         battle_number: 3
     },
-]
+];

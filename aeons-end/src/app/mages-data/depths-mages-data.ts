@@ -14,4 +14,4 @@ export const DEPTHS_MAGES: Mage[] = [
         name: 'Z\'hana',
         expansion: Expansion.TheDepths
     },
-]
+];

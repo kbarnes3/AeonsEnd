@@ -34,4 +34,4 @@ export const WAR_ETERNAL_MAGES: Mage[] = [
         name: 'Yan Magda',
         expansion: Expansion.WarEternal
     },
-]
+];
