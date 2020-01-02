@@ -5,17 +5,20 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 offset-md-4 input-group">
-      <div class="input-group-prepend" ngbDropdown autoClose="outside" >
+    <div class="col-md-4 offset-md-4 btn-group mb-4 mr-3">
+      <div class="btn-group" ngbDropdown >
+        <button class="btn btn-secondary" ngbDropdownToggle type="button">Game mode</button>
+        <div ngbDropdownMenu>
+          <button ngbDropdownItem>Single game</button>
+        </div>
+      </div>
+      <div class="btn-group" ngbDropdown autoClose="outside" >
         <button class="btn btn-secondary" ngbDropdownToggle type="button" id="market-source">{{ expansionChooser.shortLabel }}</button>
         <div ngbDropdownMenu>
           <app-expansion-chooser #expansionChooser></app-expansion-chooser>
         </div>
       </div>
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" (click)="onGenerate()">Generate</button>
-      </div>
+      <button class="btn btn-outline-secondary" type="button" (click)="onGenerate()">Generate</button>
     </div>
   </div>
 </div>
-<app-market-selection #marketSelection></app-market-selection>
