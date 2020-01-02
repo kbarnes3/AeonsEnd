@@ -1,6 +1,6 @@
 import {Expansion} from '../expansion';
 import {MarketCard} from '../market-card';
-import {MarketCardType} from '../martet-card-type';
+import {MarketCardType} from '../market-card-type';
 
 export const OUTER_DARK_CARDS: MarketCard[] = [
     {

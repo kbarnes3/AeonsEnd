@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MarketCard} from '../market-card';
-import {MarketCardType} from '../martet-card-type';
+import {MarketCardType} from '../market-card-type';
 import {MarketService} from '../market.service';
 import {Expansion} from '../expansion';
 
