@@ -27,17 +27,17 @@ describe('GameModeService', () => {
       selectedGameMode = value;
     });
 
-    service.selectedGameMode = GameMode.ExpeditionStartGame1;
+    service.selectedGameMode = GameMode.ExpeditionStartBattle1;
 
-    expect(selectedGameMode).toBe(GameMode.ExpeditionStartGame1);
+    expect(selectedGameMode).toBe(GameMode.ExpeditionStartBattle1);
   });
 
   it('should persist values to local storage', () => {
     const service: GameModeService = TestBed.get(GameModeService);
-    service.selectedGameMode = GameMode.ExpeditionLoseGame1;
+    service.selectedGameMode = GameMode.ExpeditionLoseBattle1;
 
     const json = localStorage.getItem('GameMode');
     const storedGameMode: GameMode = JSON.parse(json);
-    expect(storedGameMode).toBe(GameMode.ExpeditionLoseGame1);
+    expect(storedGameMode).toBe(GameMode.ExpeditionLoseBattle1);
   });
 });
