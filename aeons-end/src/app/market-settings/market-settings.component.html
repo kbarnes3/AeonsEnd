@@ -16,7 +16,7 @@
       <ng-container *ngIf="this.gameMode !== this.gameModeEnum.SingleGame">
         <div class="btn-group" ngbDropdown >
           <button class="btn btn-secondary" ngbDropdownToggle type="button">{{ expeditionProgressString }}</button>
-          <div ngbDropdownMenu>
+          <div ngbDropdownMenu class="expeditionDropdown">
             <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionStartBattle1)">Start Battle 1</button>
             <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionWinBattle1)">Won Battle 1</button>
             <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionLoseBattle1)">Lost Battle 1</button>
