@@ -9,26 +9,26 @@
       <div class="btn-group" ngbDropdown >
       <button class="btn btn-secondary" ngbDropdownToggle type="button">{{ gameModeString }}</button>
         <div ngbDropdownMenu>
-          <button ngbDropdownItem (click)="onSingleGameClicked()">Single game</button>
-          <button ngbDropdownItem (click)="onExpeditionClicked()">Expedition</button>
+          <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.SingleGame)">Single game</button>
+          <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionUnknown)">Expedition</button>
         </div>
       </div>
       <ng-container *ngIf="this.gameMode !== this.gameModeEnum.SingleGame">
         <div class="btn-group" ngbDropdown >
-          <button class="btn btn-secondary" ngbDropdownToggle type="button">Expedition</button>
+          <button class="btn btn-secondary" ngbDropdownToggle type="button">{{ expeditionProgressString }}</button>
           <div ngbDropdownMenu>
-            <button ngbDropdownItem>Start Battle 1</button>
-            <button ngbDropdownItem>Won Battle 1</button>
-            <button ngbDropdownItem>Lost Battle 1</button>
-            <button ngbDropdownItem>Start Battle 1</button>
-            <button ngbDropdownItem>Won Battle 2</button>
-            <button ngbDropdownItem>Lost Battle 2</button>
-            <button ngbDropdownItem>Start Battle 2</button>
-            <button ngbDropdownItem>Won Battle 3</button>
-            <button ngbDropdownItem>Lost Battle 3</button>
-            <button ngbDropdownItem>Start Battle 4</button>
-            <button ngbDropdownItem>Won Battle 4</button>
-            <button ngbDropdownItem>Lost Battle 4</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionStartBattle1)">Start Battle 1</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionWinBattle1)">Won Battle 1</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionLoseBattle1)">Lost Battle 1</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionStartBattle2)">Start Battle 1</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionWinBattle2)">Won Battle 2</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionLoseBattle2)">Lost Battle 2</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionStartBattle3)">Start Battle 2</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionWinBattle3)">Won Battle 3</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionLoseBattle3)">Lost Battle 3</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionStartBattle4)">Start Battle 4</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionWinBattle4)">Won Battle 4</button>
+            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionLoseBattle4)">Lost Battle 4</button>
           </div>
         </div>
       </ng-container>

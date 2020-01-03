@@ -13,6 +13,7 @@ export class MarketSettingsComponent implements OnInit {
   gameMode: GameMode;
   gameModeEnum = GameMode;
   gameModeString: string;
+  expeditionProgressString: string;
 
   constructor(
     private gameModeService: GameModeService,
@@ -25,12 +26,8 @@ export class MarketSettingsComponent implements OnInit {
     this.updateGameMode(this.gameModeService.selectedGameMode);
   }
 
-  onSingleGameClicked(): void {
-    this.gameModeService.selectedGameMode = GameMode.SingleGame;
-  }
-
-  onExpeditionClicked(): void {
-    this.gameModeService.selectedGameMode = GameMode.ExpeditionUnknown;
+  onGameModeClicked(gameMode: GameMode): void {
+    this.gameModeService.selectedGameMode = gameMode;
   }
 
   onGenerate(): void {
@@ -43,6 +40,34 @@ export class MarketSettingsComponent implements OnInit {
       this.gameModeString = 'Single game';
     } else {
       this.gameModeString = 'Expedition';
+    }
+
+    if (this.gameMode === GameMode.ExpeditionUnknown) {
+      this.expeditionProgressString = 'Choose Battle';
+    } else if (this.gameMode === GameMode.ExpeditionStartBattle1) {
+      this.expeditionProgressString = 'Start Battle 1';
+    } else if (this.gameMode === GameMode.ExpeditionWinBattle1) {
+      this.expeditionProgressString = 'Won Battle 1';
+    } else if (this.gameMode === GameMode.ExpeditionLoseBattle1) {
+      this.expeditionProgressString = 'Lost Battle 1';
+    } else if (this.gameMode === GameMode.ExpeditionStartBattle2) {
+      this.expeditionProgressString = 'Start Battle 2';
+    } else if (this.gameMode === GameMode.ExpeditionWinBattle2) {
+      this.expeditionProgressString = 'Won Battle 2';
+    } else if (this.gameMode === GameMode.ExpeditionLoseBattle2) {
+      this.expeditionProgressString = 'Lost Battle 2';
+    } else if (this.gameMode === GameMode.ExpeditionStartBattle3) {
+      this.expeditionProgressString = 'Start Battle 3';
+    } else if (this.gameMode === GameMode.ExpeditionWinBattle3) {
+      this.expeditionProgressString = 'Won Battle 3';
+    } else if (this.gameMode === GameMode.ExpeditionLoseBattle3) {
+      this.expeditionProgressString = 'Lost Battle 3';
+    } else if (this.gameMode === GameMode.ExpeditionStartBattle4) {
+      this.expeditionProgressString = 'Start Battle 4';
+    } else if (this.gameMode === GameMode.ExpeditionWinBattle4) {
+      this.expeditionProgressString = 'Won Battle 4';
+    } else if (this.gameMode === GameMode.ExpeditionLoseBattle4) {
+      this.expeditionProgressString = 'Lost Battle 4';
     }
   }
 }
