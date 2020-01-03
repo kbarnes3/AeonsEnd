@@ -1,1 +1,3 @@
-<app-single-game-market-display></app-single-game-market-display>
+<ng-container *ngIf="gameMode === gameModeEnum.SingleGame">
+  <app-single-game-market-display></app-single-game-market-display>
+</ng-container>

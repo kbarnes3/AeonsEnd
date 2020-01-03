@@ -7,11 +7,31 @@
   <div class="row">
     <div class="col-md-4 offset-md-4 btn-group mb-4 mr-3">
       <div class="btn-group" ngbDropdown >
-        <button class="btn btn-secondary" ngbDropdownToggle type="button">Game mode</button>
+      <button class="btn btn-secondary" ngbDropdownToggle type="button">{{ gameModeString }}</button>
         <div ngbDropdownMenu>
-          <button ngbDropdownItem>Single game</button>
+          <button ngbDropdownItem (click)="onSingleGameClicked()">Single game</button>
+          <button ngbDropdownItem (click)="onExpeditionClicked()">Expedition</button>
         </div>
       </div>
+      <ng-container *ngIf="this.gameMode !== this.gameModeEnum.SingleGame">
+        <div class="btn-group" ngbDropdown >
+          <button class="btn btn-secondary" ngbDropdownToggle type="button">Expedition</button>
+          <div ngbDropdownMenu>
+            <button ngbDropdownItem>Start Battle 1</button>
+            <button ngbDropdownItem>Won Battle 1</button>
+            <button ngbDropdownItem>Lost Battle 1</button>
+            <button ngbDropdownItem>Start Battle 1</button>
+            <button ngbDropdownItem>Won Battle 2</button>
+            <button ngbDropdownItem>Lost Battle 2</button>
+            <button ngbDropdownItem>Start Battle 2</button>
+            <button ngbDropdownItem>Won Battle 3</button>
+            <button ngbDropdownItem>Lost Battle 3</button>
+            <button ngbDropdownItem>Start Battle 4</button>
+            <button ngbDropdownItem>Won Battle 4</button>
+            <button ngbDropdownItem>Lost Battle 4</button>
+          </div>
+        </div>
+      </ng-container>
       <div class="btn-group" ngbDropdown autoClose="outside" >
         <button class="btn btn-secondary" ngbDropdownToggle type="button" id="market-source">{{ expansionChooser.shortLabel }}</button>
         <div ngbDropdownMenu>
