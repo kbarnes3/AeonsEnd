@@ -38,4 +38,14 @@ describe('CardsData', () => {
             });
         });
     });
+
+    it('should only contain cards with unique names', () => {
+      const seenCards = {};
+      expectedSets.forEach((cardSet: CardSet) => {
+        cardSet.cards.forEach((card: MarketCard) => {
+          expect(seenCards[card.name]).toBeFalsy(card.name + ' seen in both ' + seenCards[card.name] + ' and ' + cardSet.name);
+          seenCards[card.name] = cardSet.name;
+        });
+      });
+    });
 });
