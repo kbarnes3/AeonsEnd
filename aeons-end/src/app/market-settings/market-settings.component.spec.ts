@@ -41,14 +41,14 @@ describe('MarketSettingsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should hide the expansion dropdown for single games',() => {
+  it('should hide the expansion dropdown for single games', () => {
     gameModeService.selectedGameMode = GameMode.SingleGame;
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('.expeditionDropdown')).toBeFalsy();
   });
 
-  it('should show the expansion dropdown for expeditions',() => {
+  it('should show the expansion dropdown for expeditions', () => {
     gameModeService.selectedGameMode = GameMode.ExpeditionUnknown;
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
