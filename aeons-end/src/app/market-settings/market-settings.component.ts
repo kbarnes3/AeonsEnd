@@ -4,6 +4,7 @@ import { MarketService } from '../market.service';
 import { GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 import { MageService } from '../mage.service';
+import { NemesisService } from '../nemesis.service';
 
 @Component({
   selector: 'app-market-settings',
@@ -19,7 +20,8 @@ export class MarketSettingsComponent implements OnInit {
   constructor(
     private gameModeService: GameModeService,
     private marketService: MarketService,
-    private mageService: MageService) { }
+    private mageService: MageService,
+    private nemesisService: NemesisService) { }
 
   ngOnInit(): void {
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {
@@ -35,6 +37,7 @@ export class MarketSettingsComponent implements OnInit {
   onGenerate(): void {
     this.marketService.regenerateMarket();
     this.mageService.regenerateMages();
+    this.nemesisService.regenerateNemesis();
   }
 
   private updateGameMode(newGameMode: GameMode): void {
