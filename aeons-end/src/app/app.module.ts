@@ -14,6 +14,7 @@ import { ExpeditionUnknownDisplayComponent } from './expedition-unknown-display/
 import { MageDisplayComponent } from './mage-display/mage-display.component';
 import { NemesisDisplayComponent } from './nemesis-display/nemesis-display.component';
 import { ExpeditionWinDisplayComponent } from './expedition-win-display/expedition-win-display.component';
+import { ExpeditionLoseDisplayComponent } from './expedition-lose-display/expedition-lose-display.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ExpeditionWinDisplayComponent } from './expedition-win-display/expediti
     ExpeditionUnknownDisplayComponent,
     MageDisplayComponent,
     NemesisDisplayComponent,
-    ExpeditionWinDisplayComponent
+    ExpeditionWinDisplayComponent,
+    ExpeditionLoseDisplayComponent
   ],
   imports: [
     BrowserModule,

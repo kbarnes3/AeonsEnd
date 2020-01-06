@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExpeditionWinDisplayComponent } from './expedition-win-display.component';
+import { ExpeditionLoseDisplayComponent } from './expedition-lose-display.component';
 
 @Component({
   selector: 'app-market-selection',
@@ -9,22 +9,29 @@ import { ExpeditionWinDisplayComponent } from './expedition-win-display.componen
 })
 class MockMarketSelectionComponent {}
 
-describe('ExpeditionWinDisplayComponent', () => {
-  let component: ExpeditionWinDisplayComponent;
-  let fixture: ComponentFixture<ExpeditionWinDisplayComponent>;
+@Component({
+  selector: 'app-mage-display',
+  template: '<p>Mage Display</p>'
+})
+class MockMageDisplayComponent {}
+
+describe('ExpeditionLoseDisplayComponent', () => {
+  let component: ExpeditionLoseDisplayComponent;
+  let fixture: ComponentFixture<ExpeditionLoseDisplayComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ExpeditionWinDisplayComponent,
-        MockMarketSelectionComponent
+        ExpeditionLoseDisplayComponent,
+        MockMarketSelectionComponent,
+        MockMageDisplayComponent
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExpeditionWinDisplayComponent);
+    fixture = TestBed.createComponent(ExpeditionLoseDisplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

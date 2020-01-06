@@ -1,13 +1,18 @@
 import { BehaviorSubject, Observable } from 'rxjs';
-import { GameMode } from '../game-mode';
+import { GameMode, ExpeditionLoseChoice } from '../game-mode';
 
 export class MockGameModeService {
   private selectedGameModeSubject: BehaviorSubject<GameMode>;
+  private expeditionLoseChoiceSubject: BehaviorSubject<ExpeditionLoseChoice>;
   selectedGameMode$: Observable<GameMode>;
+  selectedExpeditionLoseChoice$: Observable<ExpeditionLoseChoice>;
+
 
   constructor() {
     this.selectedGameModeSubject = new BehaviorSubject<GameMode>(GameMode.SingleGame);
     this.selectedGameMode$ = this.selectedGameModeSubject.asObservable();
+    this.expeditionLoseChoiceSubject = new BehaviorSubject<ExpeditionLoseChoice>(ExpeditionLoseChoice.NoChoice);
+    this.selectedExpeditionLoseChoice$ = this.expeditionLoseChoiceSubject.asObservable();
   }
 
   get selectedGameMode(): GameMode {
@@ -15,6 +20,17 @@ export class MockGameModeService {
   }
 
   set selectedGameMode(newSelection: GameMode) {
-    this.selectedGameModeSubject.next(newSelection);
+    if (newSelection !== this.selectedGameMode) {
+      this.selectedGameModeSubject.next(newSelection);
+      this.selectedExpeditionLoseChoice = ExpeditionLoseChoice.NoChoice;
+    }
+  }
+
+  get selectedExpeditionLoseChoice(): ExpeditionLoseChoice {
+    return this.expeditionLoseChoiceSubject.getValue();
+  }
+
+  set selectedExpeditionLoseChoice(choice: ExpeditionLoseChoice) {
+    this.expeditionLoseChoiceSubject.next(choice);
   }
 }

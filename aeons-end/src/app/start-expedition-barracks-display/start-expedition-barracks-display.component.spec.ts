@@ -9,6 +9,18 @@ import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barr
 })
 class MockMarketSelectionComponent {}
 
+@Component({
+  selector: 'app-mage-display',
+  template: '<p>Mage Display</p>'
+})
+class MockMageDisplayComponent {}
+
+@Component({
+  selector: 'app-nemesis-display',
+  template: '<p>Nemesis Display</p>'
+})
+class MockNemesisDisplayComponent {}
+
 describe('StartExpeditionBarracksDisplayComponent', () => {
   let component: StartExpeditionBarracksDisplayComponent;
   let fixture: ComponentFixture<StartExpeditionBarracksDisplayComponent>;
@@ -17,7 +29,9 @@ describe('StartExpeditionBarracksDisplayComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         StartExpeditionBarracksDisplayComponent,
-        MockMarketSelectionComponent
+        MockMarketSelectionComponent,
+        MockMageDisplayComponent,
+        MockNemesisDisplayComponent
       ]
     })
     .compileComponents();
