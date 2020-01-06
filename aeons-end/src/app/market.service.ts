@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {SINGLE_GAME_MARKET_CONFIGURATIONS, MarketConfiguration, START_EXPEDITION_MARKET_CONFIGURATION, EXPEDITION_WIN_MARKET_CONFIGURATION, EXPEDITION_LOSE_CHOOSE_GEM, EXPEDITION_LOSE_CHOOSE_RELIC, EXPEDITION_LOSE_CHOOSE_SPELL} from './market-configuration';
+import {SINGLE_GAME_MARKET_CONFIGURATIONS, MarketConfiguration, START_EXPEDITION_MARKET_CONFIGURATION, EXPEDITION_WIN_MARKET_CONFIGURATION,
+  EXPEDITION_LOSE_CHOOSE_GEM, EXPEDITION_LOSE_CHOOSE_RELIC, EXPEDITION_LOSE_CHOOSE_SPELL} from './market-configuration';
 import {MarketCard} from './market-card';
 import {Predicate} from './predicates';
 import {MarketCardType} from './market-card-type';
