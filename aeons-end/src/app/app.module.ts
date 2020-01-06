@@ -11,6 +11,8 @@ import { MarketDisplayComponent } from './market-display/market-display.componen
 import { SingleGameMarketDisplayComponent } from './single-game-market-display/single-game-market-display.component';
 import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barracks-display/start-expedition-barracks-display.component';
 import { ExpeditionUnknownDisplayComponent } from './expedition-unknown-display/expedition-unknown-display.component';
+import { MageDisplayComponent } from './mage-display/mage-display.component';
+import { NemesisDisplayComponent } from './nemesis-display/nemesis-display.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ExpeditionUnknownDisplayComponent } from './expedition-unknown-display/
     MarketDisplayComponent,
     SingleGameMarketDisplayComponent,
     StartExpeditionBarracksDisplayComponent,
-    ExpeditionUnknownDisplayComponent
+    ExpeditionUnknownDisplayComponent,
+    MageDisplayComponent,
+    NemesisDisplayComponent
   ],
   imports: [
     BrowserModule,
