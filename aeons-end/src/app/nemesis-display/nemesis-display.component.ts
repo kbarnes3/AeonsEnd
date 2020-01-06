@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Nemesis } from '../nemesis';
-import { NEW_AGE_NEMESES } from '../nemeses-data/new-age-nemeses-data';
+import { NemesisService } from '../nemesis.service';
 
 @Component({
   selector: 'app-nemesis-display',
@@ -9,13 +9,15 @@ import { NEW_AGE_NEMESES } from '../nemeses-data/new-age-nemeses-data';
 })
 export class NemesisDisplayComponent implements OnInit {
 
-  constructor() { }
+  constructor(private nemesisService: NemesisService) { }
 
   nemesis: Nemesis;
 
   ngOnInit() {
-    // This should subscribe to the nemesis service
-    this.nemesis = NEW_AGE_NEMESES[0];
+    this.nemesisService.nemesis$.subscribe((nemesis: Nemesis) => {
+      this.nemesis = nemesis;
+    });
+    this.nemesis = this.nemesisService.nemesis;
   }
 
 }
