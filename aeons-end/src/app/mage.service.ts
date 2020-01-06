@@ -36,9 +36,9 @@ export class MageService {
     let choices: Mage[] = MageService.getMagesInExpansions(source);
 
     for (let i = 0; i < count; i++) {
-      let selection: Mage = MageService.getRandomItem(choices);
+      const selection: Mage = MageService.getRandomItem(choices);
       selectedMages.push(selection);
-      choices = choices.filter(mage => mage != selection);
+      choices = choices.filter(mage => mage !== selection);
     }
 
     MageService.sortMages(selectedMages);
