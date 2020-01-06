@@ -9,6 +9,8 @@ import { ExpansionChooserComponent } from './expansion-chooser/expansion-chooser
 import { ExpansionChooserItemComponent } from './expansion-chooser-item/expansion-chooser-item.component';
 import { MarketDisplayComponent } from './market-display/market-display.component';
 import { SingleGameMarketDisplayComponent } from './single-game-market-display/single-game-market-display.component';
+import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barracks-display/start-expedition-barracks-display.component';
+import { ExpeditionUnknownDisplayComponent } from './expedition-unknown-display/expedition-unknown-display.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SingleGameMarketDisplayComponent } from './single-game-market-display/s
     ExpansionChooserComponent,
     ExpansionChooserItemComponent,
     MarketDisplayComponent,
-    SingleGameMarketDisplayComponent
+    SingleGameMarketDisplayComponent,
+    StartExpeditionBarracksDisplayComponent,
+    ExpeditionUnknownDisplayComponent
   ],
   imports: [
     BrowserModule,

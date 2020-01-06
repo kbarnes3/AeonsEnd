@@ -5,7 +5,7 @@ export class MarketConfiguration {
     cards: Predicate[];
 }
 
-export const ALL_MAKRET_CONFIGURATIONS: MarketConfiguration[] = [
+export const SINGLE_GAME_MARKET_CONFIGURATIONS: MarketConfiguration[] = [
     {
         name: 'Market Setup 1',
         cards: [
@@ -91,3 +91,18 @@ export const ALL_MAKRET_CONFIGURATIONS: MarketConfiguration[] = [
         ]
       }
 ];
+
+export const START_EXPEDITION_MARKET_CONFIGURATION: MarketConfiguration = {
+  name: 'Start expedition',
+  cards: [
+    Predicates.AnyGem(),
+    Predicates.AnyGem(),
+    Predicates.AnyGem(),
+    Predicates.AnyRelic(),
+    Predicates.AnyRelic(),
+    Predicates.AnySpell(),
+    Predicates.AnySpell(),
+    Predicates.AnySpell(),
+    Predicates.AnySpell()
+  ]
+};

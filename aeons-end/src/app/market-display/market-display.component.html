@@ -1,3 +1,10 @@
 <ng-container *ngIf="gameMode === gameModeEnum.SingleGame">
   <app-single-game-market-display></app-single-game-market-display>
 </ng-container>
+<ng-container *ngIf="gameMode === gameModeEnum.ExpeditionUnknown">
+  <app-expedition-unknown-display></app-expedition-unknown-display>
+</ng-container>
+<ng-container *ngIf="gameMode === gameModeEnum.ExpeditionStartBattle1">
+  <app-start-expedition-barracks-display></app-start-expedition-barracks-display>
+</ng-container>
+
