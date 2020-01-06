@@ -13,6 +13,7 @@ import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barr
 import { ExpeditionUnknownDisplayComponent } from './expedition-unknown-display/expedition-unknown-display.component';
 import { MageDisplayComponent } from './mage-display/mage-display.component';
 import { NemesisDisplayComponent } from './nemesis-display/nemesis-display.component';
+import { ExpeditionWinDisplayComponent } from './expedition-win-display/expedition-win-display.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NemesisDisplayComponent } from './nemesis-display/nemesis-display.compo
     StartExpeditionBarracksDisplayComponent,
     ExpeditionUnknownDisplayComponent,
     MageDisplayComponent,
-    NemesisDisplayComponent
+    NemesisDisplayComponent,
+    ExpeditionWinDisplayComponent
   ],
   imports: [
     BrowserModule,

@@ -106,3 +106,12 @@ export const START_EXPEDITION_MARKET_CONFIGURATION: MarketConfiguration = {
     Predicates.AnySpell()
   ]
 };
+
+export const EXPEDITION_WIN_MARKET_CONFIGURATION: MarketConfiguration = {
+  name: 'Won expedition battle',
+  cards: [
+    Predicates.AnyGem(),
+    Predicates.AnyRelic(),
+    Predicates.AnySpell()
+  ]
+}
