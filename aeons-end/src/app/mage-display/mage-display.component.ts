@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Mage } from '../mage';
-import { NEW_AGE_MAGES } from '../mages-data/new-age-mages-data';
+import { MageService } from '../mage.service';
 
 @Component({
   selector: 'app-mage-display',
@@ -9,17 +9,15 @@ import { NEW_AGE_MAGES } from '../mages-data/new-age-mages-data';
 })
 export class MageDisplayComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mageService: MageService) { }
 
   mages: Mage[];
 
   ngOnInit() {
-    // This should subscribe to the mage service
-    this.mages = [];
-    this.mages.push(NEW_AGE_MAGES[0]);
-    this.mages.push(NEW_AGE_MAGES[1]);
-    this.mages.push(NEW_AGE_MAGES[2]);
-    this.mages.push(NEW_AGE_MAGES[3]);
+    this.mageService.mages$.subscribe((mages: Mage[]) => {
+      this.mages = mages;
+    });
+    this.mages = this.mageService.mages;
   }
 
 }

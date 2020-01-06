@@ -2,6 +2,17 @@ import { Injectable } from '@angular/core';
 import { Mage } from './mage';
 import { Expansion } from './expansion';
 import { BASE_MAGES } from './mages-data/base-mages-data';
+import { GameMode } from './game-mode';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { DEPTHS_MAGES } from './mages-data/depths-mages-data';
+import { NAMELESS_MAGES } from './mages-data/nameless-mages-data';
+import { WAR_ETERNAL_MAGES } from './mages-data/war-eternal-mages-data';
+import { VOID_MAGES } from './mages-data/void-mages-data';
+import { OUTER_DARK_MAGES } from './mages-data/outer-dark-mages-data';
+import { ExpansionSelectionService } from './expansion-selection.service';
+import { GameModeService } from './game-mode.service';
+import { NEW_AGE_MAGES } from './mages-data/new-age-mages-data';
+import { SHATTERED_DREAMS_MAGES } from './mages-data/shattered-dreams-mages-data';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +36,9 @@ export class MageService {
     let choices: Mage[] = MageService.getMagesInExpansions(source);
 
     for (let i = 0; i < count; i++) {
+      debugger;
       let selection: Mage = MageService.getRandomItem(choices);
-      selectedMages.concat(selection);
+      selectedMages.push(selection);
       choices = choices.filter(mage => mage != selection);
     }
 
@@ -48,7 +60,7 @@ export class MageService {
           mages = mages.concat(NAMELESS_MAGES);
           break;
         case Expansion.WarEternal:
-          mages = mages.concat(WAR_ETERNAL+MAGES);
+          mages = mages.concat(WAR_ETERNAL_MAGES);
           break;
         case Expansion.TheVoid:
           mages = mages.concat(VOID_MAGES);
@@ -56,14 +68,11 @@ export class MageService {
         case Expansion.TheOuterDark:
           mages = mages.concat(OUTER_DARK_MAGES);
           break;
-        case Expansion.Legacy:
-          mages = mages.concat(LEGACY_MAGES);
+        case Expansion.TheNewAge:
+          mages = mages.concat(NEW_AGE_MAGES);
           break;
-        case Expansion.LegacyPromo:
-          mages = mages.concat(LEGACY_PROMO_MAGES);
-          break;
-        case Expansion.BuriedSecrets:
-          mages = mages.concat(BURIED_SECRETS_MAGES);
+        case Expansion.ShatteredDreams:
+          mages = mages.concat(SHATTERED_DREAMS_MAGES);
           break;
       }
     });
@@ -86,12 +95,12 @@ export class MageService {
     this.magesSubject = new BehaviorSubject<Mage[]>([]);
     this.mages$ = this.magesSubject.asObservable();
     this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {
-      this.regenerateMages(expansions, 4);
+      this.generateRandomMages(expansions);
     });
     this.gameModeService.selectedGameMode$.subscribe(() => {
-      this.regenerateMages(this.expansionSelectionService.selectedExpansions, 4);
+      this.generateRandomMages(this.expansionSelectionService.selectedExpansions);
     });
-    this.regenerateMages(this.expansionSelectionService.selectedExpansions, 4);
+    this.generateRandomMages(this.expansionSelectionService.selectedExpansions);
   }
 
   get mages(): Mage[] {
@@ -99,27 +108,26 @@ export class MageService {
   }
 
   regenerateMages(): void {
-    this.regenerateMages(this.expansionSelectionService.selectedExpansions);
+    this.generateRandomMages(this.expansionSelectionService.selectedExpansions);
   }
 
-  private getMarketConfiguration(): MarketConfiguration {
+  private generateRandomMages(source: Expansion[]): void {
     const gameMode: GameMode = this.gameModeService.selectedGameMode;
-    if (gameMode === GameMode.SingleGame) {
-      return MarketService.getRandomItem(SINGLE_GAME_MARKET_CONFIGURATIONS);
-    } else if (gameMode === GameMode.ExpeditionStartBattle1) {
-      return START_EXPEDITION_MARKET_CONFIGURATION;
-    } else {
-      return null;
-    }
-  }
-
-  private generateRandomMarket(source: Expansion[]): void {
-    const configuration: MarketConfiguration = this.getMarketConfiguration();
-    if (configuration) {
-      const newCards: MarketCard[] = MarketService.getCardsInMarket(configuration, source);
-      this.marketCardsSubject.next(newCards);
-    } else {
-      this.marketCardsSubject.next(null);
+    switch (gameMode) {
+      case GameMode.ExpeditionStartBattle1:
+        const newMages: Mage[] = MageService.getRandomMages(source, 4);
+        this.magesSubject.next(newMages);
+        break;
+      case GameMode.ExpeditionLoseBattle1:
+      case GameMode.ExpeditionLoseBattle2:
+      case GameMode.ExpeditionLoseBattle3:
+      case GameMode.ExpeditionLoseBattle4:
+        // Potentially generate a random mage here.
+        this.magesSubject.next(null);
+        break;
+      default:
+        this.magesSubject.next(null);
+        break;
     }
   }
 }
