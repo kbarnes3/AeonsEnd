@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { GameMode } from './game-mode';
+import { GameMode, ExpeditionLoseChoice } from './game-mode';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +9,17 @@ export class GameModeService {
   private initialGameMode: GameMode = GameMode.SingleGame;
   private storageId: string = 'GameMode';
   private selectedGameModeSubject: BehaviorSubject<GameMode>;
+  private expeditionLoseChoiceSubject: BehaviorSubject<ExpeditionLoseChoice>;
 
   selectedGameMode$: Observable<GameMode>;
+  selectedExpeditionLoseChoice$: Observable<ExpeditionLoseChoice>;
 
   constructor() {
     const selectedGameMode: GameMode = this.initializeSelectedGameMode();
     this.selectedGameModeSubject = new BehaviorSubject<GameMode>(selectedGameMode);
     this.selectedGameMode$ = this.selectedGameModeSubject.asObservable();
+    this.expeditionLoseChoiceSubject = new BehaviorSubject<ExpeditionLoseChoice>(ExpeditionLoseChoice.NoChoice);
+    this.selectedExpeditionLoseChoice$ = this.expeditionLoseChoiceSubject.asObservable();
   }
 
   private initializeSelectedGameMode(): GameMode {
@@ -32,8 +36,20 @@ export class GameModeService {
   }
 
   set selectedGameMode(newSelection: GameMode) {
-    const jsonGameMode: string = JSON.stringify(newSelection);
-    localStorage.setItem(this.storageId, jsonGameMode);
-    this.selectedGameModeSubject.next(newSelection);
+    if (newSelection !== this.selectedGameMode) {
+      const jsonGameMode: string = JSON.stringify(newSelection);
+      localStorage.setItem(this.storageId, jsonGameMode);
+      this.selectedGameModeSubject.next(newSelection);
+
+      this.selectedExpeditionLoseChoice = ExpeditionLoseChoice.NoChoice;
+    }
+  }
+
+  get selectedExpeditionLoseChoice(): ExpeditionLoseChoice {
+    return this.expeditionLoseChoiceSubject.getValue();
+  }
+
+  set selectedExpeditionLoseChoice(choice: ExpeditionLoseChoice) {
+    this.expeditionLoseChoiceSubject.next(choice);
   }
 }

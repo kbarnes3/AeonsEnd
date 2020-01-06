@@ -14,3 +14,12 @@ export enum GameMode {
     ExpeditionWinBattle4,
     ExpeditionLoseBattle4,
 }
+
+export enum ExpeditionLoseChoice {
+  NoChoice,
+  AddGem,
+  AddRelic,
+  AddSpell,
+  AddTreasure,
+  AddMage
+}

@@ -1,0 +1,12 @@
+<ng-container *ngIf="loseChoice === loseChoiceEnum.NoChoice">
+  <div class="row"><p>Choose on of the following:</p></div>
+  <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddGem)">Add a gem to your Barracks</button></p></div>
+  <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddRelic)">Add a relic to your Barracks</button></p></div>
+  <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddSpell)">Add a spell to your Barracks</button></p></div>
+  <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddTreasure)">Add a treasure to your Barracks</button></p></div>
+  <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddMage)">Add a mage to your Barracks</button></p></div>
+</ng-container>
+
+<ng-container *ngIf="loseChoice === loseChoiceEnum.AddGem || loseChoice === loseChoiceEnum.AddRelic || loseChoice === loseChoiceEnum.AddSpell">
+  <app-market-selection></app-market-selection>
+</ng-container>

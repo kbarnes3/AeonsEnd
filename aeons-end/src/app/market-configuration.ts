@@ -115,3 +115,24 @@ export const EXPEDITION_WIN_MARKET_CONFIGURATION: MarketConfiguration = {
     Predicates.AnySpell()
   ]
 }
+
+export const EXPEDITION_LOSE_CHOOSE_GEM: MarketConfiguration = {
+  name: 'Lost expedition battle and chose gem',
+  cards: [
+    Predicates.AnyGem(),
+  ]
+}
+
+export const EXPEDITION_LOSE_CHOOSE_RELIC: MarketConfiguration = {
+  name: 'Lost expedition battle and chose relic',
+  cards: [
+    Predicates.AnyRelic(),
+  ]
+}
+
+export const EXPEDITION_LOSE_CHOOSE_SPELL: MarketConfiguration = {
+  name: 'Lost expedition battle and chose spell',
+  cards: [
+    Predicates.AnySpell(),
+  ]
+}
