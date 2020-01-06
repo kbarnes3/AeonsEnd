@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Mage } from './mage';
 import { Expansion } from './expansion';
 import { BASE_MAGES } from './mages-data/base-mages-data';
-import { GameMode } from './game-mode';
+import { GameMode, ExpeditionLoseChoice } from './game-mode';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DEPTHS_MAGES } from './mages-data/depths-mages-data';
 import { NAMELESS_MAGES } from './mages-data/nameless-mages-data';
@@ -99,6 +99,9 @@ export class MageService {
     this.gameModeService.selectedGameMode$.subscribe(() => {
       this.generateRandomMages(this.expansionSelectionService.selectedExpansions);
     });
+    this.gameModeService.selectedExpeditionLoseChoice$.subscribe(() => {
+      this.generateRandomMages(this.expansionSelectionService.selectedExpansions);
+    });
     this.generateRandomMages(this.expansionSelectionService.selectedExpansions);
   }
 
@@ -112,17 +115,23 @@ export class MageService {
 
   private generateRandomMages(source: Expansion[]): void {
     const gameMode: GameMode = this.gameModeService.selectedGameMode;
+    let newMages: Mage[];
+
     switch (gameMode) {
       case GameMode.ExpeditionStartBattle1:
-        const newMages: Mage[] = MageService.getRandomMages(source, 4);
+        newMages = MageService.getRandomMages(source, 4);
         this.magesSubject.next(newMages);
         break;
       case GameMode.ExpeditionLoseBattle1:
       case GameMode.ExpeditionLoseBattle2:
       case GameMode.ExpeditionLoseBattle3:
       case GameMode.ExpeditionLoseBattle4:
-        // Potentially generate a random mage here.
-        this.magesSubject.next(null);
+        if (this.gameModeService.selectedExpeditionLoseChoice === ExpeditionLoseChoice.AddMage) {
+          newMages = MageService.getRandomMages(source, 1);
+          this.magesSubject.next(newMages);
+        } else {
+          this.magesSubject.next(null);
+        }
         break;
       default:
         this.magesSubject.next(null);

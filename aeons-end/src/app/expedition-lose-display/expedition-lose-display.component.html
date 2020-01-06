@@ -10,3 +10,17 @@
 <ng-container *ngIf="loseChoice === loseChoiceEnum.AddGem || loseChoice === loseChoiceEnum.AddRelic || loseChoice === loseChoiceEnum.AddSpell">
   <app-market-selection></app-market-selection>
 </ng-container>
+
+<ng-container *ngIf="loseChoice === loseChoiceEnum.AddTreasure">
+  <h2>Treasures</h2>
+  <p>Draw a random card from any treasure deck from which you have already received cards.</p>
+</ng-container>
+
+<ng-container *ngIf="loseChoice === loseChoiceEnum.AddMage">
+  <app-mage-display></app-mage-display>
+</ng-container>
+
+<ng-container *ngIf="loseChoice !== loseChoiceEnum.NoChoice">
+  <h2>Nemesis</h2>
+  <p>Fight this nemesis again.</p>
+</ng-container>

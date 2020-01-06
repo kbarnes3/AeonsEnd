@@ -7,7 +7,7 @@ import { Mage } from './mage';
 import { MockGameModeService } from './mocks/mock-game-mode-service';
 import { GameModeService } from './game-mode.service';
 import { Expansion } from './expansion';
-import { GameMode } from './game-mode';
+import { GameMode, ExpeditionLoseChoice } from './game-mode';
 
 describe('MageService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
@@ -29,5 +29,16 @@ describe('MageService', () => {
       expect(mage).toBeTruthy();
       expect(mage.expansion).toEqual(Expansion.Base);
     });
+  });
+
+  it('should generate a single mage when losing a battle', () => {
+    const service: MageService = TestBed.get(MageService);
+    const expansionSelectionService: MockExpansionSelectionService = TestBed.get(ExpansionSelectionService);
+    const gameModeService: MockGameModeService = TestBed.get(GameModeService);
+    gameModeService.selectedGameMode = GameMode.ExpeditionLoseBattle1;
+    gameModeService.selectedExpeditionLoseChoice = ExpeditionLoseChoice.AddMage;
+    expansionSelectionService.selectedExpansions = [ Expansion.Base ];
+    const mages: Mage[] = service.mages;
+    expect(mages.length).toEqual(1);
   });
 });
