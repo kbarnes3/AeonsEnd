@@ -135,7 +135,7 @@ export class MarketService {
     });
     this.gameModeService.selectedGameMode$.subscribe(() => {
       this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
-    })
+    });
     this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
   }
 

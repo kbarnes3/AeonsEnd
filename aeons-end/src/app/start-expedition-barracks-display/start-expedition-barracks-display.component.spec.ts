@@ -1,6 +1,13 @@
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barracks-display.component';
+
+@Component({
+  selector: 'app-market-selection',
+  template: '<p>Market Selection</p>'
+})
+class MockMarketSelectionComponent {}
 
 describe('StartExpeditionBarracksDisplayComponent', () => {
   let component: StartExpeditionBarracksDisplayComponent;
@@ -8,7 +15,10 @@ describe('StartExpeditionBarracksDisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StartExpeditionBarracksDisplayComponent ]
+      declarations: [
+        StartExpeditionBarracksDisplayComponent,
+        MockMarketSelectionComponent
+      ]
     })
     .compileComponents();
   }));

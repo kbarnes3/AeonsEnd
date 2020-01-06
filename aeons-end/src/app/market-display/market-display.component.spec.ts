@@ -9,6 +9,18 @@ import { MarketDisplayComponent } from './market-display.component';
 })
 class MockSingleGameMarketDisplayComponent {}
 
+@Component({
+  selector: 'app-expedition-unknown-display',
+  template: '<p>Expedition Unknown Display</p>'
+})
+class MockExpeditionUnknownDisplayComponent {}
+
+@Component({
+  selector: 'app-start-expedition-barracks-display',
+  template: '<p>Start Expedition Barracks Display</p>'
+})
+class MockStartExpeditionBarracksDisplayComponent {}
+
 describe('MarketDisplayComponent', () => {
   let component: MarketDisplayComponent;
   let fixture: ComponentFixture<MarketDisplayComponent>;
@@ -17,7 +29,9 @@ describe('MarketDisplayComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         MarketDisplayComponent,
-        MockSingleGameMarketDisplayComponent
+        MockSingleGameMarketDisplayComponent,
+        MockExpeditionUnknownDisplayComponent,
+        MockStartExpeditionBarracksDisplayComponent
       ]
     })
     .compileComponents();
