@@ -7,4 +7,7 @@
 <ng-container *ngIf="gameMode === gameModeEnum.ExpeditionStartBattle1">
   <app-start-expedition-barracks-display></app-start-expedition-barracks-display>
 </ng-container>
+<ng-container *ngIf="gameMode === gameModeEnum.ExpeditionWinBattle1 || gameMode === gameModeEnum.ExpeditionWinBattle2 || gameMode === gameModeEnum.ExpeditionWinBattle3">
+  <app-expedition-win-display></app-expedition-win-display>
+</ng-container>
 

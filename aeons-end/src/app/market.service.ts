@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {SINGLE_GAME_MARKET_CONFIGURATIONS, MarketConfiguration, START_EXPEDITION_MARKET_CONFIGURATION} from './market-configuration';
+import {SINGLE_GAME_MARKET_CONFIGURATIONS, MarketConfiguration, START_EXPEDITION_MARKET_CONFIGURATION, EXPEDITION_WIN_MARKET_CONFIGURATION} from './market-configuration';
 import {MarketCard} from './market-card';
 import {Predicate} from './predicates';
 import {MarketCardType} from './market-card-type';
@@ -153,6 +153,12 @@ export class MarketService {
       return MarketService.getRandomItem(SINGLE_GAME_MARKET_CONFIGURATIONS);
     } else if (gameMode === GameMode.ExpeditionStartBattle1) {
       return START_EXPEDITION_MARKET_CONFIGURATION;
+    } else if (gameMode === GameMode.ExpeditionWinBattle1) {
+      return EXPEDITION_WIN_MARKET_CONFIGURATION;
+    } else if (gameMode === GameMode.ExpeditionWinBattle2) {
+      return EXPEDITION_WIN_MARKET_CONFIGURATION;
+    } else if (gameMode === GameMode.ExpeditionWinBattle3) {
+      return EXPEDITION_WIN_MARKET_CONFIGURATION;
     } else {
       return null;
     }
