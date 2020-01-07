@@ -10,6 +10,8 @@ import {BURIED_SECRETS_CARDS} from './buried-secrets-cards-data';
 import {DICE_TOWER_PROMO_CARDS} from './dice-tower-promo-cards-data';
 import {Expansion} from '../expansion';
 import {MarketCard} from '../market-card';
+import { NEW_AGE_CARDS } from './new-age-cards-data';
+import { SHATTERED_DREAMS_CARDS } from './shattered-dreams-cards-data';
 
 describe('CardsData', () => {
     class CardSet {
@@ -29,6 +31,8 @@ describe('CardsData', () => {
         { cards: LEGACY_PROMO_CARDS, expansion: Expansion.LegacyPromo, name: 'Legacy Promo' },
         { cards: BURIED_SECRETS_CARDS, expansion: Expansion.BuriedSecrets, name: 'Buried Secrets'},
         { cards: DICE_TOWER_PROMO_CARDS, expansion: Expansion.DiceTowerPromo, name: 'Dice Tower Promo' },
+        { cards: NEW_AGE_CARDS, expansion: Expansion.TheNewAge, name: 'The New Age' },
+        { cards: SHATTERED_DREAMS_CARDS, expansion: Expansion.ShatteredDreams, name: 'Shattered Dreams' },
     ];
 
     expectedSets.forEach((cardSet: CardSet) => {
@@ -37,5 +41,15 @@ describe('CardsData', () => {
                 expect(card.expansion).toEqual(cardSet.expansion);
             });
         });
+    });
+
+    it('should only contain cards with unique names', () => {
+      const seenCards = {};
+      expectedSets.forEach((cardSet: CardSet) => {
+        cardSet.cards.forEach((card: MarketCard) => {
+          expect(seenCards[card.name]).toBeFalsy(card.name + ' seen in both ' + seenCards[card.name] + ' and ' + cardSet.name);
+          seenCards[card.name] = cardSet.name;
+        });
+      });
     });
 });

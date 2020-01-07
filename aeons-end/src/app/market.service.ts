@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {ALL_MAKRET_CONFIGURATIONS, MarketConfiguration} from './market-configuration';
+import {SINGLE_GAME_MARKET_CONFIGURATIONS, MarketConfiguration, START_EXPEDITION_MARKET_CONFIGURATION, EXPEDITION_WIN_MARKET_CONFIGURATION,
+  EXPEDITION_LOSE_CHOOSE_GEM, EXPEDITION_LOSE_CHOOSE_RELIC, EXPEDITION_LOSE_CHOOSE_SPELL} from './market-configuration';
 import {MarketCard} from './market-card';
 import {Predicate} from './predicates';
-import {MarketCardType} from './martet-card-type';
+import {MarketCardType} from './market-card-type';
 import {Expansion} from './expansion';
 import { ExpansionSelectionService } from './expansion-selection.service';
 
@@ -17,6 +18,10 @@ import {LEGACY_CARDS} from './cards-data/legacy-cards-data';
 import {LEGACY_PROMO_CARDS} from './cards-data/legacy-promo-cards-data';
 import {BURIED_SECRETS_CARDS} from './cards-data/buried-secrets-cards-data';
 import {DICE_TOWER_PROMO_CARDS} from './cards-data/dice-tower-promo-cards-data';
+import { GameModeService } from './game-mode.service';
+import { GameMode, ExpeditionLoseChoice } from './game-mode';
+import { NEW_AGE_CARDS } from './cards-data/new-age-cards-data';
+import { SHATTERED_DREAMS_CARDS } from './cards-data/shattered-dreams-cards-data';
 
 @Injectable({
   providedIn: 'root'
@@ -85,6 +90,12 @@ export class MarketService {
         case Expansion.DiceTowerPromo:
           cards = cards.concat(DICE_TOWER_PROMO_CARDS);
           break;
+        case Expansion.TheNewAge:
+          cards = cards.concat(NEW_AGE_CARDS);
+          break;
+        case Expansion.ShatteredDreams:
+          cards = cards.concat(SHATTERED_DREAMS_CARDS);
+          break;
       }
     });
 
@@ -123,11 +134,19 @@ export class MarketService {
     cards.sort(compareFn);
   }
 
-  constructor(private expansionSelectionService: ExpansionSelectionService) {
+  constructor(
+    private expansionSelectionService: ExpansionSelectionService,
+    private gameModeService: GameModeService) {
     this.marketCardsSubject = new BehaviorSubject<MarketCard[]>([]);
     this.marketCards$ = this.marketCardsSubject.asObservable();
     this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {
       this.generateRandomMarket(expansions);
+    });
+    this.gameModeService.selectedGameMode$.subscribe(() => {
+      this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
+    });
+    this.gameModeService.selectedExpeditionLoseChoice$.subscribe(() => {
+      this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
     });
     this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
   }
@@ -140,9 +159,44 @@ export class MarketService {
     this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
   }
 
+  private getMarketConfiguration(): MarketConfiguration {
+    const gameMode: GameMode = this.gameModeService.selectedGameMode;
+    switch (gameMode) {
+      case GameMode.SingleGame:
+        return MarketService.getRandomItem(SINGLE_GAME_MARKET_CONFIGURATIONS);
+      case GameMode.ExpeditionStartBattle1:
+        return START_EXPEDITION_MARKET_CONFIGURATION;
+      case GameMode.ExpeditionWinBattle1:
+      case GameMode.ExpeditionWinBattle2:
+      case GameMode.ExpeditionWinBattle3:
+        return EXPEDITION_WIN_MARKET_CONFIGURATION;
+      case GameMode.ExpeditionLoseBattle1:
+      case GameMode.ExpeditionLoseBattle2:
+      case GameMode.ExpeditionLoseBattle3:
+      case GameMode.ExpeditionLoseBattle4:
+        const loseChoice: ExpeditionLoseChoice = this.gameModeService.selectedExpeditionLoseChoice;
+        switch (loseChoice) {
+          case ExpeditionLoseChoice.AddGem:
+            return EXPEDITION_LOSE_CHOOSE_GEM;
+          case ExpeditionLoseChoice.AddRelic:
+            return EXPEDITION_LOSE_CHOOSE_RELIC;
+          case ExpeditionLoseChoice.AddSpell:
+            return EXPEDITION_LOSE_CHOOSE_SPELL;
+          default:
+            return null;
+        }
+      default:
+        return null;
+    }
+  }
+
   private generateRandomMarket(source: Expansion[]): void {
-    const configuration: MarketConfiguration = MarketService.getRandomItem(ALL_MAKRET_CONFIGURATIONS);
-    const newCards: MarketCard[] = MarketService.getCardsInMarket(configuration, source);
-    this.marketCardsSubject.next(newCards);
+    const configuration: MarketConfiguration = this.getMarketConfiguration();
+    if (configuration) {
+      const newCards: MarketCard[] = MarketService.getCardsInMarket(configuration, source);
+      this.marketCardsSubject.next(newCards);
+    } else {
+      this.marketCardsSubject.next(null);
+    }
   }
 }

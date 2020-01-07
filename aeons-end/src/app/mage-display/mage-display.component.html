@@ -1,0 +1,9 @@
+<h2 *ngIf="mages">Mages</h2>
+<p *ngIf="mages && mages.length > 1">Add these mages to your Barracks.</p>
+<p *ngIf="mages && mages.length === 1">Add this mage to your Barracks.</p>
+
+<div class="row">
+  <div *ngFor="let mage of mages" class="border col-6 mage">
+    <div class="mage-name"> {{ mage.name }}</div>
+  </div>
+</div>

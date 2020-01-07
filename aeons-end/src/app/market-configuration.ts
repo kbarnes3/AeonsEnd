@@ -5,7 +5,7 @@ export class MarketConfiguration {
     cards: Predicate[];
 }
 
-export const ALL_MAKRET_CONFIGURATIONS: MarketConfiguration[] = [
+export const SINGLE_GAME_MARKET_CONFIGURATIONS: MarketConfiguration[] = [
     {
         name: 'Market Setup 1',
         cards: [
@@ -91,3 +91,48 @@ export const ALL_MAKRET_CONFIGURATIONS: MarketConfiguration[] = [
         ]
       }
 ];
+
+export const START_EXPEDITION_MARKET_CONFIGURATION: MarketConfiguration = {
+  name: 'Start expedition',
+  cards: [
+    Predicates.AnyGem(),
+    Predicates.AnyGem(),
+    Predicates.AnyGem(),
+    Predicates.AnyRelic(),
+    Predicates.AnyRelic(),
+    Predicates.AnySpell(),
+    Predicates.AnySpell(),
+    Predicates.AnySpell(),
+    Predicates.AnySpell()
+  ]
+};
+
+export const EXPEDITION_WIN_MARKET_CONFIGURATION: MarketConfiguration = {
+  name: 'Won expedition battle',
+  cards: [
+    Predicates.AnyGem(),
+    Predicates.AnyRelic(),
+    Predicates.AnySpell()
+  ]
+};
+
+export const EXPEDITION_LOSE_CHOOSE_GEM: MarketConfiguration = {
+  name: 'Lost expedition battle and chose gem',
+  cards: [
+    Predicates.AnyGem(),
+  ]
+};
+
+export const EXPEDITION_LOSE_CHOOSE_RELIC: MarketConfiguration = {
+  name: 'Lost expedition battle and chose relic',
+  cards: [
+    Predicates.AnyRelic(),
+  ]
+};
+
+export const EXPEDITION_LOSE_CHOOSE_SPELL: MarketConfiguration = {
+  name: 'Lost expedition battle and chose spell',
+  cards: [
+    Predicates.AnySpell(),
+  ]
+};

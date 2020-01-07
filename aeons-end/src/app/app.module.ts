@@ -7,6 +7,16 @@ import { MarketSettingsComponent } from './market-settings/market-settings.compo
 import { MarketSelectionComponent } from './market-selection/market-selection.component';
 import { ExpansionChooserComponent } from './expansion-chooser/expansion-chooser.component';
 import { ExpansionChooserItemComponent } from './expansion-chooser-item/expansion-chooser-item.component';
+import { MarketDisplayComponent } from './market-display/market-display.component';
+import { SingleGameMarketDisplayComponent } from './single-game-market-display/single-game-market-display.component';
+import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barracks-display/start-expedition-barracks-display.component';
+import { ExpeditionUnknownDisplayComponent } from './expedition-unknown-display/expedition-unknown-display.component';
+import { MageDisplayComponent } from './mage-display/mage-display.component';
+import { NemesisDisplayComponent } from './nemesis-display/nemesis-display.component';
+import { ExpeditionWinDisplayComponent } from './expedition-win-display/expedition-win-display.component';
+import { ExpeditionLoseDisplayComponent } from './expedition-lose-display/expedition-lose-display.component';
+import { ExpeditionStartBattleDisplayComponent } from './expedition-start-battle-display/expedition-start-battle-display.component';
+import { FinishExpeditionDisplayComponent } from './finish-expedition-display/finish-expedition-display.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +24,17 @@ import { ExpansionChooserItemComponent } from './expansion-chooser-item/expansio
     MarketSettingsComponent,
     MarketSelectionComponent,
     ExpansionChooserComponent,
-    ExpansionChooserItemComponent
+    ExpansionChooserItemComponent,
+    MarketDisplayComponent,
+    SingleGameMarketDisplayComponent,
+    StartExpeditionBarracksDisplayComponent,
+    ExpeditionUnknownDisplayComponent,
+    MageDisplayComponent,
+    NemesisDisplayComponent,
+    ExpeditionWinDisplayComponent,
+    ExpeditionLoseDisplayComponent,
+    ExpeditionStartBattleDisplayComponent,
+    FinishExpeditionDisplayComponent
   ],
   imports: [
     BrowserModule,

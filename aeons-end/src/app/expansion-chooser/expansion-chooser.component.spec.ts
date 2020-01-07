@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ExpansionSelectionService } from '../expansion-selection.service';
 import { MockExpansionSelectionService } from '../mocks/mock-expansion-selection-service';
 
-const numberOfExpansions: number = 10;
+const numberOfExpansions: number = 12;
 
 @Component({
   selector: 'app-expansion-chooser-item',
@@ -115,5 +115,15 @@ describe('ExpansionChooserComponent', () => {
     component.updateSelectedExpansions();
     expectEqualArrays<Expansion>([Expansion.DiceTowerPromo], expansionSelectionService.selectedExpansions);
     component.displayedExpansions[Expansion.DiceTowerPromo].included = false;
+
+    component.displayedExpansions[Expansion.TheNewAge].included = true;
+    component.updateSelectedExpansions();
+    expectEqualArrays<Expansion>([Expansion.TheNewAge], expansionSelectionService.selectedExpansions);
+    component.displayedExpansions[Expansion.TheNewAge].included = false;
+
+    component.displayedExpansions[Expansion.ShatteredDreams].included = true;
+    component.updateSelectedExpansions();
+    expectEqualArrays<Expansion>([Expansion.ShatteredDreams], expansionSelectionService.selectedExpansions);
+    component.displayedExpansions[Expansion.ShatteredDreams].included = false;
   });
 });

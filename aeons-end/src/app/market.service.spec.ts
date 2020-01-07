@@ -5,13 +5,19 @@ import {MarketCard} from './market-card';
 import {Expansion} from './expansion';
 import { ExpansionSelectionService } from './expansion-selection.service';
 import { MockExpansionSelectionService } from './mocks/mock-expansion-selection-service';
+import { MockGameModeService } from './mocks/mock-game-mode-service';
+import { GameModeService } from './game-mode.service';
 
 describe('MarketService', () => {
   const mockExpansionSelectionService: MockExpansionSelectionService = new MockExpansionSelectionService();
+  const mockGameModeService: MockGameModeService = new MockGameModeService();
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ { provide: ExpansionSelectionService, useValue: mockExpansionSelectionService }]
+      providers: [
+        { provide: ExpansionSelectionService, useValue: mockExpansionSelectionService },
+        { provide: GameModeService, useValue: mockGameModeService }
+      ]
     });
   });
 
