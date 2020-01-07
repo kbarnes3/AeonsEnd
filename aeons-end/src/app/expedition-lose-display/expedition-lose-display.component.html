@@ -3,7 +3,7 @@
   <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddGem)">Add a gem to your Barracks</button></p></div>
   <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddRelic)">Add a relic to your Barracks</button></p></div>
   <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddSpell)">Add a spell to your Barracks</button></p></div>
-  <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddTreasure)">Add a treasure to your Barracks</button></p></div>
+  <div class="row" *ngIf="treasuresUnlocked"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddTreasure)">Add a treasure to your Barracks</button></p></div>
   <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddMage)">Add a mage to your Barracks</button></p></div>
 </ng-container>
 
