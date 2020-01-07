@@ -36,7 +36,7 @@ export class ExpansionChooserComponent implements OnInit {
     this.displayedExpansions[Expansion.DiceTowerPromo] = new ExpansionDisplay(Expansion.DiceTowerPromo, 'Dice Tower Promo');
     this.displayedExpansions[Expansion.TheNewAge] = new ExpansionDisplay(Expansion.TheNewAge, 'The New Age');
     this.displayedExpansions[Expansion.ShatteredDreams] = new ExpansionDisplay(Expansion.ShatteredDreams, 'Shattered Dreams');
-  
+
     this.expansionOrder = [
       Expansion.Base,
       Expansion.TheDepths,
