@@ -20,6 +20,8 @@ import {BURIED_SECRETS_CARDS} from './cards-data/buried-secrets-cards-data';
 import {DICE_TOWER_PROMO_CARDS} from './cards-data/dice-tower-promo-cards-data';
 import { GameModeService } from './game-mode.service';
 import { GameMode, ExpeditionLoseChoice } from './game-mode';
+import { NEW_AGE_CARDS } from './cards-data/new-age-cards-data';
+import { SHATTERED_DREAMS_CARDS } from './cards-data/shattered-dreams-cards-data';
 
 @Injectable({
   providedIn: 'root'
@@ -87,6 +89,12 @@ export class MarketService {
           break;
         case Expansion.DiceTowerPromo:
           cards = cards.concat(DICE_TOWER_PROMO_CARDS);
+          break;
+        case Expansion.TheNewAge:
+          cards = cards.concat(NEW_AGE_CARDS);
+          break;
+        case Expansion.ShatteredDreams:
+          cards = cards.concat(SHATTERED_DREAMS_CARDS);
           break;
       }
     });

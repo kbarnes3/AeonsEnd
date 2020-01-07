@@ -34,7 +34,9 @@ export class ExpansionChooserComponent implements OnInit {
     this.displayedExpansions[Expansion.LegacyPromo] = new ExpansionDisplay(Expansion.LegacyPromo, 'Legacy Promo');
     this.displayedExpansions[Expansion.BuriedSecrets] = new ExpansionDisplay(Expansion.BuriedSecrets, 'Buried Secrets');
     this.displayedExpansions[Expansion.DiceTowerPromo] = new ExpansionDisplay(Expansion.DiceTowerPromo, 'Dice Tower Promo');
-
+    this.displayedExpansions[Expansion.TheNewAge] = new ExpansionDisplay(Expansion.TheNewAge, 'The New Age');
+    this.displayedExpansions[Expansion.ShatteredDreams] = new ExpansionDisplay(Expansion.ShatteredDreams, 'Shattered Dreams');
+  
     this.expansionOrder = [
       Expansion.Base,
       Expansion.TheDepths,
@@ -46,6 +48,8 @@ export class ExpansionChooserComponent implements OnInit {
       Expansion.LegacyPromo,
       Expansion.BuriedSecrets,
       Expansion.DiceTowerPromo,
+      Expansion.TheNewAge,
+      Expansion.ShatteredDreams,
     ];
 
     const enabledExpansions: Expansion[] = this.expansionSelectionService.selectedExpansions;
