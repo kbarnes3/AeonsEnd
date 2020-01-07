@@ -39,6 +39,12 @@ class MockExpeditionWinDisplayComponent {}
 })
 class MockExpeditionLoseDisplayComponent {}
 
+@Component({
+  selector: 'app-finish-expedition-display',
+  template: '<p>Finish Expedition Display</p>'
+})
+class MockFinishExpeditionDisplayComponent {}
+
 describe('MarketDisplayComponent', () => {
   let component: MarketDisplayComponent;
   let fixture: ComponentFixture<MarketDisplayComponent>;
@@ -52,7 +58,8 @@ describe('MarketDisplayComponent', () => {
         MockStartExpeditionBarracksDisplayComponent,
         MockExpeditionStartBattleDisplayComponent,
         MockExpeditionWinDisplayComponent,
-        MockExpeditionLoseDisplayComponent
+        MockExpeditionLoseDisplayComponent,
+        MockFinishExpeditionDisplayComponent
       ]
     })
     .compileComponents();

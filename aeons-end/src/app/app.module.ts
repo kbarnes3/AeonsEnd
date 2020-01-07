@@ -16,6 +16,7 @@ import { NemesisDisplayComponent } from './nemesis-display/nemesis-display.compo
 import { ExpeditionWinDisplayComponent } from './expedition-win-display/expedition-win-display.component';
 import { ExpeditionLoseDisplayComponent } from './expedition-lose-display/expedition-lose-display.component';
 import { ExpeditionStartBattleDisplayComponent } from './expedition-start-battle-display/expedition-start-battle-display.component';
+import { FinishExpeditionDisplayComponent } from './finish-expedition-display/finish-expedition-display.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ExpeditionStartBattleDisplayComponent } from './expedition-start-battle
     NemesisDisplayComponent,
     ExpeditionWinDisplayComponent,
     ExpeditionLoseDisplayComponent,
-    ExpeditionStartBattleDisplayComponent
+    ExpeditionStartBattleDisplayComponent,
+    FinishExpeditionDisplayComponent
   ],
   imports: [
     BrowserModule,
