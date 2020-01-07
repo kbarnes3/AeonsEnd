@@ -22,6 +22,12 @@ class MockExpeditionUnknownDisplayComponent {}
 class MockStartExpeditionBarracksDisplayComponent {}
 
 @Component({
+  selector: 'app-expedition-start-battle-display',
+  template: '<p>Expedition Start Battle Display</p>'
+})
+class MockExpeditionStartBattleDisplayComponent {}
+
+@Component({
   selector: 'app-expedition-win-display',
   template: '<p>Expedition Win Display</p>'
 })
@@ -44,6 +50,7 @@ describe('MarketDisplayComponent', () => {
         MockSingleGameMarketDisplayComponent,
         MockExpeditionUnknownDisplayComponent,
         MockStartExpeditionBarracksDisplayComponent,
+        MockExpeditionStartBattleDisplayComponent,
         MockExpeditionWinDisplayComponent,
         MockExpeditionLoseDisplayComponent
       ]
