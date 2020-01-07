@@ -15,6 +15,8 @@ import { MageDisplayComponent } from './mage-display/mage-display.component';
 import { NemesisDisplayComponent } from './nemesis-display/nemesis-display.component';
 import { ExpeditionWinDisplayComponent } from './expedition-win-display/expedition-win-display.component';
 import { ExpeditionLoseDisplayComponent } from './expedition-lose-display/expedition-lose-display.component';
+import { ExpeditionStartBattleDisplayComponent } from './expedition-start-battle-display/expedition-start-battle-display.component';
+import { FinishExpeditionDisplayComponent } from './finish-expedition-display/finish-expedition-display.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ExpeditionLoseDisplayComponent } from './expedition-lose-display/expedi
     MageDisplayComponent,
     NemesisDisplayComponent,
     ExpeditionWinDisplayComponent,
-    ExpeditionLoseDisplayComponent
+    ExpeditionLoseDisplayComponent,
+    ExpeditionStartBattleDisplayComponent,
+    FinishExpeditionDisplayComponent
   ],
   imports: [
     BrowserModule,
