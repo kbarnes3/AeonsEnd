@@ -23,6 +23,7 @@ import { GameMode, ExpeditionLoseChoice } from './game-mode';
 import { NEW_AGE_CARDS } from './cards-data/new-age-cards-data';
 import { SHATTERED_DREAMS_CARDS } from './cards-data/shattered-dreams-cards-data';
 import { NEW_AGE_PROMO_CARDS } from './cards-data/new-age-promo-cards-data';
+import { ANCIENTS_CARDS } from './cards-data/ancients-cards-data';
 
 @Injectable({
   providedIn: 'root'
@@ -99,6 +100,9 @@ export class MarketService {
           break;
         case Expansion.ShatteredDreams:
           cards = cards.concat(SHATTERED_DREAMS_CARDS);
+          break;
+        case Expansion.TheAncients:
+          cards = cards.concat(ANCIENTS_CARDS);
           break;
       }
     });
