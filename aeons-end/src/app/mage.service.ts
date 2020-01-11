@@ -13,6 +13,7 @@ import { ExpansionSelectionService } from './expansion-selection.service';
 import { GameModeService } from './game-mode.service';
 import { NEW_AGE_MAGES } from './mages-data/new-age-mages-data';
 import { SHATTERED_DREAMS_MAGES } from './mages-data/shattered-dreams-mages-data';
+import { ANCIENT_MAGES } from './mages-data/ancient-mages-data';
 
 @Injectable({
   providedIn: 'root'
@@ -37,8 +38,10 @@ export class MageService {
 
     for (let i = 0; i < count; i++) {
       const selection: Mage = MageService.getRandomItem(choices);
-      selectedMages.push(selection);
-      choices = choices.filter(mage => mage !== selection);
+      if (selection) {
+        selectedMages.push(selection);
+        choices = choices.filter(mage => mage !== selection);
+      }
     }
 
     MageService.sortMages(selectedMages);
@@ -72,6 +75,9 @@ export class MageService {
           break;
         case Expansion.ShatteredDreams:
           mages = mages.concat(SHATTERED_DREAMS_MAGES);
+          break;
+        case Expansion.TheAncients:
+          mages = mages.concat(ANCIENT_MAGES);
           break;
       }
     });
