@@ -33,10 +33,4 @@ export const NEW_AGE_PROMO_CARDS: MarketCard[] = [
         cost: 4,
         expansion: Expansion.TheNewAgePromo,
     },
-    {
-        name: 'Thieving Spirit',
-        type: MarketCardType.Spell,
-        cost: 5,
-        expansion: Expansion.TheNewAgePromo,
-    },
 ];
