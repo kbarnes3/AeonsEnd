@@ -12,6 +12,8 @@ import {Expansion} from '../expansion';
 import {MarketCard} from '../market-card';
 import { NEW_AGE_CARDS } from './new-age-cards-data';
 import { SHATTERED_DREAMS_CARDS } from './shattered-dreams-cards-data';
+import { NEW_AGE_PROMO_CARDS } from './new-age-promo-cards-data';
+import { ANCIENTS_CARDS } from './ancients-cards-data';
 
 describe('CardsData', () => {
     class CardSet {
@@ -33,12 +35,14 @@ describe('CardsData', () => {
         { cards: DICE_TOWER_PROMO_CARDS, expansion: Expansion.DiceTowerPromo, name: 'Dice Tower Promo' },
         { cards: NEW_AGE_CARDS, expansion: Expansion.TheNewAge, name: 'The New Age' },
         { cards: SHATTERED_DREAMS_CARDS, expansion: Expansion.ShatteredDreams, name: 'Shattered Dreams' },
+        { cards: ANCIENTS_CARDS, expansion: Expansion.TheAncients, name: 'The Ancients' },
+        { cards: NEW_AGE_PROMO_CARDS, expansion: Expansion.TheNewAgePromo, name: 'The New Age Promo' },
     ];
 
     expectedSets.forEach((cardSet: CardSet) => {
         it('"' + cardSet.name + '" card data should only contain cards from "' + cardSet.name + '" set', () => {
             cardSet.cards.forEach((card: MarketCard) => {
-                expect(card.expansion).toEqual(cardSet.expansion);
+                expect(card.expansion).withContext(card.name + ' has expansion ' + card.expansion).toEqual(cardSet.expansion);
             });
         });
     });

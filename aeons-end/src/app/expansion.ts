@@ -11,4 +11,6 @@ export enum Expansion {
   DiceTowerPromo,
   TheNewAge,
   ShatteredDreams,
+  TheNewAgePromo,
+  TheAncients,
 }

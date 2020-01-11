@@ -13,6 +13,7 @@ import { GameModeService } from './game-mode.service';
 import { GameMode } from './game-mode';
 import { Expansion } from './expansion';
 import { LEGACY_NEMESES } from './nemeses-data/legacy-nemeses-data';
+import { ANCIENTS_NEMESES } from './nemeses-data/ancients-nemeses-data';
 
 
 @Injectable({
@@ -66,6 +67,9 @@ export class NemesisService {
           break;
         case Expansion.ShatteredDreams:
           nemeses = nemeses.concat(SHATTERED_DREAMS_NEMESES);
+          break;
+        case Expansion.TheAncients:
+          nemeses = nemeses.concat(ANCIENTS_NEMESES);
           break;
       }
     });
