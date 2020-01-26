@@ -14,6 +14,7 @@ import { GameMode } from './game-mode';
 import { Expansion } from './expansion';
 import { LEGACY_NEMESES } from './nemeses-data/legacy-nemeses-data';
 import { ANCIENTS_NEMESES } from './nemeses-data/ancients-nemeses-data';
+import { INTO_THE_WILD_NEMESES } from './nemeses-data/into-the-wild-nemeses-data';
 
 
 @Injectable({
@@ -70,6 +71,9 @@ export class NemesisService {
           break;
         case Expansion.TheAncients:
           nemeses = nemeses.concat(ANCIENTS_NEMESES);
+          break;
+        case Expansion.IntoTheWild:
+          nemeses = nemeses.concat(INTO_THE_WILD_NEMESES);
           break;
       }
     });

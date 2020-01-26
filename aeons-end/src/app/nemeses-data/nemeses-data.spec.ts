@@ -9,6 +9,7 @@ import { SHATTERED_DREAMS_NEMESES } from './shattered-dreams-nemeses-data';
 import { Expansion } from '../expansion';
 import { Nemesis } from '../nemesis';
 import { ANCIENTS_NEMESES } from './ancients-nemeses-data';
+import { INTO_THE_WILD_NEMESES } from './into-the-wild-nemeses-data';
 
 describe('NemesesData', () => {
     class NemesisSet {
@@ -27,6 +28,7 @@ describe('NemesesData', () => {
         { cards: NEW_AGE_NEMESES, expansion: Expansion.TheNewAge, name: 'The New Age' },
         { cards: SHATTERED_DREAMS_NEMESES, expansion: Expansion.ShatteredDreams, name: 'Shattered Dreams' },
         { cards: ANCIENTS_NEMESES, expansion: Expansion.TheAncients, name: 'The Ancients' },
+        { cards: INTO_THE_WILD_NEMESES, expansion: Expansion.IntoTheWild, name: 'Into The Wild' },
     ];
 
     expectedSets.forEach((nemesisSet: NemesisSet) => {

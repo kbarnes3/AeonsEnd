@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ExpansionSelectionService } from '../expansion-selection.service';
 import { MockExpansionSelectionService } from '../mocks/mock-expansion-selection-service';
 
-const numberOfExpansions: number = 14;
+const numberOfExpansions: number = 15;
 
 @Component({
   selector: 'app-expansion-chooser-item',

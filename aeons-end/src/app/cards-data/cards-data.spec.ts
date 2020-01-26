@@ -14,6 +14,7 @@ import { NEW_AGE_CARDS } from './new-age-cards-data';
 import { SHATTERED_DREAMS_CARDS } from './shattered-dreams-cards-data';
 import { NEW_AGE_PROMO_CARDS } from './new-age-promo-cards-data';
 import { ANCIENTS_CARDS } from './ancients-cards-data';
+import { INTO_THE_WILD_CARDS } from './into-the-wild-cards-data';
 
 describe('CardsData', () => {
     class CardSet {
@@ -37,6 +38,7 @@ describe('CardsData', () => {
         { cards: SHATTERED_DREAMS_CARDS, expansion: Expansion.ShatteredDreams, name: 'Shattered Dreams' },
         { cards: ANCIENTS_CARDS, expansion: Expansion.TheAncients, name: 'The Ancients' },
         { cards: NEW_AGE_PROMO_CARDS, expansion: Expansion.TheNewAgePromo, name: 'The New Age Promo' },
+        { cards: INTO_THE_WILD_CARDS, expansion: Expansion.IntoTheWild, name: 'Into The Wild'}
     ];
 
     expectedSets.forEach((cardSet: CardSet) => {

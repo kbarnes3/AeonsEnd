@@ -14,6 +14,7 @@ import { GameModeService } from './game-mode.service';
 import { NEW_AGE_MAGES } from './mages-data/new-age-mages-data';
 import { SHATTERED_DREAMS_MAGES } from './mages-data/shattered-dreams-mages-data';
 import { ANCIENT_MAGES } from './mages-data/ancient-mages-data';
+import { INTO_THE_WILD_MAGES } from './mages-data/into-the-wild-mages-data';
 
 @Injectable({
   providedIn: 'root'
@@ -78,6 +79,9 @@ export class MageService {
           break;
         case Expansion.TheAncients:
           mages = mages.concat(ANCIENT_MAGES);
+          break;
+        case Expansion.IntoTheWild:
+          mages = mages.concat(INTO_THE_WILD_MAGES);
           break;
       }
     });
