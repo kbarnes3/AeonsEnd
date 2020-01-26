@@ -38,6 +38,7 @@ export class ExpansionChooserComponent implements OnInit {
     this.displayedExpansions[Expansion.TheNewAgePromo] = new ExpansionDisplay(Expansion.TheNewAgePromo, 'The New Age Promo');
     this.displayedExpansions[Expansion.ShatteredDreams] = new ExpansionDisplay(Expansion.ShatteredDreams, 'Shattered Dreams');
     this.displayedExpansions[Expansion.TheAncients] = new ExpansionDisplay(Expansion.TheAncients, 'The Ancients');
+    this.displayedExpansions[Expansion.IntoTheWild] = new ExpansionDisplay(Expansion.IntoTheWild, 'Into The Wild');
 
     this.expansionOrder = [
       Expansion.Base,
@@ -54,6 +55,7 @@ export class ExpansionChooserComponent implements OnInit {
       Expansion.TheNewAgePromo,
       Expansion.ShatteredDreams,
       Expansion.TheAncients,
+      Expansion.IntoTheWild,
     ];
 
     const enabledExpansions: Expansion[] = this.expansionSelectionService.selectedExpansions;

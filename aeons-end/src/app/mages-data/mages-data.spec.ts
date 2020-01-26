@@ -9,6 +9,7 @@ import { SHATTERED_DREAMS_MAGES } from './shattered-dreams-mages-data';
 import { Expansion } from '../expansion';
 import { Mage } from '../mage';
 import { ANCIENT_MAGES } from './ancient-mages-data';
+import { INTO_THE_WILD_MAGES } from './into-the-wild-mages-data';
 
 describe('MagesData', () => {
   class MageSet {
@@ -27,6 +28,7 @@ describe('MagesData', () => {
       { cards: NEW_AGE_MAGES, expansion: Expansion.TheNewAge, name: 'The New Age' },
       { cards: SHATTERED_DREAMS_MAGES, expansion: Expansion.ShatteredDreams, name: 'Shattered Dreams' },
       { cards: ANCIENT_MAGES, expansion: Expansion.TheAncients, name: 'The Ancients' },
+      { cards: INTO_THE_WILD_MAGES, expansion: Expansion.IntoTheWild, name: 'Into The Wild' },
   ];
 
   expectedSets.forEach((mageSet: MageSet) => {

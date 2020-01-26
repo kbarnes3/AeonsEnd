@@ -13,4 +13,5 @@ export enum Expansion {
   ShatteredDreams,
   TheNewAgePromo,
   TheAncients,
+  IntoTheWild,
 }

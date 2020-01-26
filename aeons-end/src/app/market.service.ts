@@ -24,6 +24,7 @@ import { NEW_AGE_CARDS } from './cards-data/new-age-cards-data';
 import { SHATTERED_DREAMS_CARDS } from './cards-data/shattered-dreams-cards-data';
 import { NEW_AGE_PROMO_CARDS } from './cards-data/new-age-promo-cards-data';
 import { ANCIENTS_CARDS } from './cards-data/ancients-cards-data';
+import { INTO_THE_WILD_CARDS } from './cards-data/into-the-wild-cards-data';
 
 @Injectable({
   providedIn: 'root'
@@ -103,6 +104,9 @@ export class MarketService {
           break;
         case Expansion.TheAncients:
           cards = cards.concat(ANCIENTS_CARDS);
+          break;
+        case Expansion.IntoTheWild:
+          cards = cards.concat(INTO_THE_WILD_CARDS);
           break;
       }
     });
