@@ -10,18 +10,18 @@ describe('GameModeService', () => {
   });
 
   it('should be created', () => {
-    const service: GameModeService = TestBed.get(GameModeService);
+    const service: GameModeService = TestBed.inject(GameModeService);
     expect(service).toBeTruthy();
   });
 
   it('should start with a default value', () => {
-    const service: GameModeService = TestBed.get(GameModeService);
+    const service: GameModeService = TestBed.inject(GameModeService);
     const selectedGameMode: GameMode = service.selectedGameMode;
     expect(selectedGameMode).toBe(GameMode.SingleGame);
   });
 
   it('should allow components to update the selected expansions', () => {
-    const service: GameModeService = TestBed.get(GameModeService);
+    const service: GameModeService = TestBed.inject(GameModeService);
     let selectedGameMode: GameMode = service.selectedGameMode;
     service.selectedGameMode$.subscribe((value: GameMode) => {
       selectedGameMode = value;
@@ -33,7 +33,7 @@ describe('GameModeService', () => {
   });
 
   it('should persist values to local storage', () => {
-    const service: GameModeService = TestBed.get(GameModeService);
+    const service: GameModeService = TestBed.inject(GameModeService);
     service.selectedGameMode = GameMode.ExpeditionLoseBattle1;
 
     const json = localStorage.getItem('GameMode');
