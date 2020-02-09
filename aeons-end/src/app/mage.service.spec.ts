@@ -10,17 +10,23 @@ import { Expansion } from './expansion';
 import { GameMode, ExpeditionLoseChoice } from './game-mode';
 
 describe('MageService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [
+      { provide: ExpansionSelectionService, useClass: MockExpansionSelectionService },
+      { provide: GameModeService, useClass: MockGameModeService },
+    ]
+  }));
 
   it('should be created', () => {
-    const service: MageService = TestBed.get(MageService);
+    const service: MageService = TestBed.inject(MageService);
     expect(service).toBeTruthy();
   });
 
   it('should generate mages from base game at the start of an expedition', () => {
-    const service: MageService = TestBed.get(MageService);
-    const expansionSelectionService: MockExpansionSelectionService = TestBed.get(ExpansionSelectionService);
-    const gameModeService: MockGameModeService = TestBed.get(GameModeService);
+    const service: MageService = TestBed.inject(MageService);
+    const expansionSelectionService: MockExpansionSelectionService =
+      <MockExpansionSelectionService><any>TestBed.inject(ExpansionSelectionService);
+    const gameModeService: MockGameModeService = <MockGameModeService><any>TestBed.inject(GameModeService);
     gameModeService.selectedGameMode = GameMode.ExpeditionStartBattle1;
     expansionSelectionService.selectedExpansions = [ Expansion.Base ];
     const mages: Mage[] = service.mages;
@@ -32,9 +38,10 @@ describe('MageService', () => {
   });
 
   it('should generate a single mage when losing a battle', () => {
-    const service: MageService = TestBed.get(MageService);
-    const expansionSelectionService: MockExpansionSelectionService = TestBed.get(ExpansionSelectionService);
-    const gameModeService: MockGameModeService = TestBed.get(GameModeService);
+    const service: MageService = TestBed.inject(MageService);
+    const expansionSelectionService: MockExpansionSelectionService =
+      <MockExpansionSelectionService><any>TestBed.inject(ExpansionSelectionService);
+    const gameModeService: MockGameModeService = <MockGameModeService><any>TestBed.inject(GameModeService);
     gameModeService.selectedGameMode = GameMode.ExpeditionLoseBattle1;
     gameModeService.selectedExpeditionLoseChoice = ExpeditionLoseChoice.AddMage;
     expansionSelectionService.selectedExpansions = [ Expansion.Base ];

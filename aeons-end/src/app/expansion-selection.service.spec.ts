@@ -10,26 +10,26 @@ describe('ExpansionSelectionService', () => {
   });
 
   it('should be created', () => {
-    const service: ExpansionSelectionService = TestBed.get(ExpansionSelectionService);
+    const service: ExpansionSelectionService = TestBed.inject(ExpansionSelectionService);
     expect(service).toBeTruthy();
   });
 
   it('should start with a default value', () => {
-    const service: ExpansionSelectionService = TestBed.get(ExpansionSelectionService);
+    const service: ExpansionSelectionService = TestBed.inject(ExpansionSelectionService);
     const selectedExpansions: Expansion[] = service.selectedExpansions;
     expect(selectedExpansions.length).toBe(1);
     expect(selectedExpansions[0]).toBe(Expansion.Base);
   });
 
   it('should allow components to update the selected expansions', () => {
-    const service: ExpansionSelectionService = TestBed.get(ExpansionSelectionService);
+    const service: ExpansionSelectionService = TestBed.inject(ExpansionSelectionService);
     service.selectedExpansions = [ Expansion.WarEternal, Expansion.TheVoid ];
     const returnedExpansions: Expansion[] = service.selectedExpansions;
     expect(returnedExpansions.length).toBe(2);
   });
 
   it('should persist values to local storage', () => {
-    const service: ExpansionSelectionService = TestBed.get(ExpansionSelectionService);
+    const service: ExpansionSelectionService = TestBed.inject(ExpansionSelectionService);
     service.selectedExpansions = [ Expansion.Legacy, Expansion.DiceTowerPromo, Expansion.LegacyPromo ];
 
     const json = localStorage.getItem('Expansions');

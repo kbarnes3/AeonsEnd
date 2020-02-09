@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -51,6 +52,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -135,5 +140,8 @@
       }
     }
   },
-  "defaultProject": "aeons-end"
+  "defaultProject": "aeons-end",
+  "cli": {
+    "analytics": "d3700e1b-da05-42d9-b47a-1e2d79cd8b9a"
+  }
 }
