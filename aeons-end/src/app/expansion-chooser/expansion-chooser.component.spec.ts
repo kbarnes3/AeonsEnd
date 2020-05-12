@@ -71,59 +71,63 @@ describe('ExpansionChooserComponent', () => {
   }
 
   it('should set \'expansions\' based on the selected options', () => {
-    component.displayedExpansions[Expansion.Base].included = false;
+    // Make sure nothing is selected to start
+    component.allIncluded = true;
+    component.allIncluded = false;
     component.updateSelectedExpansions();
     expectEqualArrays<Expansion>([], expansionSelectionService.selectedExpansions);
 
-    component.displayedExpansions[Expansion.Base].included = true;
+    component.updateExpansionCheckbox(Expansion.Base, true);
     component.updateSelectedExpansions();
     expectEqualArrays<Expansion>([Expansion.Base], expansionSelectionService.selectedExpansions);
 
-    component.displayedExpansions[Expansion.DiceTowerPromo].included = true;
+    component.updateExpansionCheckbox(Expansion.DiceTowerPromo, true);
     component.updateSelectedExpansions();
     expectEqualArrays<Expansion>([Expansion.Base, Expansion.DiceTowerPromo], expansionSelectionService.selectedExpansions);
 
-    component.displayedExpansions[Expansion.Base].included = false;
-    component.displayedExpansions[Expansion.DiceTowerPromo].included = false;
+    component.updateExpansionCheckbox(Expansion.Base, false);
+    component.updateExpansionCheckbox(Expansion.DiceTowerPromo, false);
 
-    component.displayedExpansions[Expansion.TheDepths].included = true;
+    component.updateExpansionCheckbox(Expansion.TheDepths, true);
     component.updateSelectedExpansions();
     expectEqualArrays<Expansion>([Expansion.TheDepths], expansionSelectionService.selectedExpansions);
-    component.displayedExpansions[Expansion.TheDepths].included = false;
+    component.updateExpansionCheckbox(Expansion.TheDepths, false);
 
-    component.displayedExpansions[Expansion.TheNameless].included = true;
+    component.updateExpansionCheckbox(Expansion.TheNameless, true);
     component.updateSelectedExpansions();
     expectEqualArrays<Expansion>([Expansion.TheNameless], expansionSelectionService.selectedExpansions);
-    component.displayedExpansions[Expansion.TheNameless].included = false;
+    component.updateExpansionCheckbox(Expansion.TheNameless, false);
+  });
 
-    component.displayedExpansions[Expansion.WarEternal].included = true;
+  it('should force required expansions to be included', () => {
+    // Make sure nothing is selected to start
+    component.allIncluded = true;
+    component.allIncluded = false;
     component.updateSelectedExpansions();
-    expectEqualArrays<Expansion>([Expansion.WarEternal], expansionSelectionService.selectedExpansions);
-    component.displayedExpansions[Expansion.WarEternal].included = false;
+    expectEqualArrays<Expansion>([], expansionSelectionService.selectedExpansions);
 
-    component.displayedExpansions[Expansion.TheVoid].included = true;
+    component.updateExpansionCheckbox(Expansion.TheNewAgePromo, true);
     component.updateSelectedExpansions();
-    expectEqualArrays<Expansion>([Expansion.TheVoid], expansionSelectionService.selectedExpansions);
-    component.displayedExpansions[Expansion.TheVoid].included = false;
+    expectEqualArrays<Expansion>([Expansion.DiceTowerPromo, Expansion.TheNewAgePromo], expansionSelectionService.selectedExpansions);
+    component.updateExpansionCheckbox(Expansion.DiceTowerPromo, false);
+    component.updateExpansionCheckbox(Expansion.TheNewAgePromo, false);
+    component.updateSelectedExpansions();
+  });
 
-    component.displayedExpansions[Expansion.TheOuterDark].included = true;
+  it('should force expansions to be excluded if they are missing a dependency', () => {
+    // Make sure nothing is selected to start
+    component.allIncluded = true;
+    component.allIncluded = false;
     component.updateSelectedExpansions();
-    expectEqualArrays<Expansion>([Expansion.TheOuterDark], expansionSelectionService.selectedExpansions);
-    component.displayedExpansions[Expansion.TheOuterDark].included = false;
+    expectEqualArrays<Expansion>([], expansionSelectionService.selectedExpansions);
 
-    component.displayedExpansions[Expansion.DiceTowerPromo].included = true;
+    component.updateExpansionCheckbox(Expansion.DiceTowerPromo, true);
+    component.updateExpansionCheckbox(Expansion.TheNewAgePromo, true);
     component.updateSelectedExpansions();
-    expectEqualArrays<Expansion>([Expansion.DiceTowerPromo], expansionSelectionService.selectedExpansions);
-    component.displayedExpansions[Expansion.DiceTowerPromo].included = false;
+    expectEqualArrays<Expansion>([Expansion.DiceTowerPromo, Expansion.TheNewAgePromo], expansionSelectionService.selectedExpansions);
 
-    component.displayedExpansions[Expansion.TheNewAge].included = true;
+    component.updateExpansionCheckbox(Expansion.DiceTowerPromo, false);
     component.updateSelectedExpansions();
-    expectEqualArrays<Expansion>([Expansion.TheNewAge], expansionSelectionService.selectedExpansions);
-    component.displayedExpansions[Expansion.TheNewAge].included = false;
-
-    component.displayedExpansions[Expansion.ShatteredDreams].included = true;
-    component.updateSelectedExpansions();
-    expectEqualArrays<Expansion>([Expansion.ShatteredDreams], expansionSelectionService.selectedExpansions);
-    component.displayedExpansions[Expansion.ShatteredDreams].included = false;
+    expectEqualArrays<Expansion>([], expansionSelectionService.selectedExpansions);
   });
 });
