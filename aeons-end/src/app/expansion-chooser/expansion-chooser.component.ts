@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {Expansion} from '../expansion';
+import {Expansion, DEPENDENCIES, ExpansionDependency} from '../expansion';
 import {ExpansionChooserItemComponent} from '../expansion-chooser-item/expansion-chooser-item.component';
 import {ExpansionSelectionService} from '../expansion-selection.service';
 
@@ -103,6 +103,26 @@ export class ExpansionChooserComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  updateExpansionCheckbox(expansion: Expansion, included: boolean): void {
+    this. displayedExpansions[expansion].included = included;
+
+    // Make sure we check or uncheck required expansions
+    // based on this change
+    if (included) {
+      for (const dependency of DEPENDENCIES) {
+        if (dependency.expansion === expansion) {
+          this.updateExpansionCheckbox(dependency.requiredExpansion, true);
+        }
+      }
+    } else {
+      for (const dependency of DEPENDENCIES) {
+          if (dependency.requiredExpansion === expansion) {
+            this.updateExpansionCheckbox(dependency.expansion, false);
+          }
+      }
+    }
+  }
 
   updateSelectedExpansions(): void {
     this.updateShortLabel();

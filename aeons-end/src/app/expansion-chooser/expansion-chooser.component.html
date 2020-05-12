@@ -3,6 +3,6 @@
   <app-expansion-chooser-item *ngFor="let expansion of expansionOrder"
                               [title]="displayedExpansions[expansion].name"
                               [included]="displayedExpansions[expansion].included"
-                              (includedChange)="displayedExpansions[expansion].included = $event; updateSelectedExpansions()">
+                              (includedChange)="updateExpansionCheckbox(expansion, $event); updateSelectedExpansions()">
   </app-expansion-chooser-item>
 </form>
