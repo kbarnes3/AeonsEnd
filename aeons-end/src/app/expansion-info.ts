@@ -6,7 +6,7 @@ export class ExpansionInfo {
   shortName: string;
 }
 
-export const EXPANSION_INFO: { [id: number]: ExpansionInfo} = {};
+export const EXPANSION_INFO: { [id: number]: ExpansionInfo } = {};
 
 EXPANSION_INFO[Expansion.Base] = { expansion: Expansion.Base, name: 'Aeon\'s End', shortName: 'AE' };
 EXPANSION_INFO[Expansion.TheDepths] = { expansion: Expansion.TheDepths, name: 'The Depths', shortName: 'TD' };
