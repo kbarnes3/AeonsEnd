@@ -1,4 +1,3 @@
-import { TestBed } from '@angular/core/testing';
 import { EXPANSION_INFO, ExpansionInfo } from './expansion-info';
 
 describe('ExpansionInfo', () => {
@@ -37,6 +36,22 @@ describe('ExpansionInfo', () => {
           expect(card.expansion).withContext('"' + card.name + '" is in the wrong expansion').toEqual(info.expansion);
         }
       });
+
+      if (info.mages) {
+        it(info.name + ' should only have mages matching that expansion', () => {
+          for (const mage of info.mages) {
+            expect(mage.expansion).withContext('"' + mage.name + '" is in the wrong expansion').toEqual(info.expansion);
+          }
+        });
+      }
+
+      if (info.nemeses) {
+        it(info.name + ' should only have nemeses matching that expansion', () => {
+          for (const nemesis of info.nemeses) {
+            expect(nemesis.expansion).withContext('"' + nemesis.name + '" is in the wrong expansion').toEqual(info.expansion);
+          }
+        })
+      }
     }
   }
 });
