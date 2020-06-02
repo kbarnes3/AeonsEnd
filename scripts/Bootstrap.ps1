@@ -16,8 +16,6 @@ Write-Status "Updating npm"
 . $PSScriptRoot\Invoke-Npm install -g npm $quiet
 Write-Status "Updating Angular CLI"
 . $PSScriptRoot\Invoke-Npm install -g @angular/cli $quiet
-Write-Status "Updating angular-cli-ghpages"
-. $PSScriptRoot\Invoke-Npm install -g angular-cli-ghpages $quiet
 Write-Status "Updating requirements"
 . $PSScriptRoot\Invoke-Npm install $quiet
 
