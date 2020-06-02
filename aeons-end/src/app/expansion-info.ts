@@ -61,7 +61,7 @@ EXPANSION_INFO[Expansion.Base] = {
 EXPANSION_INFO[Expansion.TheDepths] = {
   expansion: Expansion.TheDepths,
   name: 'The Depths',
-  shortName: 'TD',
+  shortName: 'D',
   marketCards: DEPTHS_CARDS,
   mages: DEPTHS_MAGES,
   nemeses: DEPTHS_NEMESES
@@ -69,7 +69,7 @@ EXPANSION_INFO[Expansion.TheDepths] = {
 EXPANSION_INFO[Expansion.TheNameless] = {
   expansion: Expansion.TheNameless,
   name: 'The Nameless',
-  shortName: 'TN',
+  shortName: 'N',
   marketCards: NAMELESS_CARDS,
   mages: NAMELESS_MAGES,
   nemeses: NAMELESS_NEMESES
@@ -85,7 +85,7 @@ EXPANSION_INFO[Expansion.WarEternal] = {
 EXPANSION_INFO[Expansion.TheVoid] = {
   expansion: Expansion.TheVoid,
   name: 'The Void',
-  shortName: 'TV',
+  shortName: 'V',
   marketCards: VOID_CARDS,
   mages: VOID_MAGES,
   nemeses: VOID_NEMESES
@@ -93,7 +93,7 @@ EXPANSION_INFO[Expansion.TheVoid] = {
 EXPANSION_INFO[Expansion.TheOuterDark] = {
   expansion: Expansion.TheOuterDark,
   name: 'The Outer Dark',
-  shortName: 'OD',
+  shortName: 'O',
   marketCards: OUTER_DARK_CARDS,
   mages: OUTER_DARK_MAGES,
   nemeses: OUTER_DARK_NEMESES
