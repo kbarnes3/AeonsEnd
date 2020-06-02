@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {Expansion, DEPENDENCIES, ExpansionDependency} from '../expansion';
+import {Expansion} from '../expansion';
+import {EXPANSION_DEPENDENCIES, ExpansionDependency, EXPANSION_ORDER, ExpansionInfo, EXPANSION_INFO} from '../expansion-info';
 import {ExpansionChooserItemComponent} from '../expansion-chooser-item/expansion-chooser-item.component';
 import {ExpansionSelectionService} from '../expansion-selection.service';
 
@@ -24,39 +25,12 @@ export class ExpansionChooserComponent implements OnInit {
 
   constructor(private expansionSelectionService: ExpansionSelectionService) {
     this.displayedExpansions = {};
-    this.displayedExpansions[Expansion.Base] = new ExpansionDisplay(Expansion.Base, 'Base');
-    this.displayedExpansions[Expansion.TheDepths] = new ExpansionDisplay(Expansion.TheDepths, 'The Depths');
-    this.displayedExpansions[Expansion.TheNameless] = new ExpansionDisplay(Expansion.TheNameless, 'The Nameless');
-    this.displayedExpansions[Expansion.WarEternal] = new ExpansionDisplay(Expansion.WarEternal, 'War Eternal');
-    this.displayedExpansions[Expansion.TheVoid] = new ExpansionDisplay(Expansion.TheVoid, 'The Void');
-    this.displayedExpansions[Expansion.TheOuterDark] = new ExpansionDisplay(Expansion.TheOuterDark, 'The Outer Dark');
-    this.displayedExpansions[Expansion.Legacy] = new ExpansionDisplay(Expansion.Legacy, 'Legacy III/IV');
-    this.displayedExpansions[Expansion.LegacyPromo] = new ExpansionDisplay(Expansion.LegacyPromo, 'Legacy Promo');
-    this.displayedExpansions[Expansion.BuriedSecrets] = new ExpansionDisplay(Expansion.BuriedSecrets, 'Buried Secrets');
-    this.displayedExpansions[Expansion.DiceTowerPromo] = new ExpansionDisplay(Expansion.DiceTowerPromo, 'Dice Tower Promo');
-    this.displayedExpansions[Expansion.TheNewAge] = new ExpansionDisplay(Expansion.TheNewAge, 'The New Age');
-    this.displayedExpansions[Expansion.TheNewAgePromo] = new ExpansionDisplay(Expansion.TheNewAgePromo, 'The New Age Promo');
-    this.displayedExpansions[Expansion.ShatteredDreams] = new ExpansionDisplay(Expansion.ShatteredDreams, 'Shattered Dreams');
-    this.displayedExpansions[Expansion.TheAncients] = new ExpansionDisplay(Expansion.TheAncients, 'The Ancients');
-    this.displayedExpansions[Expansion.IntoTheWild] = new ExpansionDisplay(Expansion.IntoTheWild, 'Into The Wild');
+    for (const expansion of EXPANSION_ORDER) {
+      const info: ExpansionInfo = EXPANSION_INFO[expansion];
+      this.displayedExpansions[expansion] = new ExpansionDisplay(expansion, info.name);
+    }
 
-    this.expansionOrder = [
-      Expansion.Base,
-      Expansion.TheDepths,
-      Expansion.TheNameless,
-      Expansion.WarEternal,
-      Expansion.TheVoid,
-      Expansion.TheOuterDark,
-      Expansion.Legacy,
-      Expansion.LegacyPromo,
-      Expansion.BuriedSecrets,
-      Expansion.DiceTowerPromo,
-      Expansion.TheNewAge,
-      Expansion.TheNewAgePromo,
-      Expansion.ShatteredDreams,
-      Expansion.TheAncients,
-      Expansion.IntoTheWild,
-    ];
+    this.expansionOrder = EXPANSION_ORDER;
 
     const enabledExpansions: Expansion[] = this.expansionSelectionService.selectedExpansions;
     enabledExpansions.forEach((expansion: Expansion) => {
@@ -110,13 +84,13 @@ export class ExpansionChooserComponent implements OnInit {
     // Make sure we check or uncheck required expansions
     // based on this change
     if (included) {
-      for (const dependency of DEPENDENCIES) {
+      for (const dependency of EXPANSION_DEPENDENCIES) {
         if (dependency.expansion === expansion) {
           this.updateExpansionCheckbox(dependency.requiredExpansion, true);
         }
       }
     } else {
-      for (const dependency of DEPENDENCIES) {
+      for (const dependency of EXPANSION_DEPENDENCIES) {
           if (dependency.requiredExpansion === expansion) {
             this.updateExpansionCheckbox(dependency.expansion, false);
           }
@@ -147,7 +121,7 @@ export class ExpansionChooserComponent implements OnInit {
       this.shortLabel = 'Choose expansions';
     } else if (countOfIncludedExpansions === 1) {
       this.shortLabel = singleExpansionName;
-    } else if (countOfIncludedExpansions === this.expansionOrder.length) {
+    } else if (countOfIncludedExpansions === EXPANSION_ORDER.length) {
       this.shortLabel = 'All expansions';
     } else {
       this.shortLabel = `${countOfIncludedExpansions} expansions`;
@@ -166,7 +140,7 @@ export class ExpansionChooserComponent implements OnInit {
     if (countOfIncludedExpansions === 0) {
       this.allCheck.setIndeterminate(false);
       this.allIncluded = false;
-    } else if (countOfIncludedExpansions === this.expansionOrder.length) {
+    } else if (countOfIncludedExpansions === EXPANSION_ORDER.length) {
       this.allCheck.setIndeterminate(false);
       this.allIncluded = true;
     } else {

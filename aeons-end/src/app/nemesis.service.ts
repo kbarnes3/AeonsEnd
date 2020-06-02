@@ -15,6 +15,7 @@ import { Expansion } from './expansion';
 import { LEGACY_NEMESES } from './nemeses-data/legacy-nemeses-data';
 import { ANCIENTS_NEMESES } from './nemeses-data/ancients-nemeses-data';
 import { INTO_THE_WILD_NEMESES } from './nemeses-data/into-the-wild-nemeses-data';
+import { ExpansionInfo, EXPANSION_INFO } from './expansion-info';
 
 
 @Injectable({
@@ -44,37 +45,9 @@ export class NemesisService {
   static getNemesesInExpansions(sources: Expansion[]): Nemesis[] {
     let nemeses: Nemesis[] = [];
     sources.forEach((expansion: Expansion) => {
-      switch (expansion) {
-        case Expansion.Base:
-          nemeses = nemeses.concat(BASE_NEMESES);
-          break;
-        case Expansion.TheNameless:
-          nemeses = nemeses.concat(NAMELESS_NEMESES);
-          break;
-        case Expansion.WarEternal:
-          nemeses = nemeses.concat(WAR_ETERNAL_NEMESES);
-          break;
-        case Expansion.TheVoid:
-          nemeses = nemeses.concat(VOID_NEMESES);
-          break;
-        case Expansion.TheOuterDark:
-          nemeses = nemeses.concat(OUTER_DARK_NEMESES);
-          break;
-        case Expansion.Legacy:
-          nemeses = nemeses.concat(LEGACY_NEMESES);
-          break;
-        case Expansion.TheNewAge:
-          nemeses = nemeses.concat(NEW_AGE_NEMESES);
-          break;
-        case Expansion.ShatteredDreams:
-          nemeses = nemeses.concat(SHATTERED_DREAMS_NEMESES);
-          break;
-        case Expansion.TheAncients:
-          nemeses = nemeses.concat(ANCIENTS_NEMESES);
-          break;
-        case Expansion.IntoTheWild:
-          nemeses = nemeses.concat(INTO_THE_WILD_NEMESES);
-          break;
+      const info: ExpansionInfo = EXPANSION_INFO[expansion];
+      if (info.nemeses) {
+        nemeses = nemeses.concat(info.nemeses);
       }
     });
 

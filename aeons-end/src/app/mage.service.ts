@@ -1,20 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Mage } from './mage';
 import { Expansion } from './expansion';
-import { BASE_MAGES } from './mages-data/base-mages-data';
 import { GameMode, ExpeditionLoseChoice } from './game-mode';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { DEPTHS_MAGES } from './mages-data/depths-mages-data';
-import { NAMELESS_MAGES } from './mages-data/nameless-mages-data';
-import { WAR_ETERNAL_MAGES } from './mages-data/war-eternal-mages-data';
-import { VOID_MAGES } from './mages-data/void-mages-data';
-import { OUTER_DARK_MAGES } from './mages-data/outer-dark-mages-data';
 import { ExpansionSelectionService } from './expansion-selection.service';
 import { GameModeService } from './game-mode.service';
-import { NEW_AGE_MAGES } from './mages-data/new-age-mages-data';
-import { SHATTERED_DREAMS_MAGES } from './mages-data/shattered-dreams-mages-data';
-import { ANCIENT_MAGES } from './mages-data/ancient-mages-data';
-import { INTO_THE_WILD_MAGES } from './mages-data/into-the-wild-mages-data';
+import { ExpansionInfo, EXPANSION_INFO } from './expansion-info';
 
 @Injectable({
   providedIn: 'root'
@@ -52,37 +43,9 @@ export class MageService {
   static getMagesInExpansions(sources: Expansion[]): Mage[] {
     let mages: Mage[] = [];
     sources.forEach((expansion: Expansion) => {
-      switch (expansion) {
-        case Expansion.Base:
-          mages = mages.concat(BASE_MAGES);
-          break;
-        case Expansion.TheDepths:
-          mages = mages.concat(DEPTHS_MAGES);
-          break;
-        case Expansion.TheNameless:
-          mages = mages.concat(NAMELESS_MAGES);
-          break;
-        case Expansion.WarEternal:
-          mages = mages.concat(WAR_ETERNAL_MAGES);
-          break;
-        case Expansion.TheVoid:
-          mages = mages.concat(VOID_MAGES);
-          break;
-        case Expansion.TheOuterDark:
-          mages = mages.concat(OUTER_DARK_MAGES);
-          break;
-        case Expansion.TheNewAge:
-          mages = mages.concat(NEW_AGE_MAGES);
-          break;
-        case Expansion.ShatteredDreams:
-          mages = mages.concat(SHATTERED_DREAMS_MAGES);
-          break;
-        case Expansion.TheAncients:
-          mages = mages.concat(ANCIENT_MAGES);
-          break;
-        case Expansion.IntoTheWild:
-          mages = mages.concat(INTO_THE_WILD_MAGES);
-          break;
+      const info: ExpansionInfo = EXPANSION_INFO[expansion];
+      if (info.mages) {
+        mages = mages.concat(info.mages);
       }
     });
 

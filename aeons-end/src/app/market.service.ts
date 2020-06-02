@@ -7,24 +7,9 @@ import {Predicate} from './predicates';
 import {MarketCardType} from './market-card-type';
 import {Expansion} from './expansion';
 import { ExpansionSelectionService } from './expansion-selection.service';
-
-import {BASE_CARDS} from './cards-data/base-cards-data';
-import {DEPTHS_CARDS} from './cards-data/depths-cards-data';
-import {NAMELESS_CARDS} from './cards-data/nameless-cards-data';
-import {WAR_ETERNAL_CARDS} from './cards-data/war-eternal-cards-data';
-import {VOID_CARDS} from './cards-data/void-cards-data';
-import {OUTER_DARK_CARDS} from './cards-data/outer-dark-cards-data';
-import {LEGACY_CARDS} from './cards-data/legacy-cards-data';
-import {LEGACY_PROMO_CARDS} from './cards-data/legacy-promo-cards-data';
-import {BURIED_SECRETS_CARDS} from './cards-data/buried-secrets-cards-data';
-import {DICE_TOWER_PROMO_CARDS} from './cards-data/dice-tower-promo-cards-data';
 import { GameModeService } from './game-mode.service';
 import { GameMode, ExpeditionLoseChoice } from './game-mode';
-import { NEW_AGE_CARDS } from './cards-data/new-age-cards-data';
-import { SHATTERED_DREAMS_CARDS } from './cards-data/shattered-dreams-cards-data';
-import { NEW_AGE_PROMO_CARDS } from './cards-data/new-age-promo-cards-data';
-import { ANCIENTS_CARDS } from './cards-data/ancients-cards-data';
-import { INTO_THE_WILD_CARDS } from './cards-data/into-the-wild-cards-data';
+import { ExpansionInfo, EXPANSION_INFO } from './expansion-info';
 
 @Injectable({
   providedIn: 'root'
@@ -62,53 +47,8 @@ export class MarketService {
   static getCardsInExpansions(sources: Expansion[]): MarketCard[] {
     let cards: MarketCard[] = [];
     sources.forEach((expansion: Expansion) => {
-      switch (expansion) {
-        case Expansion.Base:
-          cards = cards.concat(BASE_CARDS);
-          break;
-        case Expansion.TheDepths:
-          cards = cards.concat(DEPTHS_CARDS);
-          break;
-        case Expansion.TheNameless:
-          cards = cards.concat(NAMELESS_CARDS);
-          break;
-        case Expansion.WarEternal:
-          cards = cards.concat(WAR_ETERNAL_CARDS);
-          break;
-        case Expansion.TheVoid:
-          cards = cards.concat(VOID_CARDS);
-          break;
-        case Expansion.TheOuterDark:
-          cards = cards.concat(OUTER_DARK_CARDS);
-          break;
-        case Expansion.Legacy:
-          cards = cards.concat(LEGACY_CARDS);
-          break;
-        case Expansion.LegacyPromo:
-          cards = cards.concat(LEGACY_PROMO_CARDS);
-          break;
-        case Expansion.BuriedSecrets:
-          cards = cards.concat(BURIED_SECRETS_CARDS);
-          break;
-        case Expansion.DiceTowerPromo:
-          cards = cards.concat(DICE_TOWER_PROMO_CARDS);
-          break;
-        case Expansion.TheNewAge:
-          cards = cards.concat(NEW_AGE_CARDS);
-          break;
-        case Expansion.TheNewAgePromo:
-          cards = cards.concat(NEW_AGE_PROMO_CARDS);
-          break;
-        case Expansion.ShatteredDreams:
-          cards = cards.concat(SHATTERED_DREAMS_CARDS);
-          break;
-        case Expansion.TheAncients:
-          cards = cards.concat(ANCIENTS_CARDS);
-          break;
-        case Expansion.IntoTheWild:
-          cards = cards.concat(INTO_THE_WILD_CARDS);
-          break;
-      }
+      const info: ExpansionInfo = EXPANSION_INFO[expansion];
+      cards = cards.concat(info.marketCards);
     });
 
     return cards;
