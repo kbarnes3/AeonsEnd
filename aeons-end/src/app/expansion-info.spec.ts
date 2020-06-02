@@ -50,7 +50,7 @@ describe('ExpansionInfo', () => {
           for (const nemesis of info.nemeses) {
             expect(nemesis.expansion).withContext('"' + nemesis.name + '" is in the wrong expansion').toEqual(info.expansion);
           }
-        })
+        });
       }
     }
   }
