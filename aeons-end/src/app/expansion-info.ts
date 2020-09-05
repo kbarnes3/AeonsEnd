@@ -39,6 +39,8 @@ import { INTO_THE_WILD_CARDS } from './cards-data/into-the-wild-cards-data';
 import { INTO_THE_WILD_MAGES } from './mages-data/into-the-wild-mages-data';
 import { INTO_THE_WILD_NEMESES } from './nemeses-data/into-the-wild-nemeses-data';
 import { OUTCASTS_CARDS } from './cards-data/outcasts-card-data';
+import { OUTCASTS_MAGES } from './mages-data/outcasts-mages-data';
+import { OUTCASTS_NEMESES } from './nemeses-data/outcasts-nemeses-data';
 
 export class ExpansionInfo {
   expansion: Expansion;
@@ -176,8 +178,8 @@ EXPANSION_INFO[Expansion.Outcasts] = {
   name: 'Outcasts',
   shortName: 'O',
   marketCards: OUTCASTS_CARDS,
-  mages: null,
-  nemeses: null
+  mages: OUTCASTS_MAGES,
+  nemeses: OUTCASTS_NEMESES
 };
 EXPANSION_INFO[Expansion.OutcastsPromo] = {
   expansion: Expansion.OutcastsPromo,
