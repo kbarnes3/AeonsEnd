@@ -38,6 +38,7 @@ import { ANCIENTS_NEMESES } from './nemeses-data/ancients-nemeses-data';
 import { INTO_THE_WILD_CARDS } from './cards-data/into-the-wild-cards-data';
 import { INTO_THE_WILD_MAGES } from './mages-data/into-the-wild-mages-data';
 import { INTO_THE_WILD_NEMESES } from './nemeses-data/into-the-wild-nemeses-data';
+import { OUTCASTS_CARDS } from './cards-data/outcasts-card-data';
 
 export class ExpansionInfo {
   expansion: Expansion;
@@ -138,14 +139,6 @@ EXPANSION_INFO[Expansion.TheNewAge] = {
   mages: NEW_AGE_MAGES,
   nemeses: NEW_AGE_NEMESES
 };
-EXPANSION_INFO[Expansion.TheNewAgePromo] = {
-  expansion: Expansion.TheNewAgePromo,
-  name: 'The New Age Promo',
-  shortName: 'NAP',
-  marketCards: NEW_AGE_PROMO_CARDS,
-  mages: null,
-  nemeses: null
-};
 EXPANSION_INFO[Expansion.ShatteredDreams] = {
   expansion: Expansion.ShatteredDreams,
   name: 'Shattered Dreams',
@@ -153,6 +146,14 @@ EXPANSION_INFO[Expansion.ShatteredDreams] = {
   marketCards: SHATTERED_DREAMS_CARDS,
   mages: SHATTERED_DREAMS_MAGES,
   nemeses: SHATTERED_DREAMS_NEMESES
+};
+EXPANSION_INFO[Expansion.TheNewAgePromo] = {
+  expansion: Expansion.TheNewAgePromo,
+  name: 'The New Age Promo',
+  shortName: 'NAP',
+  marketCards: NEW_AGE_PROMO_CARDS,
+  mages: null,
+  nemeses: null
 };
 EXPANSION_INFO[Expansion.TheAncients] = {
   expansion: Expansion.TheAncients,
@@ -169,6 +170,38 @@ EXPANSION_INFO[Expansion.IntoTheWild] = {
   marketCards: INTO_THE_WILD_CARDS,
   mages: INTO_THE_WILD_MAGES,
   nemeses: INTO_THE_WILD_NEMESES
+};
+EXPANSION_INFO[Expansion.Outcasts] = {
+  expansion: Expansion.Outcasts,
+  name: 'Outcasts',
+  shortName: 'O',
+  marketCards: OUTCASTS_CARDS,
+  mages: null,
+  nemeses: null
+};
+EXPANSION_INFO[Expansion.OutcastsPromo] = {
+  expansion: Expansion.OutcastsPromo,
+  name: 'Outcasts Promo',
+  shortName: 'OP',
+  marketCards: null,
+  mages: null,
+  nemeses: null
+};
+EXPANSION_INFO[Expansion.ReturnToGravehold] = {
+  expansion: Expansion.ReturnToGravehold,
+  name: 'Return To Gravehold',
+  shortName: 'RTG',
+  marketCards: null,
+  mages: null,
+  nemeses: null
+};
+EXPANSION_INFO[Expansion.SouthernVillage] = {
+  expansion: Expansion.SouthernVillage,
+  name: 'Southern Village',
+  shortName: 'SV',
+  marketCards: null,
+  mages: null,
+  nemeses: null
 };
 
 export class ExpansionDependency {
@@ -199,4 +232,8 @@ export const EXPANSION_ORDER: Expansion[] = [
   Expansion.ShatteredDreams,
   Expansion.TheAncients,
   Expansion.IntoTheWild,
+  Expansion.Outcasts,
+  Expansion.OutcastsPromo,
+  Expansion.ReturnToGravehold,
+  Expansion.SouthernVillage,
 ];
