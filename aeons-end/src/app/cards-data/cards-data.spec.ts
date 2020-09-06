@@ -6,9 +6,11 @@ describe('CardsData', () => {
       for (const key in EXPANSION_INFO) {
         if (EXPANSION_INFO.hasOwnProperty(key)) {
           const info: ExpansionInfo = EXPANSION_INFO[key];
-          for (const card of info.marketCards) {
-            expect(seenCards[card.name]).toBeFalsy(card.name + ' seen in both ' + seenCards[card.name] + ' and ' + info.name);
-            seenCards[card.name] = info.name;
+          if (info.marketCards) {
+            for (const card of info.marketCards) {
+              expect(seenCards[card.name]).toBeFalsy(card.name + ' seen in both ' + seenCards[card.name] + ' and ' + info.name);
+              seenCards[card.name] = info.name;
+            }
           }
         }
       }

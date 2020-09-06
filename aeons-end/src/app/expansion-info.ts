@@ -41,6 +41,10 @@ import { INTO_THE_WILD_NEMESES } from './nemeses-data/into-the-wild-nemeses-data
 import { OUTCASTS_CARDS } from './cards-data/outcasts-card-data';
 import { OUTCASTS_MAGES } from './mages-data/outcasts-mages-data';
 import { OUTCASTS_NEMESES } from './nemeses-data/outcasts-nemeses-data';
+import { OUTCASTS_PROMO_CARDS } from './cards-data/outcasts-promo-card-data';
+import { RETURN_TO_GRAVEHOLD_CARDS } from './cards-data/return-to-gravehold-cards-data';
+import { RETURN_TO_GRAVEHOLD_MAGES } from './mages-data/return-to-gravehold-mages-data';
+import { RETURN_TO_GRAVEHOLD_NEMESES } from './nemeses-data/return-to-gravehold-nemeses-data';
 
 export class ExpansionInfo {
   expansion: Expansion;
@@ -96,7 +100,7 @@ EXPANSION_INFO[Expansion.TheVoid] = {
 EXPANSION_INFO[Expansion.TheOuterDark] = {
   expansion: Expansion.TheOuterDark,
   name: 'The Outer Dark',
-  shortName: 'O',
+  shortName: 'OD',
   marketCards: OUTER_DARK_CARDS,
   mages: OUTER_DARK_MAGES,
   nemeses: OUTER_DARK_NEMESES
@@ -185,7 +189,7 @@ EXPANSION_INFO[Expansion.OutcastsPromo] = {
   expansion: Expansion.OutcastsPromo,
   name: 'Outcasts Promo',
   shortName: 'OP',
-  marketCards: null,
+  marketCards: OUTCASTS_PROMO_CARDS,
   mages: null,
   nemeses: null
 };
@@ -193,9 +197,9 @@ EXPANSION_INFO[Expansion.ReturnToGravehold] = {
   expansion: Expansion.ReturnToGravehold,
   name: 'Return To Gravehold',
   shortName: 'RTG',
-  marketCards: null,
-  mages: null,
-  nemeses: null
+  marketCards: RETURN_TO_GRAVEHOLD_CARDS,
+  mages: RETURN_TO_GRAVEHOLD_MAGES,
+  nemeses: RETURN_TO_GRAVEHOLD_NEMESES
 };
 EXPANSION_INFO[Expansion.SouthernVillage] = {
   expansion: Expansion.SouthernVillage,

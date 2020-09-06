@@ -31,11 +31,13 @@ describe('ExpansionInfo', () => {
     if (EXPANSION_INFO.hasOwnProperty(key)) {
       const info: ExpansionInfo = EXPANSION_INFO[key];
 
-      it(info.name + ' should only have market cards matching that expansion', () => {
-        for (const card of info.marketCards) {
-          expect(card.expansion).withContext('"' + card.name + '" is in the wrong expansion').toEqual(info.expansion);
-        }
-      });
+      if (info.marketCards) {
+        it(info.name + ' should only have market cards matching that expansion', () => {
+          for (const card of info.marketCards) {
+            expect(card.expansion).withContext('"' + card.name + '" is in the wrong expansion').toEqual(info.expansion);
+          }
+        });
+      }
 
       if (info.mages) {
         it(info.name + ' should only have mages matching that expansion', () => {
