@@ -45,6 +45,9 @@ import { OUTCASTS_PROMO_CARDS } from './cards-data/outcasts-promo-card-data';
 import { RETURN_TO_GRAVEHOLD_CARDS } from './cards-data/return-to-gravehold-cards-data';
 import { RETURN_TO_GRAVEHOLD_MAGES } from './mages-data/return-to-gravehold-mages-data';
 import { RETURN_TO_GRAVEHOLD_NEMESES } from './nemeses-data/return-to-gravehold-nemeses-data';
+import { SOUTHERN_VILLAGE_CARDS } from './cards-data/southern-village-cards-data';
+import { SOUTHERN_VILLAGE_MAGES } from './mages-data/southern-village-mages-data';
+import { SOUTHER_VILLAGE_NEMESES } from './nemeses-data/southern-village-nemeses-data';
 
 export class ExpansionInfo {
   expansion: Expansion;
@@ -205,9 +208,9 @@ EXPANSION_INFO[Expansion.SouthernVillage] = {
   expansion: Expansion.SouthernVillage,
   name: 'Southern Village',
   shortName: 'SV',
-  marketCards: null,
-  mages: null,
-  nemeses: null
+  marketCards: SOUTHERN_VILLAGE_CARDS,
+  mages: SOUTHERN_VILLAGE_MAGES,
+  nemeses: SOUTHER_VILLAGE_NEMESES
 };
 
 export class ExpansionDependency {
