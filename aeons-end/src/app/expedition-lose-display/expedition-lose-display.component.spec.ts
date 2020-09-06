@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ExpeditionLoseDisplayComponent } from './expedition-lose-display.component';
 
@@ -19,7 +19,7 @@ describe('ExpeditionLoseDisplayComponent', () => {
   let component: ExpeditionLoseDisplayComponent;
   let fixture: ComponentFixture<ExpeditionLoseDisplayComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         ExpeditionLoseDisplayComponent,
