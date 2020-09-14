@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Expansion } from '../expansion';
 import { ExpansionChooserComponent } from './expansion-chooser.component';
@@ -36,7 +36,7 @@ describe('ExpansionChooserComponent', () => {
   let expansionSelectionService: Partial<ExpansionSelectionService>;
   const mockExpansionSelectionService: MockExpansionSelectionService = new MockExpansionSelectionService();
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
           ExpansionChooserComponent,

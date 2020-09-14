@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barracks-display.component';
 
@@ -25,7 +25,7 @@ describe('StartExpeditionBarracksDisplayComponent', () => {
   let component: StartExpeditionBarracksDisplayComponent;
   let fixture: ComponentFixture<StartExpeditionBarracksDisplayComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         StartExpeditionBarracksDisplayComponent,
