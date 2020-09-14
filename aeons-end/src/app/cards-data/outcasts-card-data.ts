@@ -52,7 +52,7 @@ export const OUTCASTS_CARDS: MarketCard[] = [
         expansion: Expansion.Outcasts,
     },
     {
-        name: 'Tornado Of Insight',
+        name: 'Tornado of Insight',
         type: MarketCardType.Spell,
         cost: 6,
         expansion: Expansion.Outcasts,
@@ -79,6 +79,30 @@ export const OUTCASTS_CARDS: MarketCard[] = [
         name: 'Infused Ignition',
         type: MarketCardType.Spell,
         cost: 4,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Elongated Looq',
+        type: MarketCardType.Gem,
+        cost: 4,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Chain of Retrieval',
+        type: MarketCardType.Relic,
+        cost: 4,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Paired Storm',
+        type: MarketCardType.Spell,
+        cost: 3,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Arcane Relay',
+        type: MarketCardType.Spell,
+        cost: 8,
         expansion: Expansion.Outcasts,
     },
 ];

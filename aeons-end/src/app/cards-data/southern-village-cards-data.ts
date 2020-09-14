@@ -52,7 +52,7 @@ export const SOUTHERN_VILLAGE_CARDS: MarketCard[] = [
         expansion: Expansion.SouthernVillage
     },
     {
-        name: 'Erase Of Mind',
+        name: 'Erase of Mind',
         type: MarketCardType.Spell,
         cost: 7,
         expansion: Expansion.SouthernVillage

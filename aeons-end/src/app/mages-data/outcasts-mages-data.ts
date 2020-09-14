@@ -18,4 +18,8 @@ export const OUTCASTS_MAGES: Mage[] = [
         name: 'Z\'hana (Outcasts)',
         expansion: Expansion.Outcasts
     },
+    {
+        name: 'Qu (Outcasts)',
+        expansion: Expansion.Outcasts
+    },
 ];
