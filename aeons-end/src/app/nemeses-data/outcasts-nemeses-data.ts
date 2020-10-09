@@ -14,4 +14,10 @@ export const OUTCASTS_NEMESES: Nemesis[] = [
         expansion: Expansion.Outcasts,
         battle_number: 2
     },
+    {
+        name: 'Risen Thrall',
+        rules: 'Fight Risen Thrall.',
+        expansion: Expansion.Outcasts,
+        battle_number: 3
+    },
 ];

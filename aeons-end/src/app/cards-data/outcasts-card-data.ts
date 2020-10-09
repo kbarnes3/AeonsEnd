@@ -105,4 +105,28 @@ export const OUTCASTS_CARDS: MarketCard[] = [
         cost: 8,
         expansion: Expansion.Outcasts,
     },
+    {
+        name: 'Helix of Amber',
+        type: MarketCardType.Gem,
+        cost: 4,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Reconstituting Circuit',
+        type: MarketCardType.Relic,
+        cost: 3,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Unhinged Vortex',
+        type: MarketCardType.Relic,
+        cost: 7,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Radiant Conflux',
+        type: MarketCardType.Spell,
+        cost: 5,
+        expansion: Expansion.Outcasts,
+    },
 ];
