@@ -16,7 +16,7 @@ export const OUTCASTS_CARDS: MarketCard[] = [
         expansion: Expansion.Outcasts,
     },
     {
-        name: 'Deplicating Sazite',
+        name: 'Duplicating Sazite',
         type: MarketCardType.Gem,
         cost: 6,
         expansion: Expansion.Outcasts,
@@ -62,6 +62,7 @@ export const OUTCASTS_CARDS: MarketCard[] = [
         type: MarketCardType.Gem,
         cost: 4,
         expansion: Expansion.Outcasts,
+        xaxos: true,
     },
     {
         name: 'Vigorous Sunstone',
@@ -80,6 +81,7 @@ export const OUTCASTS_CARDS: MarketCard[] = [
         type: MarketCardType.Spell,
         cost: 4,
         expansion: Expansion.Outcasts,
+        xaxos: true,
     },
     {
         name: 'Elongated Looq',
@@ -116,6 +118,7 @@ export const OUTCASTS_CARDS: MarketCard[] = [
         type: MarketCardType.Relic,
         cost: 3,
         expansion: Expansion.Outcasts,
+        xaxos: true,
     },
     {
         name: 'Unhinged Vortex',
@@ -127,6 +130,67 @@ export const OUTCASTS_CARDS: MarketCard[] = [
         name: 'Radiant Conflux',
         type: MarketCardType.Spell,
         cost: 5,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Unstable Pyrite',
+        type: MarketCardType.Gem,
+        cost: 2,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Orb of the Deep',
+        type: MarketCardType.Relic,
+        cost: 2,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Rift Dagger',
+        type: MarketCardType.Relic,
+        cost: 3,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Bottled Sun',
+        type: MarketCardType.Relic,
+        cost: 6,
+        expansion: Expansion.Outcasts,
+        xaxos: true,
+    },
+    {
+        name: 'Shattering Bolt',
+        type: MarketCardType.Spell,
+        cost: 4,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Unstable Rift',
+        type: MarketCardType.Spell,
+        cost: 5,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Gathered Will',
+        type: MarketCardType.Spell,
+        cost: 5,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Hasted Intellect',
+        type: MarketCardType.Spell,
+        cost: 6,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Swarm of Flame',
+        type: MarketCardType.Spell,
+        cost: 6,
+        expansion: Expansion.Outcasts,
+    },
+    {
+        name: 'Dizzying Burst',
+        type: MarketCardType.Spell,
+        cost: 8,
         expansion: Expansion.Outcasts,
     },
 ];
