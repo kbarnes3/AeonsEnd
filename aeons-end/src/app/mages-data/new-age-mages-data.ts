@@ -31,7 +31,7 @@ export const NEW_AGE_MAGES: Mage[] = [
         expansion: Expansion.TheNewAge
     },
     {
-        name: 'Taqren',
+        name: 'Taqren (New Age)',
         expansion: Expansion.TheNewAge
     },
 ];

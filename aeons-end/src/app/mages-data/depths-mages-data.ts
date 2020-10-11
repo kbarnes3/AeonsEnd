@@ -11,7 +11,7 @@ export const DEPTHS_MAGES: Mage[] = [
         expansion: Expansion.TheDepths
     },
     {
-        name: 'Z\'hana',
+        name: 'Z\'hana (The Depths)',
         expansion: Expansion.TheDepths
     },
 ];

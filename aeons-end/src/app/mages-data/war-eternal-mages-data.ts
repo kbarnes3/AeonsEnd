@@ -3,7 +3,7 @@ import {Mage} from '../mage';
 
 export const WAR_ETERNAL_MAGES: Mage[] = [
     {
-        name: 'Dezmodia',
+        name: 'Dezmodia (War Eternal)',
         expansion: Expansion.WarEternal
     },
     {

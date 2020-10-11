@@ -5,8 +5,9 @@ import { ExpansionChooserComponent } from './expansion-chooser.component';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ExpansionSelectionService } from '../expansion-selection.service';
 import { MockExpansionSelectionService } from '../mocks/mock-expansion-selection-service';
+import { EXPANSION_INFO } from '../expansion-info';
 
-const numberOfExpansions: number = 15;
+const numberOfExpansions: number = Object.keys(EXPANSION_INFO).length;
 
 @Component({
   selector: 'app-expansion-chooser-item',

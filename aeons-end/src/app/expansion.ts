@@ -14,4 +14,8 @@ export enum Expansion {
   TheNewAgePromo,
   TheAncients,
   IntoTheWild,
+  Outcasts,
+  OutcastsPromo,
+  ReturnToGravehold,
+  SouthernVillage,
 }
