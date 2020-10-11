@@ -10,7 +10,7 @@ export const RETURN_TO_GRAVEHOLD_CARDS: MarketCard[] = [
         expansion: Expansion.ReturnToGravehold
     },
     {
-        name: 'Cleanse Oracle',
+        name: 'Cleanse',
         type: MarketCardType.Spell,
         cost: 4,
         expansion: Expansion.ReturnToGravehold
