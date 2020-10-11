@@ -20,4 +20,10 @@ export const OUTCASTS_NEMESES: Nemesis[] = [
         expansion: Expansion.Outcasts,
         battle_number: 3
     },
+    {
+        name: 'Fountain of Souls',
+        rules: 'Fight Fountain of Souls.',
+        expansion: Expansion.Outcasts,
+        battle_number: 4
+    },
 ];
