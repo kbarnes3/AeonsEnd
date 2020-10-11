@@ -31,7 +31,7 @@ export const OUTCASTS_MAGES: Mage[] = [
         expansion: Expansion.Outcasts
     },
     {
-        name: 'Dezmodia',
+        name: 'Dezmodia (Outcasts)',
         expansion: Expansion.Outcasts
     },
 ];
