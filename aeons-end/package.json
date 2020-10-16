@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~10.1.6",
     "@angular/router": "~10.1.6",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^4.5.3",
     "font-awesome": "^4.7.0",
     "github-fork-ribbon-css": "^0.2.3",
     "rxjs": "~6.6.3",
