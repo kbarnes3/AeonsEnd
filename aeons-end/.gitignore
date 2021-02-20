@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/git-version.json
 
 # dependencies
 /node_modules

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { versionInfo } from './version-info';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Aeon\'s End Market Generator';
+  gitVersion: string = versionInfo.hash;
 }
