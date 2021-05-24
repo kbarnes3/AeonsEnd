@@ -8,9 +8,9 @@ describe('NemesesData', () => {
           const info: ExpansionInfo = EXPANSION_INFO[key];
           if (info.nemeses) {
             for (const nemesis of info.nemeses) {
-              expect(seenNemeses[nemesis.name]).toBeFalsy(
-                nemesis.name + ' seen in both ' + seenNemeses[nemesis.name] + ' and ' + info.name);
-                seenNemeses[nemesis.name] = info.name;
+              expect(seenNemeses[nemesis.name]).withContext(
+                nemesis.name + ' seen in both ' + seenNemeses[nemesis.name] + ' and ' + info.name).toBeFalsy();
+              seenNemeses[nemesis.name] = info.name;
             }
           }
         }

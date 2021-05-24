@@ -8,7 +8,8 @@ describe('MagesData', () => {
         const info: ExpansionInfo = EXPANSION_INFO[key];
         if (info.mages) {
           for (const mage of info.mages) {
-            expect(seenMages[mage.name]).toBeFalsy(mage.name + ' seen in both ' + seenMages[mage.name] + ' and ' + info.name);
+            expect(seenMages[mage.name]).withContext(
+              mage.name + ' seen in both ' + seenMages[mage.name] + ' and ' + info.name).toBeFalsy();
             seenMages[mage.name] = info.name;
           }
         }
