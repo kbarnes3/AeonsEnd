@@ -40,5 +40,5 @@ steps:
 
 - script: |
     cd aeons-end
-    #    ng lint
-  displayName: 'Run linting (ng lint) (Temporarily disabled)'
+    npm run-script lint
+  displayName: 'Run linting (ng lint)'
