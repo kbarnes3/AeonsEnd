@@ -101,25 +101,6 @@
           }
         }
       }
-    },
-    "aeons-end-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "aeons-end:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "aeons-end:serve:production"
-            }
-          }
-        }
-      }
     }
   },
   "defaultProject": "aeons-end",
