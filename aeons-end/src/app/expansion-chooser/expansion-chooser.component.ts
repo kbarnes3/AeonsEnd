@@ -20,7 +20,7 @@ export class ExpansionDisplay {
   templateUrl: './expansion-chooser.component.html',
   styleUrls: ['./expansion-chooser.component.css']
 })
-export class ExpansionChooserComponent implements OnInit {
+export class ExpansionChooserComponent {
   @ViewChild('allCheck', { static: true }) allCheck: ExpansionChooserItemComponent;
 
   constructor(private expansionSelectionService: ExpansionSelectionService) {
@@ -75,8 +75,6 @@ export class ExpansionChooserComponent implements OnInit {
 
     this.updateSelectedExpansions();
   }
-
-  ngOnInit() {}
 
   updateExpansionCheckbox(expansion: Expansion, included: boolean): void {
     this. displayedExpansions[expansion].included = included;

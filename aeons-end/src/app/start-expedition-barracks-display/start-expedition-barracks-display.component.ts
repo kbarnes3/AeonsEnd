@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './start-expedition-barracks-display.component.html',
   styleUrls: ['./start-expedition-barracks-display.component.css']
 })
-export class StartExpeditionBarracksDisplayComponent implements OnInit {
+export class StartExpeditionBarracksDisplayComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

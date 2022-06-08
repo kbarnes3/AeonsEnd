@@ -5,7 +5,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
   templateUrl: './expansion-chooser-item.component.html',
   styleUrls: ['./expansion-chooser-item.component.css']
 })
-export class ExpansionChooserItemComponent implements OnInit {
+export class ExpansionChooserItemComponent {
   @ViewChild('checkboxElement', { static: true }) checkboxElement: ElementRef;
 
   @Input() title: string;
@@ -21,9 +21,6 @@ export class ExpansionChooserItemComponent implements OnInit {
   @Output() includedChange: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   setIndeterminate(indeterminate: boolean): void {
     this.checkboxElement.nativeElement.indeterminate = indeterminate;
