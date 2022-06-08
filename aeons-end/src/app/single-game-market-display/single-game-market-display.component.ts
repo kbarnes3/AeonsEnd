@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './single-game-market-display.component.html',
   styleUrls: ['./single-game-market-display.component.css']
 })
-export class SingleGameMarketDisplayComponent implements OnInit {
+export class SingleGameMarketDisplayComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }
