@@ -112,9 +112,10 @@
       }
     }
   },
-  "defaultProject": "aeons-end",
   "cli": {
     "analytics": "d3700e1b-da05-42d9-b47a-1e2d79cd8b9a",
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
