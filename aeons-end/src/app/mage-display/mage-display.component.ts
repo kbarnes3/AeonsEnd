@@ -6,7 +6,6 @@ import { MageService } from '../mage.service';
     selector: 'app-mage-display',
     templateUrl: './mage-display.component.html',
     styleUrls: ['./mage-display.component.css'],
-    standalone: false
 })
 export class MageDisplayComponent implements OnInit {
 

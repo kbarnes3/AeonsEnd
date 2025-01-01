@@ -6,14 +6,12 @@ import { ExpeditionLoseDisplayComponent } from './expedition-lose-display.compon
 @Component({
     selector: 'app-market-selection',
     template: '<p>Market Selection</p>',
-    standalone: false
 })
 class MockMarketSelectionComponent {}
 
 @Component({
     selector: 'app-mage-display',
     template: '<p>Mage Display</p>',
-    standalone: false
 })
 class MockMageDisplayComponent {}
 

@@ -6,7 +6,6 @@ import { ExpeditionStartBattleDisplayComponent } from './expedition-start-battle
 @Component({
     selector: 'app-nemesis-display',
     template: '<p>Nemesis Display</p>',
-    standalone: false
 })
 class MockNemesisDisplayComponent {}
 

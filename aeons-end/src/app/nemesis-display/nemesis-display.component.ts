@@ -8,7 +8,6 @@ import { GameMode } from '../game-mode';
     selector: 'app-nemesis-display',
     templateUrl: './nemesis-display.component.html',
     styleUrls: ['./nemesis-display.component.css'],
-    standalone: false
 })
 export class NemesisDisplayComponent implements OnInit {
   nemesis: Nemesis;

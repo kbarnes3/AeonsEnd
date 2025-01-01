@@ -6,7 +6,6 @@ import { ExpeditionWinDisplayComponent } from './expedition-win-display.componen
 @Component({
     selector: 'app-market-selection',
     template: '<p>Market Selection</p>',
-    standalone: false
 })
 class MockMarketSelectionComponent {}
 

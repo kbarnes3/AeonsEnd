@@ -6,7 +6,6 @@ import { GameModeService } from '../game-mode.service';
     selector: 'app-market-display',
     templateUrl: './market-display.component.html',
     styleUrls: ['./market-display.component.css'],
-    standalone: false
 })
 export class MarketDisplayComponent implements OnInit {
   gameMode: GameMode;

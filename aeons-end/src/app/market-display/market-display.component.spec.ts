@@ -6,49 +6,42 @@ import { MarketDisplayComponent } from './market-display.component';
 @Component({
     selector: 'app-single-game-market-display',
     template: '<p>Single Game Market Display</p>',
-    standalone: false
 })
 class MockSingleGameMarketDisplayComponent {}
 
 @Component({
     selector: 'app-expedition-unknown-display',
     template: '<p>Expedition Unknown Display</p>',
-    standalone: false
 })
 class MockExpeditionUnknownDisplayComponent {}
 
 @Component({
     selector: 'app-start-expedition-barracks-display',
     template: '<p>Start Expedition Barracks Display</p>',
-    standalone: false
 })
 class MockStartExpeditionBarracksDisplayComponent {}
 
 @Component({
     selector: 'app-expedition-start-battle-display',
     template: '<p>Expedition Start Battle Display</p>',
-    standalone: false
 })
 class MockExpeditionStartBattleDisplayComponent {}
 
 @Component({
     selector: 'app-expedition-win-display',
     template: '<p>Expedition Win Display</p>',
-    standalone: false
 })
 class MockExpeditionWinDisplayComponent {}
 
 @Component({
     selector: 'app-expedition-lose-display',
     template: '<p>Expedition Lose Display</p>',
-    standalone: false
 })
 class MockExpeditionLoseDisplayComponent {}
 
 @Component({
     selector: 'app-finish-expedition-display',
     template: '<p>Finish Expedition Display</p>',
-    standalone: false
 })
 class MockFinishExpeditionDisplayComponent {}
 

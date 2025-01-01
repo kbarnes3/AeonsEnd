@@ -10,7 +10,6 @@ import { GameMode } from '../game-mode';
     selector: 'app-market-selection',
     templateUrl: './market-selection.component.html',
     styleUrls: ['./market-selection.component.css'],
-    standalone: false
 })
 export class MarketSelectionComponent implements OnInit {
 

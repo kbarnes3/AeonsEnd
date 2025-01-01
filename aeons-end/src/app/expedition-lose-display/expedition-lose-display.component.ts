@@ -6,7 +6,6 @@ import { GameModeService } from '../game-mode.service';
     selector: 'app-expedition-lose-display',
     templateUrl: './expedition-lose-display.component.html',
     styleUrls: ['./expedition-lose-display.component.css'],
-    standalone: false
 })
 export class ExpeditionLoseDisplayComponent implements OnInit {
   treasuresUnlocked: boolean;

@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-market-selection',
     template: '<p>Market Selection</p>',
-    standalone: false
 })
 class MockMarketSelectionComponent {}
 

@@ -6,21 +6,18 @@ import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barr
 @Component({
     selector: 'app-market-selection',
     template: '<p>Market Selection</p>',
-    standalone: false
 })
 class MockMarketSelectionComponent {}
 
 @Component({
     selector: 'app-mage-display',
     template: '<p>Mage Display</p>',
-    standalone: false
 })
 class MockMageDisplayComponent {}
 
 @Component({
     selector: 'app-nemesis-display',
     template: '<p>Nemesis Display</p>',
-    standalone: false
 })
 class MockNemesisDisplayComponent {}
 

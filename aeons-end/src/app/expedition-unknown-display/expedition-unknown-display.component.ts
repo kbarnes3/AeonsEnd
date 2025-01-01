@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
     selector: 'app-expedition-unknown-display',
     templateUrl: './expedition-unknown-display.component.html',
     styleUrls: ['./expedition-unknown-display.component.css'],
-    standalone: false
 })
 export class ExpeditionUnknownDisplayComponent {
 

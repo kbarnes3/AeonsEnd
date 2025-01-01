@@ -10,7 +10,6 @@ import { NemesisService } from '../nemesis.service';
     selector: 'app-market-settings',
     templateUrl: './market-settings.component.html',
     styleUrls: ['./market-settings.component.css'],
-    standalone: false
 })
 export class MarketSettingsComponent implements OnInit {
   gameMode: GameMode;

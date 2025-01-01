@@ -9,7 +9,6 @@ import { GameMode } from '../game-mode';
 @Component({
     selector: 'app-expansion-chooser',
     template: '<p>Expansions</p>',
-    standalone: false
 })
 class MockExpansionChooserComponent {}
 

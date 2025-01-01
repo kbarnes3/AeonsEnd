@@ -6,7 +6,6 @@ import { GameModeService } from '../game-mode.service';
     selector: 'app-expedition-win-display',
     templateUrl: './expedition-win-display.component.html',
     styleUrls: ['./expedition-win-display.component.css'],
-    standalone: false
 })
 export class ExpeditionWinDisplayComponent implements OnInit {
   expeditionNumber: number;
