@@ -7,9 +7,7 @@ describe('ExpansionChooserItemComponent', () => {
   let fixture: ComponentFixture<ExpansionChooserItemComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ExpansionChooserItemComponent ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

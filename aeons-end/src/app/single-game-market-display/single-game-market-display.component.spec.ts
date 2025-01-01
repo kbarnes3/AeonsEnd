@@ -2,10 +2,11 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SingleGameMarketDisplayComponent } from './single-game-market-display.component';
 import { Component } from '@angular/core';
+import { MarketSelectionComponent } from '../market-selection/market-selection.component';
 
 @Component({
-  selector: 'app-market-selection',
-  template: '<p>Market Selection</p>'
+    selector: 'app-market-selection',
+    template: '<p>Market Selection</p>',
 })
 class MockMarketSelectionComponent {}
 
@@ -14,11 +15,14 @@ describe('SingleGameMarketDisplayComponent', () => {
   let fixture: ComponentFixture<SingleGameMarketDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        SingleGameMarketDisplayComponent,
-        MockMarketSelectionComponent
-      ]
+    TestBed.configureTestingModule({})
+    .overrideComponent(SingleGameMarketDisplayComponent, {
+      remove: {
+        imports: [MarketSelectionComponent],
+      },
+      add: {
+        imports: [MockMarketSelectionComponent],
+      },
     })
     .compileComponents();
   }));

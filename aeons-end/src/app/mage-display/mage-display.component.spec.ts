@@ -7,9 +7,7 @@ describe('MageDisplayComponent', () => {
   let fixture: ComponentFixture<MageDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MageDisplayComponent ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

@@ -1,28 +1,33 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {Component} from '@angular/core';
+import { MarketSettingsComponent } from './market-settings/market-settings.component';
+import { MarketDisplayComponent } from './market-display/market-display.component';
 
 @Component({
-  selector: 'app-market-display',
-  template: '<p>Market Display</p>'
+    selector: 'app-market-display',
+    template: '<p>Market Display</p>',
 })
 class MockMarketDisplayComponent {}
 
 @Component({
-  selector: 'app-market-settings',
-  template: '<p>Market Settings</p>'
+    selector: 'app-market-settings',
+    template: '<p>Market Settings</p>',
 })
 class MockMarketSettingsComponent {}
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        MockMarketDisplayComponent,
-        MockMarketSettingsComponent
-      ]
-    }).compileComponents();
+    TestBed.configureTestingModule({})
+    .overrideComponent(AppComponent, {
+      remove: {
+        imports: [MarketSettingsComponent, MarketDisplayComponent]
+      },
+      add: {
+        imports: [MockMarketSettingsComponent, MockMarketDisplayComponent]
+      }
+    })
+    .compileComponents();
   }));
 
   it('should create the app', () => {

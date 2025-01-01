@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {Component, OnInit} from '@angular/core';
 
 import { MarketService } from '../market.service';
@@ -5,11 +6,14 @@ import { GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 import { MageService } from '../mage.service';
 import { NemesisService } from '../nemesis.service';
+import { ExpansionChooserComponent } from '../expansion-chooser/expansion-chooser.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-market-settings',
-  templateUrl: './market-settings.component.html',
-  styleUrls: ['./market-settings.component.css']
+    selector: 'app-market-settings',
+    imports: [CommonModule, ExpansionChooserComponent, NgbModule],
+    templateUrl: './market-settings.component.html',
+    styleUrls: ['./market-settings.component.css'],
 })
 export class MarketSettingsComponent implements OnInit {
   gameMode: GameMode;

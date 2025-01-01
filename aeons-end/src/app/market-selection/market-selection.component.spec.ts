@@ -7,9 +7,7 @@ describe('MarketSelectionComponent', () => {
   let fixture: ComponentFixture<MarketSelectionComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MarketSelectionComponent ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

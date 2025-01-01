@@ -4,14 +4,14 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ExpeditionLoseDisplayComponent } from './expedition-lose-display.component';
 
 @Component({
-  selector: 'app-market-selection',
-  template: '<p>Market Selection</p>'
+    selector: 'app-market-selection',
+    template: '<p>Market Selection</p>',
 })
 class MockMarketSelectionComponent {}
 
 @Component({
-  selector: 'app-mage-display',
-  template: '<p>Mage Display</p>'
+    selector: 'app-mage-display',
+    template: '<p>Mage Display</p>',
 })
 class MockMageDisplayComponent {}
 
@@ -20,13 +20,7 @@ describe('ExpeditionLoseDisplayComponent', () => {
   let fixture: ComponentFixture<ExpeditionLoseDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        ExpeditionLoseDisplayComponent,
-        MockMarketSelectionComponent,
-        MockMageDisplayComponent
-      ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

@@ -5,10 +5,11 @@ import { MarketSettingsComponent } from './market-settings.component';
 import { GameModeService } from '../game-mode.service';
 import { MockGameModeService } from '../mocks/mock-game-mode-service';
 import { GameMode } from '../game-mode';
+import { ExpansionChooserComponent } from '../expansion-chooser/expansion-chooser.component';
 
 @Component({
-  selector: 'app-expansion-chooser',
-  template: '<p>Expansions</p>'
+    selector: 'app-expansion-chooser',
+    template: '<p>Expansions</p>',
 })
 class MockExpansionChooserComponent {}
 
@@ -20,12 +21,17 @@ describe('MarketSettingsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        MarketSettingsComponent,
-        MockExpansionChooserComponent],
       providers: [
         { provide: GameModeService, useValue: mockGameModeService }
       ]
+    })
+    .overrideComponent(MarketSettingsComponent, {
+      remove: {
+        imports: [ExpansionChooserComponent]
+      },
+      add: {
+        imports: [MockExpansionChooserComponent]
+      }
     })
     .compileComponents();
   }));

@@ -2,22 +2,25 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barracks-display.component';
+import { MarketSelectionComponent } from '../market-selection/market-selection.component';
+import { MageDisplayComponent } from '../mage-display/mage-display.component';
+import { NemesisDisplayComponent } from '../nemesis-display/nemesis-display.component';
 
 @Component({
-  selector: 'app-market-selection',
-  template: '<p>Market Selection</p>'
+    selector: 'app-market-selection',
+    template: '<p>Market Selection</p>',
 })
 class MockMarketSelectionComponent {}
 
 @Component({
-  selector: 'app-mage-display',
-  template: '<p>Mage Display</p>'
+    selector: 'app-mage-display',
+    template: '<p>Mage Display</p>',
 })
 class MockMageDisplayComponent {}
 
 @Component({
-  selector: 'app-nemesis-display',
-  template: '<p>Nemesis Display</p>'
+    selector: 'app-nemesis-display',
+    template: '<p>Nemesis Display</p>',
 })
 class MockNemesisDisplayComponent {}
 
@@ -26,13 +29,14 @@ describe('StartExpeditionBarracksDisplayComponent', () => {
   let fixture: ComponentFixture<StartExpeditionBarracksDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        StartExpeditionBarracksDisplayComponent,
-        MockMarketSelectionComponent,
-        MockMageDisplayComponent,
-        MockNemesisDisplayComponent
-      ]
+    TestBed.configureTestingModule({})
+    .overrideComponent(StartExpeditionBarracksDisplayComponent, {
+      remove: {
+        imports: [MarketSelectionComponent, MageDisplayComponent, NemesisDisplayComponent]
+      },
+      add: {
+        imports: [MockMarketSelectionComponent, MockMageDisplayComponent, MockNemesisDisplayComponent]
+      }
     })
     .compileComponents();
   }));
