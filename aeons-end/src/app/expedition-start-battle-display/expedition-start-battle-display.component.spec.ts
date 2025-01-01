@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ExpeditionStartBattleDisplayComponent } from './expedition-start-battle-display.component';
+import { NemesisDisplayComponent } from '../nemesis-display/nemesis-display.component';
 
 @Component({
     selector: 'app-nemesis-display',
@@ -15,6 +16,14 @@ describe('ExpeditionStartBattleDisplayComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({})
+    .overrideComponent(ExpeditionStartBattleDisplayComponent, {
+      remove: {
+        imports: [NemesisDisplayComponent]
+      },
+      add: {
+        imports: [MockNemesisDisplayComponent]
+      }
+    })
     .compileComponents();
   }));
 

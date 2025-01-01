@@ -6,10 +6,11 @@ import { GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 import { MageService } from '../mage.service';
 import { NemesisService } from '../nemesis.service';
+import { ExpansionChooserComponent } from '../expansion-chooser/expansion-chooser.component';
 
 @Component({
     selector: 'app-market-settings',
-    imports: [CommonModule],
+    imports: [CommonModule, ExpansionChooserComponent],
     templateUrl: './market-settings.component.html',
     styleUrls: ['./market-settings.component.css'],
 })

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barracks-display.component';
+import { MarketSelectionComponent } from '../market-selection/market-selection.component';
+import { MageDisplayComponent } from '../mage-display/mage-display.component';
+import { NemesisDisplayComponent } from '../nemesis-display/nemesis-display.component';
 
 @Component({
     selector: 'app-market-selection',
@@ -27,6 +30,14 @@ describe('StartExpeditionBarracksDisplayComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({})
+    .overrideComponent(StartExpeditionBarracksDisplayComponent, {
+      remove: {
+        imports: [MarketSelectionComponent, MageDisplayComponent, NemesisDisplayComponent]
+      },
+      add: {
+        imports: [MockMarketSelectionComponent, MockMageDisplayComponent, MockNemesisDisplayComponent]
+      }
+    })
     .compileComponents();
   }));
 

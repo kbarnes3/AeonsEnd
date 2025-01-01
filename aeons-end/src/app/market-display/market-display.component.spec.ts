@@ -2,6 +2,13 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MarketDisplayComponent } from './market-display.component';
+import { SingleGameMarketDisplayComponent } from '../single-game-market-display/single-game-market-display.component';
+import { ExpeditionUnknownDisplayComponent } from '../expedition-unknown-display/expedition-unknown-display.component';
+import { StartExpeditionBarracksDisplayComponent } from '../start-expedition-barracks-display/start-expedition-barracks-display.component';
+import { ExpeditionStartBattleDisplayComponent } from '../expedition-start-battle-display/expedition-start-battle-display.component';
+import { ExpeditionLoseDisplayComponent } from '../expedition-lose-display/expedition-lose-display.component';
+import { ExpeditionWinDisplayComponent } from '../expedition-win-display/expedition-win-display.component';
+import { FinishExpeditionDisplayComponent } from '../finish-expedition-display/finish-expedition-display.component';
 
 @Component({
     selector: 'app-single-game-market-display',
@@ -51,6 +58,28 @@ describe('MarketDisplayComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({})
+    .overrideComponent(MarketDisplayComponent, {
+      remove: {
+        imports: [
+          SingleGameMarketDisplayComponent,
+          ExpeditionUnknownDisplayComponent,
+          StartExpeditionBarracksDisplayComponent,
+          ExpeditionStartBattleDisplayComponent,
+          ExpeditionWinDisplayComponent,
+          FinishExpeditionDisplayComponent,
+          ExpeditionLoseDisplayComponent],
+      },
+      add: {
+        imports: [
+          MockSingleGameMarketDisplayComponent,
+          MockExpeditionUnknownDisplayComponent,
+          MockStartExpeditionBarracksDisplayComponent,
+          MockExpeditionStartBattleDisplayComponent,
+          MockExpeditionWinDisplayComponent,
+          MockFinishExpeditionDisplayComponent,
+          MockExpeditionLoseDisplayComponent],
+      }
+    })
     .compileComponents();
   }));
 

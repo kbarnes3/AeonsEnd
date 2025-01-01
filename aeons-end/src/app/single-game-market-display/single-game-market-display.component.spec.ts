@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SingleGameMarketDisplayComponent } from './single-game-market-display.component';
 import { Component } from '@angular/core';
+import { MarketSelectionComponent } from '../market-selection/market-selection.component';
 
 @Component({
     selector: 'app-market-selection',
@@ -15,6 +16,14 @@ describe('SingleGameMarketDisplayComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({})
+    .overrideComponent(SingleGameMarketDisplayComponent, {
+      remove: {
+        imports: [MarketSelectionComponent],
+      },
+      add: {
+        imports: [MockMarketSelectionComponent],
+      },
+    })
     .compileComponents();
   }));
 

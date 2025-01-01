@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ExpeditionWinDisplayComponent } from './expedition-win-display.component';
+import { MarketSelectionComponent } from '../market-selection/market-selection.component';
 
 @Component({
     selector: 'app-market-selection',
@@ -15,6 +16,14 @@ describe('ExpeditionWinDisplayComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({})
+    .overrideComponent(ExpeditionWinDisplayComponent, {
+      remove: {
+        imports: [MarketSelectionComponent]
+      },
+      add: {
+        imports: [MockMarketSelectionComponent]
+      }
+    })
     .compileComponents();
   }));
 

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {Component, OnInit} from '@angular/core';
 import {MarketCard} from '../market-card';
 import {MarketCardType} from '../market-card-type';
@@ -8,6 +9,7 @@ import { GameMode } from '../game-mode';
 
 @Component({
     selector: 'app-market-selection',
+    imports: [CommonModule],
     templateUrl: './market-selection.component.html',
     styleUrls: ['./market-selection.component.css'],
 })

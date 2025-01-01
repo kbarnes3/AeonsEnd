@@ -1,6 +1,8 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {Component} from '@angular/core';
+import { MarketSettingsComponent } from './market-settings/market-settings.component';
+import { MarketDisplayComponent } from './market-display/market-display.component';
 
 @Component({
     selector: 'app-market-display',
@@ -16,7 +18,16 @@ class MockMarketSettingsComponent {}
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({}).compileComponents();
+    TestBed.configureTestingModule({})
+    .overrideComponent(AppComponent, {
+      remove: {
+        imports: [MarketSettingsComponent, MarketDisplayComponent]
+      },
+      add: {
+        imports: [MockMarketSettingsComponent, MockMarketDisplayComponent]
+      }
+    })
+    .compileComponents();
   }));
 
   it('should create the app', () => {

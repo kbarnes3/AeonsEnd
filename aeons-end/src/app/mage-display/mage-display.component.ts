@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Mage } from '../mage';
 import { MageService } from '../mage.service';
 
 @Component({
     selector: 'app-mage-display',
+    imports: [CommonModule],
     templateUrl: './mage-display.component.html',
     styleUrls: ['./mage-display.component.css'],
 })
