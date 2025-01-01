@@ -7,10 +7,11 @@ import { GameModeService } from '../game-mode.service';
 import { MageService } from '../mage.service';
 import { NemesisService } from '../nemesis.service';
 import { ExpansionChooserComponent } from '../expansion-chooser/expansion-chooser.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-market-settings',
-    imports: [CommonModule, ExpansionChooserComponent],
+    imports: [CommonModule, ExpansionChooserComponent, NgbModule],
     templateUrl: './market-settings.component.html',
     styleUrls: ['./market-settings.component.css'],
 })
