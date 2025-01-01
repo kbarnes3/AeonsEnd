@@ -1,9 +1,10 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
-  selector: 'app-expansion-chooser-item',
-  templateUrl: './expansion-chooser-item.component.html',
-  styleUrls: ['./expansion-chooser-item.component.css']
+    selector: 'app-expansion-chooser-item',
+    templateUrl: './expansion-chooser-item.component.html',
+    styleUrls: ['./expansion-chooser-item.component.css'],
+    standalone: false
 })
 export class ExpansionChooserItemComponent {
   @ViewChild('checkboxElement', { static: true }) checkboxElement: ElementRef;

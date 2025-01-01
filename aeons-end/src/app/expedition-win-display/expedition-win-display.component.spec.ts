@@ -4,8 +4,9 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ExpeditionWinDisplayComponent } from './expedition-win-display.component';
 
 @Component({
-  selector: 'app-market-selection',
-  template: '<p>Market Selection</p>'
+    selector: 'app-market-selection',
+    template: '<p>Market Selection</p>',
+    standalone: false
 })
 class MockMarketSelectionComponent {}
 

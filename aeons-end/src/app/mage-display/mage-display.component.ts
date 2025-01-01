@@ -3,9 +3,10 @@ import { Mage } from '../mage';
 import { MageService } from '../mage.service';
 
 @Component({
-  selector: 'app-mage-display',
-  templateUrl: './mage-display.component.html',
-  styleUrls: ['./mage-display.component.css']
+    selector: 'app-mage-display',
+    templateUrl: './mage-display.component.html',
+    styleUrls: ['./mage-display.component.css'],
+    standalone: false
 })
 export class MageDisplayComponent implements OnInit {
 

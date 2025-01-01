@@ -7,9 +7,10 @@ import { GameModeService } from '../game-mode.service';
 import { GameMode } from '../game-mode';
 
 @Component({
-  selector: 'app-market-selection',
-  templateUrl: './market-selection.component.html',
-  styleUrls: ['./market-selection.component.css']
+    selector: 'app-market-selection',
+    templateUrl: './market-selection.component.html',
+    styleUrls: ['./market-selection.component.css'],
+    standalone: false
 })
 export class MarketSelectionComponent implements OnInit {
 

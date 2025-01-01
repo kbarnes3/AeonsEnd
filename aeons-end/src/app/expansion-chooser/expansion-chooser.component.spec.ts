@@ -10,8 +10,9 @@ import { EXPANSION_INFO } from '../expansion-info';
 const numberOfExpansions: number = Object.keys(EXPANSION_INFO).length;
 
 @Component({
-  selector: 'app-expansion-chooser-item',
-  template: '<div class="expansion-list-item">Expansion</div>'
+    selector: 'app-expansion-chooser-item',
+    template: '<div class="expansion-list-item">Expansion</div>',
+    standalone: false
 })
 class MockExpansionChooserItemComponent {
   @Input() title: string;

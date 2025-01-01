@@ -16,9 +16,10 @@ export class ExpansionDisplay {
 }
 
 @Component({
-  selector: 'app-expansion-chooser',
-  templateUrl: './expansion-chooser.component.html',
-  styleUrls: ['./expansion-chooser.component.css']
+    selector: 'app-expansion-chooser',
+    templateUrl: './expansion-chooser.component.html',
+    styleUrls: ['./expansion-chooser.component.css'],
+    standalone: false
 })
 export class ExpansionChooserComponent {
   @ViewChild('allCheck', { static: true }) allCheck: ExpansionChooserItemComponent;

@@ -4,8 +4,9 @@ import { SingleGameMarketDisplayComponent } from './single-game-market-display.c
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-market-selection',
-  template: '<p>Market Selection</p>'
+    selector: 'app-market-selection',
+    template: '<p>Market Selection</p>',
+    standalone: false
 })
 class MockMarketSelectionComponent {}
 

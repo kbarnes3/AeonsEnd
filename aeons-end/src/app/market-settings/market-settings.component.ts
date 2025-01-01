@@ -7,9 +7,10 @@ import { MageService } from '../mage.service';
 import { NemesisService } from '../nemesis.service';
 
 @Component({
-  selector: 'app-market-settings',
-  templateUrl: './market-settings.component.html',
-  styleUrls: ['./market-settings.component.css']
+    selector: 'app-market-settings',
+    templateUrl: './market-settings.component.html',
+    styleUrls: ['./market-settings.component.css'],
+    standalone: false
 })
 export class MarketSettingsComponent implements OnInit {
   gameMode: GameMode;

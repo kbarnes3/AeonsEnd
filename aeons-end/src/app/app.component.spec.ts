@@ -3,14 +3,16 @@ import { AppComponent } from './app.component';
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-market-display',
-  template: '<p>Market Display</p>'
+    selector: 'app-market-display',
+    template: '<p>Market Display</p>',
+    standalone: false
 })
 class MockMarketDisplayComponent {}
 
 @Component({
-  selector: 'app-market-settings',
-  template: '<p>Market Settings</p>'
+    selector: 'app-market-settings',
+    template: '<p>Market Settings</p>',
+    standalone: false
 })
 class MockMarketSettingsComponent {}
 

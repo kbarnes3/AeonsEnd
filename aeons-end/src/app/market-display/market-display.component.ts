@@ -3,9 +3,10 @@ import { GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 
 @Component({
-  selector: 'app-market-display',
-  templateUrl: './market-display.component.html',
-  styleUrls: ['./market-display.component.css']
+    selector: 'app-market-display',
+    templateUrl: './market-display.component.html',
+    styleUrls: ['./market-display.component.css'],
+    standalone: false
 })
 export class MarketDisplayComponent implements OnInit {
   gameMode: GameMode;

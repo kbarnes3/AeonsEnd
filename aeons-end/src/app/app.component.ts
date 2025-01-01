@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { versionInfo } from './version-info';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: false
 })
 export class AppComponent {
   title = 'Aeon\'s End Market Generator';

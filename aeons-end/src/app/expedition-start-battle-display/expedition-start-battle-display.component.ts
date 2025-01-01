@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-expedition-start-battle-display',
-  templateUrl: './expedition-start-battle-display.component.html',
-  styleUrls: ['./expedition-start-battle-display.component.css']
+    selector: 'app-expedition-start-battle-display',
+    templateUrl: './expedition-start-battle-display.component.html',
+    styleUrls: ['./expedition-start-battle-display.component.css'],
+    standalone: false
 })
 export class ExpeditionStartBattleDisplayComponent {
 

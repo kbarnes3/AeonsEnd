@@ -4,20 +4,23 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { StartExpeditionBarracksDisplayComponent } from './start-expedition-barracks-display.component';
 
 @Component({
-  selector: 'app-market-selection',
-  template: '<p>Market Selection</p>'
+    selector: 'app-market-selection',
+    template: '<p>Market Selection</p>',
+    standalone: false
 })
 class MockMarketSelectionComponent {}
 
 @Component({
-  selector: 'app-mage-display',
-  template: '<p>Mage Display</p>'
+    selector: 'app-mage-display',
+    template: '<p>Mage Display</p>',
+    standalone: false
 })
 class MockMageDisplayComponent {}
 
 @Component({
-  selector: 'app-nemesis-display',
-  template: '<p>Nemesis Display</p>'
+    selector: 'app-nemesis-display',
+    template: '<p>Nemesis Display</p>',
+    standalone: false
 })
 class MockNemesisDisplayComponent {}
 

@@ -4,8 +4,9 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ExpeditionStartBattleDisplayComponent } from './expedition-start-battle-display.component';
 
 @Component({
-  selector: 'app-nemesis-display',
-  template: '<p>Nemesis Display</p>'
+    selector: 'app-nemesis-display',
+    template: '<p>Nemesis Display</p>',
+    standalone: false
 })
 class MockNemesisDisplayComponent {}
 
