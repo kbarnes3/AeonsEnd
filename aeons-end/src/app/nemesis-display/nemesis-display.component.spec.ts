@@ -7,9 +7,7 @@ describe('NemesisDisplayComponent', () => {
   let fixture: ComponentFixture<NemesisDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ NemesisDisplayComponent ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

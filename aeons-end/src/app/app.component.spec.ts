@@ -16,13 +16,7 @@ class MockMarketSettingsComponent {}
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        MockMarketDisplayComponent,
-        MockMarketSettingsComponent
-      ]
-    }).compileComponents();
+    TestBed.configureTestingModule({}).compileComponents();
   }));
 
   it('should create the app', () => {

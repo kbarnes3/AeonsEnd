@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {Expansion} from '../expansion';
 import {EXPANSION_DEPENDENCIES, ExpansionDependency, EXPANSION_ORDER, ExpansionInfo, EXPANSION_INFO} from '../expansion-info';
 import {ExpansionChooserItemComponent} from '../expansion-chooser-item/expansion-chooser-item.component';
@@ -17,6 +18,7 @@ export class ExpansionDisplay {
 
 @Component({
     selector: 'app-expansion-chooser',
+    imports: [CommonModule, ExpansionChooserItemComponent],
     templateUrl: './expansion-chooser.component.html',
     styleUrls: ['./expansion-chooser.component.css'],
 })

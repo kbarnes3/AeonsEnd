@@ -7,9 +7,7 @@ describe('FinishExpeditionDisplayComponent', () => {
   let fixture: ComponentFixture<FinishExpeditionDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ FinishExpeditionDisplayComponent ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

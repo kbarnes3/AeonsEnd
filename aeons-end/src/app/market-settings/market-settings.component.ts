@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {Component, OnInit} from '@angular/core';
 
 import { MarketService } from '../market.service';
@@ -8,6 +9,7 @@ import { NemesisService } from '../nemesis.service';
 
 @Component({
     selector: 'app-market-settings',
+    imports: [CommonModule],
     templateUrl: './market-settings.component.html',
     styleUrls: ['./market-settings.component.css'],
 })

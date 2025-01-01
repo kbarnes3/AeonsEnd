@@ -14,12 +14,7 @@ describe('ExpeditionWinDisplayComponent', () => {
   let fixture: ComponentFixture<ExpeditionWinDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        ExpeditionWinDisplayComponent,
-        MockMarketSelectionComponent
-      ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

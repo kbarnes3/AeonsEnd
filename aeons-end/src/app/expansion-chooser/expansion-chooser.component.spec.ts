@@ -38,10 +38,6 @@ describe('ExpansionChooserComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-          ExpansionChooserComponent,
-          MockExpansionChooserItemComponent
-      ],
       providers: [ {provide: ExpansionSelectionService, useValue: mockExpansionSelectionService } ]
     })
     .compileComponents();

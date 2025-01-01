@@ -50,18 +50,7 @@ describe('MarketDisplayComponent', () => {
   let fixture: ComponentFixture<MarketDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        MarketDisplayComponent,
-        MockSingleGameMarketDisplayComponent,
-        MockExpeditionUnknownDisplayComponent,
-        MockStartExpeditionBarracksDisplayComponent,
-        MockExpeditionStartBattleDisplayComponent,
-        MockExpeditionWinDisplayComponent,
-        MockExpeditionLoseDisplayComponent,
-        MockFinishExpeditionDisplayComponent
-      ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

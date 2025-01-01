@@ -26,14 +26,7 @@ describe('StartExpeditionBarracksDisplayComponent', () => {
   let fixture: ComponentFixture<StartExpeditionBarracksDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        StartExpeditionBarracksDisplayComponent,
-        MockMarketSelectionComponent,
-        MockMageDisplayComponent,
-        MockNemesisDisplayComponent
-      ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

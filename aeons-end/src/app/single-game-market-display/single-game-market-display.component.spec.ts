@@ -14,12 +14,7 @@ describe('SingleGameMarketDisplayComponent', () => {
   let fixture: ComponentFixture<SingleGameMarketDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        SingleGameMarketDisplayComponent,
-        MockMarketSelectionComponent
-      ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

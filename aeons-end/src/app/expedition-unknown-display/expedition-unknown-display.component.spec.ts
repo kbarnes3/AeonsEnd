@@ -7,9 +7,7 @@ describe('ExpeditionUnknownDisplayComponent', () => {
   let fixture: ComponentFixture<ExpeditionUnknownDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ExpeditionUnknownDisplayComponent ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 

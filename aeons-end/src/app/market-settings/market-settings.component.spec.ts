@@ -20,9 +20,6 @@ describe('MarketSettingsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        MarketSettingsComponent,
-        MockExpansionChooserComponent],
       providers: [
         { provide: GameModeService, useValue: mockGameModeService }
       ]

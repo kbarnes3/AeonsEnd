@@ -20,13 +20,7 @@ describe('ExpeditionLoseDisplayComponent', () => {
   let fixture: ComponentFixture<ExpeditionLoseDisplayComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        ExpeditionLoseDisplayComponent,
-        MockMarketSelectionComponent,
-        MockMageDisplayComponent
-      ]
-    })
+    TestBed.configureTestingModule({})
     .compileComponents();
   }));
 
