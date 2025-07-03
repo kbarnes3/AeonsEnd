@@ -1,20 +1,20 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, inject } from '@angular/core';
 import { ExpeditionLoseChoice, GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 
 @Component({
     selector: 'app-expedition-lose-display',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './expedition-lose-display.component.html',
     styleUrls: ['./expedition-lose-display.component.css'],
 })
 export class ExpeditionLoseDisplayComponent implements OnInit {
+  private gameModeService = inject(GameModeService);
+
   treasuresUnlocked: boolean;
   loseChoice: ExpeditionLoseChoice;
   loseChoiceEnum = ExpeditionLoseChoice;
-
-  constructor(private gameModeService: GameModeService) { }
 
   ngOnInit() {
     this.gameModeService.selectedGameMode$.subscribe((newMode: GameMode) => {

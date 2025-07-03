@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, inject } from '@angular/core';
 import { Nemesis } from '../nemesis';
 import { NemesisService } from '../nemesis.service';
 import { GameModeService } from '../game-mode.service';
@@ -7,15 +7,16 @@ import { GameMode } from '../game-mode';
 
 @Component({
     selector: 'app-nemesis-display',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './nemesis-display.component.html',
     styleUrls: ['./nemesis-display.component.css'],
 })
 export class NemesisDisplayComponent implements OnInit {
+  private gameModeService = inject(GameModeService);
+  private nemesisService = inject(NemesisService);
+
   nemesis: Nemesis;
   battleNumber: number;
-
-  constructor(private gameModeService: GameModeService, private nemesisService: NemesisService) { }
 
   ngOnInit() {
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {

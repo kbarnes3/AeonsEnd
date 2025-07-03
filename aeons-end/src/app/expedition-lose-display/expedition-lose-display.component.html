@@ -1,26 +1,28 @@
-<ng-container *ngIf="loseChoice === loseChoiceEnum.NoChoice">
+@if (loseChoice === loseChoiceEnum.NoChoice) {
   <div class="row"><p>Choose on of the following:</p></div>
   <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddGem)">Add a gem to your Barracks</button></p></div>
   <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddRelic)">Add a relic to your Barracks</button></p></div>
   <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddSpell)">Add a spell to your Barracks</button></p></div>
-  <div class="row" *ngIf="treasuresUnlocked"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddTreasure)">Add a treasure to your Barracks</button></p></div>
+  @if (treasuresUnlocked) {
+    <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddTreasure)">Add a treasure to your Barracks</button></p></div>
+  }
   <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddMage)">Add a mage to your Barracks</button></p></div>
-</ng-container>
+}
 
-<ng-container *ngIf="loseChoice === loseChoiceEnum.AddGem || loseChoice === loseChoiceEnum.AddRelic || loseChoice === loseChoiceEnum.AddSpell">
+@if (loseChoice === loseChoiceEnum.AddGem || loseChoice === loseChoiceEnum.AddRelic || loseChoice === loseChoiceEnum.AddSpell) {
   <app-market-selection></app-market-selection>
-</ng-container>
+}
 
-<ng-container *ngIf="loseChoice === loseChoiceEnum.AddTreasure">
+@if (loseChoice === loseChoiceEnum.AddTreasure) {
   <h2>Treasures</h2>
   <p>Draw a random card from any treasure deck from which you have already received cards.</p>
-</ng-container>
+}
 
-<ng-container *ngIf="loseChoice === loseChoiceEnum.AddMage">
+@if (loseChoice === loseChoiceEnum.AddMage) {
   <app-mage-display></app-mage-display>
-</ng-container>
+}
 
-<ng-container *ngIf="loseChoice !== loseChoiceEnum.NoChoice">
+@if (loseChoice !== loseChoiceEnum.NoChoice) {
   <h2>Nemesis</h2>
   <p>Fight this nemesis again.</p>
-</ng-container>
+}

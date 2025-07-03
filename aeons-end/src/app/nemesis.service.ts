@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Nemesis } from './nemesis';
 import { BASE_NEMESES } from './nemeses-data/base-nemeses-data';
@@ -22,6 +22,9 @@ import { ExpansionInfo, EXPANSION_INFO } from './expansion-info';
   providedIn: 'root'
 })
 export class NemesisService {
+  private expansionSelectionService = inject(ExpansionSelectionService);
+  private gameModeService = inject(GameModeService);
+
   private nemesisSubject: BehaviorSubject<Nemesis>;
 
   nemesis$: Observable<Nemesis>;
@@ -54,9 +57,7 @@ export class NemesisService {
     return nemeses;
   }
 
-  constructor(
-    private expansionSelectionService: ExpansionSelectionService,
-    private gameModeService: GameModeService) {
+  constructor() {
     this.nemesisSubject = new BehaviorSubject<Nemesis>(BASE_NEMESES[0]);
     this.nemesis$ = this.nemesisSubject.asObservable();
     this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {

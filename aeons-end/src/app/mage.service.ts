@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Mage } from './mage';
 import { Expansion } from './expansion';
 import { GameMode, ExpeditionLoseChoice } from './game-mode';
@@ -11,6 +11,9 @@ import { ExpansionInfo, EXPANSION_INFO } from './expansion-info';
   providedIn: 'root'
 })
 export class MageService {
+  private expansionSelectionService = inject(ExpansionSelectionService);
+  private gameModeService = inject(GameModeService);
+
   private magesSubject: BehaviorSubject<Mage[]>;
 
   mages$: Observable<Mage[]>;
@@ -61,9 +64,7 @@ export class MageService {
     mages.sort(compareFn);
   }
 
-  constructor(
-    private expansionSelectionService: ExpansionSelectionService,
-    private gameModeService: GameModeService) {
+  constructor() {
     this.magesSubject = new BehaviorSubject<Mage[]>([]);
     this.mages$ = this.magesSubject.asObservable();
     this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {

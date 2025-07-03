@@ -1,9 +1,17 @@
-<h2 *ngIf="mages">Mages</h2>
-<p *ngIf="mages && mages.length > 1">Add these mages to your Barracks.</p>
-<p *ngIf="mages && mages.length === 1">Add this mage to your Barracks.</p>
+@if (mages) {
+  <h2>Mages</h2>
+}
+@if (mages && mages.length > 1) {
+  <p>Add these mages to your Barracks.</p>
+}
+@if (mages && mages.length === 1) {
+  <p>Add this mage to your Barracks.</p>
+}
 
 <div class="row">
-  <div *ngFor="let mage of mages" class="border col-6 mage">
-    <div class="mage-name"> {{ mage.name }}</div>
-  </div>
+  @for (mage of mages; track mage) {
+    <div class="border col-6 mage">
+      <div class="mage-name"> {{ mage.name }}</div>
+    </div>
+  }
 </div>
