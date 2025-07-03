@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {SINGLE_GAME_MARKET_CONFIGURATIONS, MarketConfiguration, START_EXPEDITION_MARKET_CONFIGURATION, EXPEDITION_WIN_MARKET_CONFIGURATION,
   EXPEDITION_LOSE_CHOOSE_GEM, EXPEDITION_LOSE_CHOOSE_RELIC, EXPEDITION_LOSE_CHOOSE_SPELL} from './market-configuration';
@@ -15,6 +15,9 @@ import { ExpansionInfo, EXPANSION_INFO } from './expansion-info';
   providedIn: 'root'
 })
 export class MarketService {
+  private expansionSelectionService = inject(ExpansionSelectionService);
+  private gameModeService = inject(GameModeService);
+
   private marketCardsSubject: BehaviorSubject<MarketCard[]>;
 
   marketCards$: Observable<MarketCard[]>;
@@ -86,9 +89,7 @@ export class MarketService {
     cards.sort(compareFn);
   }
 
-  constructor(
-    private expansionSelectionService: ExpansionSelectionService,
-    private gameModeService: GameModeService) {
+  constructor() {
     this.marketCardsSubject = new BehaviorSubject<MarketCard[]>([]);
     this.marketCards$ = this.marketCardsSubject.asObservable();
     this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {

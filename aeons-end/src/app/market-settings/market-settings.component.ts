@@ -1,5 +1,5 @@
 
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { MarketService } from '../market.service';
 import { GameMode } from '../game-mode';
@@ -16,16 +16,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     styleUrls: ['./market-settings.component.css'],
 })
 export class MarketSettingsComponent implements OnInit {
+  private gameModeService = inject(GameModeService);
+  private marketService = inject(MarketService);
+  private mageService = inject(MageService);
+  private nemesisService = inject(NemesisService);
+
   gameMode: GameMode;
   gameModeEnum = GameMode;
   gameModeString: string;
   expeditionProgressString: string;
-
-  constructor(
-    private gameModeService: GameModeService,
-    private marketService: MarketService,
-    private mageService: MageService,
-    private nemesisService: NemesisService) { }
 
   ngOnInit(): void {
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {

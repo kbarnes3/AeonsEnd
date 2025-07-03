@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 import { MarketSelectionComponent } from '../market-selection/market-selection.component';
@@ -11,9 +11,9 @@ import { MarketSelectionComponent } from '../market-selection/market-selection.c
     styleUrls: ['./expedition-win-display.component.css'],
 })
 export class ExpeditionWinDisplayComponent implements OnInit {
-  expeditionNumber: number;
+  private gameModeService = inject(GameModeService);
 
-  constructor(private gameModeService: GameModeService) { }
+  expeditionNumber: number;
 
   ngOnInit() {
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {

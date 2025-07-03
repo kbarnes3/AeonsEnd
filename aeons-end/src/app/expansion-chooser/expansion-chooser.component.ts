@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 
 import {Expansion} from '../expansion';
 import {EXPANSION_DEPENDENCIES, ExpansionDependency, EXPANSION_ORDER, ExpansionInfo, EXPANSION_INFO} from '../expansion-info';
@@ -23,9 +23,11 @@ export class ExpansionDisplay {
     styleUrls: ['./expansion-chooser.component.css'],
 })
 export class ExpansionChooserComponent {
+  private expansionSelectionService = inject(ExpansionSelectionService);
+
   @ViewChild('allCheck', { static: true }) allCheck: ExpansionChooserItemComponent;
 
-  constructor(private expansionSelectionService: ExpansionSelectionService) {
+  constructor() {
     this.displayedExpansions = {};
     for (const expansion of EXPANSION_ORDER) {
       const info: ExpansionInfo = EXPANSION_INFO[expansion];

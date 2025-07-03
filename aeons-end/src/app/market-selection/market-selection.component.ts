@@ -1,5 +1,5 @@
 
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {MarketCard} from '../market-card';
 import {MarketCardType} from '../market-card-type';
 import {MarketService} from '../market.service';
@@ -14,8 +14,9 @@ import { GameMode } from '../game-mode';
     styleUrls: ['./market-selection.component.css'],
 })
 export class MarketSelectionComponent implements OnInit {
+  private marketService = inject(MarketService);
+  private gameModeService = inject(GameModeService);
 
-  constructor(private marketService: MarketService, private gameModeService: GameModeService) { }
 
   cards: MarketCard[];
   expeditionMode: boolean;

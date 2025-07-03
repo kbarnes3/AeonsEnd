@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 
@@ -25,10 +25,10 @@ import { ExpeditionLoseDisplayComponent } from '../expedition-lose-display/exped
     styleUrls: ['./market-display.component.css'],
 })
 export class MarketDisplayComponent implements OnInit {
+  private gameModeService = inject(GameModeService);
+
   gameMode: GameMode;
   gameModeEnum = GameMode;
-
-  constructor(private gameModeService: GameModeService) { }
 
   ngOnInit() {
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {
