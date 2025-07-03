@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { Nemesis } from '../nemesis';
 import { NemesisService } from '../nemesis.service';
@@ -7,7 +7,7 @@ import { GameMode } from '../game-mode';
 
 @Component({
     selector: 'app-nemesis-display',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './nemesis-display.component.html',
     styleUrls: ['./nemesis-display.component.css'],
 })

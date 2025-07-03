@@ -1,5 +1,11 @@
 <h2>Treasures</h2>
-<p *ngIf="expeditionNumber === 1">Add five random level 1 treasures cards to your Barracks.</p>
-<p *ngIf="expeditionNumber === 2">Add three random level 2 treasures cards to your Barracks.</p>
-<p *ngIf="expeditionNumber === 3">Add five random level 3 treasures cards to your Barracks.</p>
+@if (expeditionNumber === 1) {
+  <p>Add five random level 1 treasures cards to your Barracks.</p>
+}
+@if (expeditionNumber === 2) {
+  <p>Add three random level 2 treasures cards to your Barracks.</p>
+}
+@if (expeditionNumber === 3) {
+  <p>Add five random level 3 treasures cards to your Barracks.</p>
+}
 <app-market-selection></app-market-selection>

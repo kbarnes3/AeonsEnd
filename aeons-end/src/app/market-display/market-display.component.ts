@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
-import { CommonModule } from '@angular/common';
+
 import { SingleGameMarketDisplayComponent } from '../single-game-market-display/single-game-market-display.component';
 import { ExpeditionUnknownDisplayComponent } from '../expedition-unknown-display/expedition-unknown-display.component';
 import { StartExpeditionBarracksDisplayComponent } from '../start-expedition-barracks-display/start-expedition-barracks-display.component';
@@ -13,14 +13,14 @@ import { ExpeditionLoseDisplayComponent } from '../expedition-lose-display/exped
 @Component({
     selector: 'app-market-display',
     imports: [
-      CommonModule,
-      SingleGameMarketDisplayComponent,
-      ExpeditionUnknownDisplayComponent,
-      StartExpeditionBarracksDisplayComponent,
-      ExpeditionStartBattleDisplayComponent,
-      ExpeditionWinDisplayComponent,
-      FinishExpeditionDisplayComponent,
-      ExpeditionLoseDisplayComponent],
+    SingleGameMarketDisplayComponent,
+    ExpeditionUnknownDisplayComponent,
+    StartExpeditionBarracksDisplayComponent,
+    ExpeditionStartBattleDisplayComponent,
+    ExpeditionWinDisplayComponent,
+    FinishExpeditionDisplayComponent,
+    ExpeditionLoseDisplayComponent
+],
     templateUrl: './market-display.component.html',
     styleUrls: ['./market-display.component.css'],
 })

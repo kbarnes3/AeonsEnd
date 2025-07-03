@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 import { MarketSelectionComponent } from '../market-selection/market-selection.component';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'app-expedition-win-display',
-    imports: [CommonModule, MarketSelectionComponent],
+    imports: [MarketSelectionComponent],
     templateUrl: './expedition-win-display.component.html',
     styleUrls: ['./expedition-win-display.component.css'],
 })

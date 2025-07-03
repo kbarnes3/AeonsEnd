@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {Component, OnInit} from '@angular/core';
 
 import { MarketService } from '../market.service';
@@ -11,7 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-market-settings',
-    imports: [CommonModule, ExpansionChooserComponent, NgbModule],
+    imports: [ExpansionChooserComponent, NgbModule],
     templateUrl: './market-settings.component.html',
     styleUrls: ['./market-settings.component.css'],
 })
