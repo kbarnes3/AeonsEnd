@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-md-4 offset-md-4 btn-group mb-1">
       <div class="btn-group" ngbDropdown >
-        <button class="btn btn-secondary" ngbDropdownToggle type="button">{{ gameModeString }}</button>
+        <button class="btn btn-secondary" ngbDropdownToggle type="button">{{ gameModeString() }}</button>
         <div ngbDropdownMenu>
           <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.SingleGame)">Single game</button>
           <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionUnknown)">Expedition</button>
         </div>
       </div>
-      @if (this.gameMode !== this.gameModeEnum.SingleGame) {
+      @if (gameMode() !== gameModeEnum.SingleGame) {
         <div class="btn-group" ngbDropdown >
-          <button class="btn btn-outline-secondary" ngbDropdownToggle type="button">{{ expeditionProgressString }}</button>
+          <button class="btn btn-outline-secondary" ngbDropdownToggle type="button">{{ expeditionProgressString() }}</button>
           <div ngbDropdownMenu class="expeditionDropdown">
             <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionStartBattle1)">Start Battle 1</button>
             <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionWinBattle1)">Won Battle 1</button>
