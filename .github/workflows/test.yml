@@ -22,6 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: aeons-end/package-lock.json
     - name: Install Node dependencies
       run: |
         cd aeons-end
