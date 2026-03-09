@@ -14,7 +14,7 @@ $modules = Join-Path $node_root "node_modules"
 if (Test-Path $modules) {
     if (-Not($Quick)) {
         $currentBranch = & git rev-parse --abbrev-ref HEAD 2>$null
-        if ($currentBranch -eq "main") {
+        if ($currentBranch -eq "trunk") {
             $localSha = & git rev-parse HEAD 2>$null
             $originSha = & git rev-parse origin/main 2>$null
             if ($localSha -eq $originSha) {
