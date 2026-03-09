@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NemesisDisplayComponent } from '../nemesis-display/nemesis-display.component';
 
 @Component({
@@ -8,7 +8,4 @@ import { NemesisDisplayComponent } from '../nemesis-display/nemesis-display.comp
     styleUrls: ['./expedition-start-battle-display.component.css'],
 })
 export class ExpeditionStartBattleDisplayComponent {
-
-  constructor() { }
-
 }

@@ -2,19 +2,10 @@ import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Nemesis } from './nemesis';
 import { BASE_NEMESES } from './nemeses-data/base-nemeses-data';
-import { NAMELESS_NEMESES } from './nemeses-data/nameless-nemeses-data';
-import { WAR_ETERNAL_NEMESES } from './nemeses-data/war-eternal-nemeses-data';
-import { VOID_NEMESES } from './nemeses-data/void-nemeses-data';
-import { OUTER_DARK_NEMESES } from './nemeses-data/outer-dark-nemeses-data';
-import { NEW_AGE_NEMESES } from './nemeses-data/new-age-nemeses-data';
-import { SHATTERED_DREAMS_NEMESES } from './nemeses-data/shattered-dreams-nemeses-data';
 import { ExpansionSelectionService } from './expansion-selection.service';
 import { GameModeService } from './game-mode.service';
 import { GameMode } from './game-mode';
 import { Expansion } from './expansion';
-import { LEGACY_NEMESES } from './nemeses-data/legacy-nemeses-data';
-import { ANCIENTS_NEMESES } from './nemeses-data/ancients-nemeses-data';
-import { INTO_THE_WILD_NEMESES } from './nemeses-data/into-the-wild-nemeses-data';
 import { ExpansionInfo, EXPANSION_INFO } from './expansion-info';
 
 

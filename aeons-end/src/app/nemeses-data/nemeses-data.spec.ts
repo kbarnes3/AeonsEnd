@@ -4,7 +4,7 @@ describe('NemesesData', () => {
     it('should only contain nemeses with unique names', () => {
       const seenNemeses = {};
       for (const key in EXPANSION_INFO) {
-        if (EXPANSION_INFO.hasOwnProperty(key)) {
+        if (Object.prototype.hasOwnProperty.call(EXPANSION_INFO, key)) {
           const info: ExpansionInfo = EXPANSION_INFO[key];
           if (info.nemeses) {
             for (const nemesis of info.nemeses) {

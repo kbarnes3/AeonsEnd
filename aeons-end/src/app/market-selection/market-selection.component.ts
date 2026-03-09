@@ -3,7 +3,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import {MarketCard} from '../market-card';
 import {MarketCardType} from '../market-card-type';
 import {MarketService} from '../market.service';
-import {Expansion} from '../expansion';
 import { GameModeService } from '../game-mode.service';
 import { GameMode } from '../game-mode';
 

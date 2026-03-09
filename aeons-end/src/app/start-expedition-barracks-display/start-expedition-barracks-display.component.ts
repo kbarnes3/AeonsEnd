@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MarketSelectionComponent } from '../market-selection/market-selection.component';
 import { MageDisplayComponent } from '../mage-display/mage-display.component';
 import { NemesisDisplayComponent } from '../nemesis-display/nemesis-display.component';
@@ -10,7 +10,4 @@ import { NemesisDisplayComponent } from '../nemesis-display/nemesis-display.comp
     styleUrls: ['./start-expedition-barracks-display.component.css'],
 })
 export class StartExpeditionBarracksDisplayComponent {
-
-  constructor() { }
-
 }

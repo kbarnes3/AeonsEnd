@@ -7,12 +7,14 @@ import { ExpeditionLoseDisplayComponent } from './expedition-lose-display.compon
     selector: 'app-market-selection',
     template: '<p>Market Selection</p>',
 })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 class MockMarketSelectionComponent {}
 
 @Component({
     selector: 'app-mage-display',
     template: '<p>Mage Display</p>',
 })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 class MockMageDisplayComponent {}
 
 describe('ExpeditionLoseDisplayComponent', () => {

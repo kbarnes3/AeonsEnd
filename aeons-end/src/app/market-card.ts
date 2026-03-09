@@ -6,5 +6,5 @@ export class MarketCard {
     type: MarketCardType;
     cost: number;
     expansion: Expansion;
-    xaxos?: Boolean;
+    xaxos?: boolean;
 }

@@ -29,7 +29,7 @@ describe('MarketService', () => {
   it('should generate a market with only base cards', () => {
     const service: MarketService = TestBed.inject(MarketService);
     const expansionSelectionService: MockExpansionSelectionService =
-      <MockExpansionSelectionService><any>TestBed.inject(ExpansionSelectionService);
+      (TestBed.inject(ExpansionSelectionService) as unknown) as MockExpansionSelectionService;
     expansionSelectionService.selectedExpansions = [ Expansion.Base ];
     const cards: MarketCard[] = service.marketCards;
     expect(cards.length).toEqual(9);
@@ -42,7 +42,7 @@ describe('MarketService', () => {
   it('should generate a market with War Eternal cards', () => {
     const service: MarketService = TestBed.inject(MarketService);
     const expansionSelectionService: MockExpansionSelectionService =
-      <MockExpansionSelectionService><any>TestBed.inject(ExpansionSelectionService);
+      (TestBed.inject(ExpansionSelectionService) as unknown) as MockExpansionSelectionService;
     expansionSelectionService.selectedExpansions = [ Expansion.WarEternal ];
     const cards: MarketCard[] = service.marketCards;
     expect(cards[0]).toBeTruthy();

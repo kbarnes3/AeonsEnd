@@ -4,7 +4,7 @@ describe('MagesData', () => {
   it('should only contain mages with unique names', () => {
     const seenMages = {};
     for (const key in EXPANSION_INFO) {
-      if (EXPANSION_INFO.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(EXPANSION_INFO, key)) {
         const info: ExpansionInfo = EXPANSION_INFO[key];
         if (info.mages) {
           for (const mage of info.mages) {
