@@ -16,7 +16,7 @@ export const SOUTHERN_VILLAGE_CARDS: MarketCard[] = [
         expansion: Expansion.SouthernVillage
     },
     {
-        name: 'Cats Eye',
+        name: 'Cat\'s Eye',
         type: MarketCardType.Relic,
         cost: 1,
         expansion: Expansion.SouthernVillage
