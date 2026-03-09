@@ -2,10 +2,10 @@ import { EXPANSION_INFO, ExpansionInfo } from './expansion-info';
 
 describe('ExpansionInfo', () => {
   it('should contain unique expansion names', () => {
-    const seenNames: { [name: string]: boolean } = {};
+    const seenNames: Record<string, boolean> = {};
 
     for (const key in EXPANSION_INFO) {
-      if (EXPANSION_INFO.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(EXPANSION_INFO, key)) {
         const info: ExpansionInfo = EXPANSION_INFO[key];
 
         expect(seenNames[info.name]).withContext('"' + info.name + '" seen on two expansions').toBeFalsy();
@@ -15,10 +15,10 @@ describe('ExpansionInfo', () => {
   });
 
   it('should contain unique short names for each expansion', () => {
-    const seenShortNames: { [shortName: string]: string } = {};
+    const seenShortNames: Record<string, string> = {};
 
     for (const key in EXPANSION_INFO) {
-      if (EXPANSION_INFO.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(EXPANSION_INFO, key)) {
         const info: ExpansionInfo = EXPANSION_INFO[key];
 
         expect(seenShortNames[info.shortName]).withContext('"' + info.shortName + '" shared between ' + seenShortNames[info.shortName] + ' and ' + info.name).toBeFalsy();
@@ -28,7 +28,7 @@ describe('ExpansionInfo', () => {
   });
 
   for (const key in EXPANSION_INFO) {
-    if (EXPANSION_INFO.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(EXPANSION_INFO, key)) {
       const info: ExpansionInfo = EXPANSION_INFO[key];
 
       if (info.marketCards) {

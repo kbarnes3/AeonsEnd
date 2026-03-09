@@ -126,7 +126,7 @@ export class MarketService {
       case GameMode.ExpeditionLoseBattle1:
       case GameMode.ExpeditionLoseBattle2:
       case GameMode.ExpeditionLoseBattle3:
-      case GameMode.ExpeditionLoseBattle4:
+      case GameMode.ExpeditionLoseBattle4: {
         const loseChoice: ExpeditionLoseChoice = this.gameModeService.selectedExpeditionLoseChoice;
         switch (loseChoice) {
           case ExpeditionLoseChoice.AddGem:
@@ -138,6 +138,7 @@ export class MarketService {
           default:
             return null;
         }
+      }
       default:
         return null;
     }

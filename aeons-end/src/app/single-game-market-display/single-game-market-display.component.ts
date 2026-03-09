@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MarketSelectionComponent } from '../market-selection/market-selection.component';
 
 @Component({
@@ -8,7 +8,4 @@ import { MarketSelectionComponent } from '../market-selection/market-selection.c
     styleUrls: ['./single-game-market-display.component.css'],
 })
 export class SingleGameMarketDisplayComponent {
-
-  constructor() { }
-
 }

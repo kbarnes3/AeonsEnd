@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'app-expansion-chooser-item',
@@ -18,9 +18,7 @@ export class ExpansionChooserItemComponent {
     this._included = included;
     this.includedChange.emit(this._included);
   }
-  @Output() includedChange: EventEmitter<boolean> = new EventEmitter();
-
-  constructor() { }
+  @Output() includedChange = new EventEmitter<boolean>();
 
   setIndeterminate(indeterminate: boolean): void {
     this.checkboxElement.nativeElement.indeterminate = indeterminate;

@@ -7,7 +7,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 })
 export class ExpansionSelectionService {
   private initialExpansionSelection: Expansion[] = [ Expansion.Base ];
-  private storageId: string = 'Expansions';
+  private storageId = 'Expansions';
   private selectedExpansionsSubject: BehaviorSubject<Expansion[]>;
 
   selectedExpansions$: Observable<Expansion[]>;

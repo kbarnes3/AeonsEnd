@@ -25,8 +25,8 @@ describe('MageService', () => {
   it('should generate mages from base game at the start of an expedition', () => {
     const service: MageService = TestBed.inject(MageService);
     const expansionSelectionService: MockExpansionSelectionService =
-      <MockExpansionSelectionService><any>TestBed.inject(ExpansionSelectionService);
-    const gameModeService: MockGameModeService = <MockGameModeService><any>TestBed.inject(GameModeService);
+      (TestBed.inject(ExpansionSelectionService) as unknown) as MockExpansionSelectionService;
+    const gameModeService: MockGameModeService = (TestBed.inject(GameModeService) as unknown) as MockGameModeService;
     gameModeService.selectedGameMode = GameMode.ExpeditionStartBattle1;
     expansionSelectionService.selectedExpansions = [ Expansion.Base ];
     const mages: Mage[] = service.mages;
@@ -40,8 +40,8 @@ describe('MageService', () => {
   it('should generate a single mage when losing a battle', () => {
     const service: MageService = TestBed.inject(MageService);
     const expansionSelectionService: MockExpansionSelectionService =
-      <MockExpansionSelectionService><any>TestBed.inject(ExpansionSelectionService);
-    const gameModeService: MockGameModeService = <MockGameModeService><any>TestBed.inject(GameModeService);
+      (TestBed.inject(ExpansionSelectionService) as unknown) as MockExpansionSelectionService;
+    const gameModeService: MockGameModeService = (TestBed.inject(GameModeService) as unknown) as MockGameModeService;
     gameModeService.selectedGameMode = GameMode.ExpeditionLoseBattle1;
     gameModeService.selectedExpeditionLoseChoice = ExpeditionLoseChoice.AddMage;
     expansionSelectionService.selectedExpansions = [ Expansion.Base ];

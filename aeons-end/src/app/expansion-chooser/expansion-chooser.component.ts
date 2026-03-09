@@ -1,7 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 
 import {Expansion} from '../expansion';
-import {EXPANSION_DEPENDENCIES, ExpansionDependency, EXPANSION_ORDER, ExpansionInfo, EXPANSION_INFO} from '../expansion-info';
+import {EXPANSION_DEPENDENCIES, EXPANSION_ORDER, ExpansionInfo, EXPANSION_INFO} from '../expansion-info';
 import {ExpansionChooserItemComponent} from '../expansion-chooser-item/expansion-chooser-item.component';
 import {ExpansionSelectionService} from '../expansion-selection.service';
 
@@ -41,7 +41,7 @@ export class ExpansionChooserComponent {
       this.displayedExpansions[expansion].included = true;
     });
 
-    let allIncluded: boolean = true;
+    let allIncluded = true;
     for (const key of Object.keys(this.displayedExpansions)) {
       const value: ExpansionDisplay = this.displayedExpansions[key];
       if (!value.included) {
@@ -55,7 +55,7 @@ export class ExpansionChooserComponent {
   }
 
   expansionOrder: Expansion[];
-  displayedExpansions: { [id: number]: ExpansionDisplay };
+  displayedExpansions: Record<number, ExpansionDisplay>;
 
   shortLabel: string;
 
@@ -110,7 +110,7 @@ export class ExpansionChooserComponent {
     // The short label will either say "n expansions" or the name of a single expansion
     // if exactly 1 is selected, or "Choose expansions" if none are, or "All expansions" if all are.
     let singleExpansionName: string;
-    let countOfIncludedExpansions: number = 0;
+    let countOfIncludedExpansions = 0;
     for (const key of Object.keys(this.displayedExpansions)) {
       const value: ExpansionDisplay = this.displayedExpansions[key];
       if (value.included) {
@@ -131,7 +131,7 @@ export class ExpansionChooserComponent {
   }
 
   private updateAllCheckbox(): void {
-    let countOfIncludedExpansions: number = 0;
+    let countOfIncludedExpansions = 0;
     for (const key of Object.keys(this.displayedExpansions)) {
       const value: ExpansionDisplay = this.displayedExpansions[key];
       if (value.included) {

@@ -7,7 +7,7 @@ import { GameMode, ExpeditionLoseChoice } from './game-mode';
 })
 export class GameModeService {
   private initialGameMode: GameMode = GameMode.SingleGame;
-  private storageId: string = 'GameMode';
+  private storageId = 'GameMode';
   private selectedGameModeSubject: BehaviorSubject<GameMode>;
   private expeditionLoseChoiceSubject: BehaviorSubject<ExpeditionLoseChoice>;
 

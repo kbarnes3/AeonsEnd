@@ -58,7 +58,7 @@ export class ExpansionInfo {
   nemeses: Nemesis[];
 }
 
-export const EXPANSION_INFO: { [id: number]: ExpansionInfo } = {};
+export const EXPANSION_INFO: Record<number, ExpansionInfo> = {};
 
 EXPANSION_INFO[Expansion.Base] = {
   expansion: Expansion.Base,

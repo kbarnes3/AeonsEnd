@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-expedition-unknown-display',
@@ -6,7 +6,4 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./expedition-unknown-display.component.css'],
 })
 export class ExpeditionUnknownDisplayComponent {
-
-  constructor() { }
-
 }

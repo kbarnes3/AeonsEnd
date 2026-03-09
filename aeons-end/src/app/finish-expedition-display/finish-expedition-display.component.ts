@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-finish-expedition-display',
@@ -6,7 +6,4 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./finish-expedition-display.component.css'],
 })
 export class FinishExpeditionDisplayComponent {
-
-  constructor() { }
-
 }

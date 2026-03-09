@@ -13,6 +13,7 @@ const numberOfExpansions: number = Object.keys(EXPANSION_INFO).length;
     selector: 'app-expansion-chooser-item',
     template: '<div class="expansion-list-item">Expansion</div>',
 })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 class MockExpansionChooserItemComponent {
   @Input() title: string;
   private _included: boolean;
@@ -24,9 +25,11 @@ class MockExpansionChooserItemComponent {
     this._included = included;
     this.includedChange.emit(this._included);
   }
-  @Output() includedChange: EventEmitter<boolean> = new EventEmitter();
+  @Output() includedChange = new EventEmitter<boolean>();
 
-  setIndeterminate(indeterminate: boolean): void {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setIndeterminate(_indeterminate: boolean): void {
+    // no-op for mock
   }
 }
 
