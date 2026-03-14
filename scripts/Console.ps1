@@ -13,6 +13,7 @@ Write-Status "Aeon's End console"
 $modules = Join-Path $node_root "node_modules"
 if (Test-Path $modules) {
     if (-Not($Quick)) {
+        Push-Location $PSScriptRoot
         $currentBranch = & git rev-parse --abbrev-ref HEAD 2>$null
         if ($currentBranch -eq "trunk") {
             $localSha = & git rev-parse HEAD 2>$null
