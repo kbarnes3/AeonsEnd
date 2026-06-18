@@ -25,9 +25,15 @@
   box-shadow: var(--mat-sys-level1);
 }
 
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .nemesis-table {
   width: 100%;
   background-color: var(--mat-sys-surface-container);
+  min-width: 500px;
 }
 
 .numeric-col {
