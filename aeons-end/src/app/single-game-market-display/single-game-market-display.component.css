@@ -1,12 +1,18 @@
+:host {
+  display: block;
+}
+
 .table-surface {
   border: 1px solid var(--mat-sys-outline-variant);
   border-radius: 12px;
-  overflow: hidden;
   box-shadow: var(--mat-sys-level1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nemesis-table {
   width: 100%;
+  min-width: 480px;
   background-color: var(--mat-sys-surface-container);
 }
 
