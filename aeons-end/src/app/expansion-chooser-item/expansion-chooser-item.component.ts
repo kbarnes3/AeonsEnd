@@ -1,12 +1,14 @@
-import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {MatCheckbox, MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
     selector: 'app-expansion-chooser-item',
+    imports: [MatCheckboxModule],
     templateUrl: './expansion-chooser-item.component.html',
     styleUrls: ['./expansion-chooser-item.component.css'],
 })
 export class ExpansionChooserItemComponent {
-  @ViewChild('checkboxElement', { static: true }) checkboxElement: ElementRef;
+  @ViewChild('checkboxElement', { static: true }) checkboxElement: MatCheckbox;
 
   @Input() title: string;
   private _included: boolean;
@@ -21,7 +23,7 @@ export class ExpansionChooserItemComponent {
   @Output() includedChange = new EventEmitter<boolean>();
 
   setIndeterminate(indeterminate: boolean): void {
-    this.checkboxElement.nativeElement.indeterminate = indeterminate;
+    this.checkboxElement.indeterminate = indeterminate;
   }
 
 }

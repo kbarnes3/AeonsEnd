@@ -1,3 +1,16 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.card-tile {
+  border: 1px solid var(--mat-sys-outline-variant);
+  padding: 8px;
+  min-height: 120px;
+  color: #000;
+}
+
 .card-name {
     text-align: center;
     font-size: 1.2em;

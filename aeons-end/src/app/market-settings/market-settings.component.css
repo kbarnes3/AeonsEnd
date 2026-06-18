@@ -1,0 +1,52 @@
+.market-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.settings-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.game-mode-field,
+.expedition-field {
+  min-width: 180px;
+}
+
+.expansion-source {
+  position: relative;
+}
+
+.expansion-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 1000;
+  min-width: 240px;
+  background-color: var(--mat-sys-surface-container);
+  color: var(--mat-sys-on-surface);
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: 8px;
+  box-shadow: var(--mat-sys-level2);
+}
+
+.expansion-panel.open {
+  display: block;
+}
+
+.expansion-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: default;
+}

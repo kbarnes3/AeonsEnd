@@ -1,12 +1,14 @@
 @if (loseChoice === loseChoiceEnum.NoChoice) {
-  <div class="row"><p>Choose on of the following:</p></div>
-  <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddGem)">Add a gem to your Barracks</button></p></div>
-  <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddRelic)">Add a relic to your Barracks</button></p></div>
-  <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddSpell)">Add a spell to your Barracks</button></p></div>
-  @if (treasuresUnlocked) {
-    <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddTreasure)">Add a treasure to your Barracks</button></p></div>
-  }
-  <div class="row"><p><button class="btn btn-secondary" (click)="onChoiceClicked(loseChoiceEnum.AddMage)">Add a mage to your Barracks</button></p></div>
+  <div class="lose-choices">
+    <p>Choose on of the following:</p>
+    <button mat-stroked-button type="button" (click)="onChoiceClicked(loseChoiceEnum.AddGem)">Add a gem to your Barracks</button>
+    <button mat-stroked-button type="button" (click)="onChoiceClicked(loseChoiceEnum.AddRelic)">Add a relic to your Barracks</button>
+    <button mat-stroked-button type="button" (click)="onChoiceClicked(loseChoiceEnum.AddSpell)">Add a spell to your Barracks</button>
+    @if (treasuresUnlocked) {
+      <button mat-stroked-button type="button" (click)="onChoiceClicked(loseChoiceEnum.AddTreasure)">Add a treasure to your Barracks</button>
+    }
+    <button mat-stroked-button type="button" (click)="onChoiceClicked(loseChoiceEnum.AddMage)">Add a mage to your Barracks</button>
+  </div>
 }
 
 @if (loseChoice === loseChoiceEnum.AddGem || loseChoice === loseChoiceEnum.AddRelic || loseChoice === loseChoiceEnum.AddSpell) {

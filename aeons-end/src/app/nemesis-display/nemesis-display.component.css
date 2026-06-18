@@ -1,9 +1,43 @@
+.nemesis-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .nemesis {
   background-color: indianred;
+  border: 1px solid var(--mat-sys-outline-variant);
+  padding: 8px;
+  width: 100%;
+  max-width: 50%;
+  color: #000;
 }
 
 .nemesis-name {
   text-align: center;
   font-size: 1.2em;
   margin-top: 30px;
+}
+
+.nemesis-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nemesis-table th,
+.nemesis-table td {
+  padding: 4px 8px;
+  border-top: 1px solid var(--mat-sys-outline-variant);
+  text-align: left;
+}
+
+.nemesis-table thead th {
+  background-color: var(--mat-sys-surface-variant);
+  color: var(--mat-sys-on-surface-variant);
+  border-bottom: 2px solid var(--mat-sys-outline);
+}
+
+@media (max-width: 767.98px) {
+  .nemesis {
+    max-width: 100%;
+  }
 }

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Component } from '@angular/core';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MarketSettingsComponent } from './market-settings.component';
 import { GameModeService } from '../game-mode.service';
@@ -21,6 +22,7 @@ describe('MarketSettingsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [NoopAnimationsModule],
       providers: [
         { provide: GameModeService, useValue: mockGameModeService }
       ]
