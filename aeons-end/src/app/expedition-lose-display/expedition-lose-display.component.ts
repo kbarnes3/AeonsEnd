@@ -1,11 +1,11 @@
-
 import { Component, OnInit, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { ExpeditionLoseChoice, GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 
 @Component({
     selector: 'app-expedition-lose-display',
-    imports: [],
+    imports: [MatButtonModule],
     templateUrl: './expedition-lose-display.component.html',
     styleUrls: ['./expedition-lose-display.component.css'],
 })

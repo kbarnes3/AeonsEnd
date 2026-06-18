@@ -1,43 +1,49 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 offset-md-4 btn-group mb-1">
-      <div class="btn-group" ngbDropdown >
-        <button class="btn btn-secondary" ngbDropdownToggle type="button">{{ gameModeString() }}</button>
-        <div ngbDropdownMenu>
-          <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.SingleGame)">Single game</button>
-          <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionUnknown)">Expedition</button>
-        </div>
-      </div>
-      @if (gameMode() !== gameModeEnum.SingleGame) {
-        <div class="btn-group" ngbDropdown >
-          <button class="btn btn-outline-secondary" ngbDropdownToggle type="button">{{ expeditionProgressString() }}</button>
-          <div ngbDropdownMenu class="expeditionDropdown">
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionStartBattle1)">Start Battle 1</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionWinBattle1)">Won Battle 1</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionLoseBattle1)">Lost Battle 1</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionStartBattle2)">Start Battle 2</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionWinBattle2)">Won Battle 2</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionLoseBattle2)">Lost Battle 2</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionStartBattle3)">Start Battle 3</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionWinBattle3)">Won Battle 3</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionLoseBattle3)">Lost Battle 3</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionStartBattle4)">Start Battle 4</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionWinBattle4)">Won Battle 4</button>
-            <button ngbDropdownItem (click)="onGameModeClicked(gameModeEnum.ExpeditionLoseBattle4)">Lost Battle 4</button>
-          </div>
-        </div>
-      }
-    </div>
+<div class="market-settings">
+  <div class="settings-row">
+    <mat-form-field appearance="outline" class="game-mode-field" subscriptSizing="dynamic">
+      <mat-label>Game mode</mat-label>
+      <mat-select [value]="gameMode() === gameModeEnum.SingleGame ? gameModeEnum.SingleGame : gameModeEnum.ExpeditionUnknown"
+                  (selectionChange)="onGameModeClicked($event.value)">
+        <mat-option [value]="gameModeEnum.SingleGame">Single game</mat-option>
+        <mat-option [value]="gameModeEnum.ExpeditionUnknown">Expedition</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    @if (gameMode() !== gameModeEnum.SingleGame) {
+      <mat-form-field appearance="outline" class="expedition-field expeditionDropdown" subscriptSizing="dynamic">
+        <mat-label>Battle</mat-label>
+        <mat-select [value]="gameMode()" (selectionChange)="onGameModeClicked($event.value)">
+          <mat-option [value]="gameModeEnum.ExpeditionUnknown">Choose Battle</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionStartBattle1">Start Battle 1</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionWinBattle1">Won Battle 1</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionLoseBattle1">Lost Battle 1</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionStartBattle2">Start Battle 2</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionWinBattle2">Won Battle 2</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionLoseBattle2">Lost Battle 2</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionStartBattle3">Start Battle 3</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionWinBattle3">Won Battle 3</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionLoseBattle3">Lost Battle 3</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionStartBattle4">Start Battle 4</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionWinBattle4">Won Battle 4</mat-option>
+          <mat-option [value]="gameModeEnum.ExpeditionLoseBattle4">Lost Battle 4</mat-option>
+        </mat-select>
+      </mat-form-field>
+    }
   </div>
-  <div class="row">
-    <div class="offset-md-4 col-md-4 btn-group">
-      <div class="btn-group" ngbDropdown autoClose="outside" >
-        <button class="btn btn-secondary" ngbDropdownToggle type="button" id="market-source">{{ expansionChooser.shortLabel }}</button>
-        <div ngbDropdownMenu>
-          <app-expansion-chooser #expansionChooser></app-expansion-chooser>
-        </div>
+
+  <div class="settings-row">
+    @if (expansionOpen) {
+      <button type="button" class="expansion-backdrop" aria-label="Close expansion list" (click)="expansionOpen = false"></button>
+    }
+    <div class="expansion-source">
+      <button mat-stroked-button type="button" id="market-source" (click)="expansionOpen = !expansionOpen">
+        {{ expansionChooser.shortLabel }}
+      </button>
+      <div class="expansion-panel" [class.open]="expansionOpen">
+        <app-expansion-chooser #expansionChooser></app-expansion-chooser>
       </div>
-      <button class="btn btn-outline-secondary" type="button" (click)="onGenerate()">Generate</button>
     </div>
+
+    <button mat-flat-button type="button" (click)="onGenerate()">Generate</button>
   </div>
 </div>

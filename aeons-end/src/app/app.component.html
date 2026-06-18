@@ -1,18 +1,19 @@
-<!-- Fixed navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <span class="navbar-brand">{{ title }}</span>
-  </div>
-</nav>
+<mat-toolbar>
+  <span class="app-brand">{{ title }}</span>
 
-<div class="container main-container">
+  <span class="toolbar-spacer"></span>
+
+  <app-theme-switcher></app-theme-switcher>
+</mat-toolbar>
+
+<div class="main-container">
   <app-market-settings></app-market-settings>
   <app-market-display></app-market-display>
-</div> <!-- /container -->
+</div>
 
-<a class="github-fork-ribbon right-top d-none d-md-block" href="https://github.com/kbarnes3/AeonsEnd" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+<a class="github-fork-ribbon right-top" href="https://github.com/kbarnes3/AeonsEnd" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
 <footer class="footer" role="contentinfo">
-  <div class="container">
+  <div class="footer-inner">
     <p>&copy; 2016-2026 Kevin &amp; Kaitlin Barnes</p>
     <p>Built from version {{ gitVersion }}</p>
   </div>

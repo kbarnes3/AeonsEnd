@@ -1,0 +1,14 @@
+:host {
+  display: inline-block;
+  color: inherit;
+
+  .mat-mdc-icon-button,
+  .mat-mdc-icon-button .mat-icon {
+    color: inherit;
+  }
+}
+
+::ng-deep .mat-mdc-menu-item.active {
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+}

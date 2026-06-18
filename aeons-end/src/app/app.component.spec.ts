@@ -1,4 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import {Component} from '@angular/core';
 import { MarketSettingsComponent } from './market-settings/market-settings.component';
@@ -18,7 +19,9 @@ class MockMarketSettingsComponent {}
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({})
+    TestBed.configureTestingModule({
+      imports: [NoopAnimationsModule]
+    })
     .overrideComponent(AppComponent, {
       remove: {
         imports: [MarketSettingsComponent, MarketDisplayComponent]
@@ -46,6 +49,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.navbar-brand').textContent).toContain('Aeon\'s End Market Generator');
+    expect(compiled.querySelector('.app-brand').textContent).toContain('Aeon\'s End Market Generator');
   });
 });

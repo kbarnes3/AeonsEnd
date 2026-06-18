@@ -1,4 +1,4 @@
-<form class="px-4 py-3">
+<form class="expansion-chooser-form">
   <app-expansion-chooser-item #allCheck title="All expansions" [(included)]="allIncluded"></app-expansion-chooser-item>
   @for (expansion of expansionOrder; track expansion) {
     <app-expansion-chooser-item

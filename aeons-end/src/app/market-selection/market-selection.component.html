@@ -4,9 +4,9 @@
 @if (cards && expeditionMode) {
   <p>Add these player cards to your Barracks.</p>
 }
-<div class="row">
+<div class="card-grid">
   @for (card of cards; track card) {
-    <div class="border col-4 {{ getCardCssClass(card.type) }}">
+    <div class="card-tile {{ getCardCssClass(card.type) }}">
       <div class="card-cost">
         {{ card.cost }}
       </div>

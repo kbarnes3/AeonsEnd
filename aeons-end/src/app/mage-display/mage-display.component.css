@@ -1,3 +1,16 @@
+.mage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.mage-tile {
+  border: 1px solid var(--mat-sys-outline-variant);
+  padding: 8px;
+  min-height: 100px;
+  color: #000;
+}
+
 .mage {
   background-color: greenyellow;
 }

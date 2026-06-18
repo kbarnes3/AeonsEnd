@@ -1,9 +1,47 @@
+:host {
+  display: block;
+}
+
+.nemesis-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .nemesis {
   background-color: indianred;
+  border: 1px solid var(--mat-sys-outline-variant);
+  padding: 8px;
+  width: 100%;
+  max-width: 50%;
+  color: #000;
 }
 
 .nemesis-name {
   text-align: center;
   font-size: 1.2em;
   margin-top: 30px;
+}
+
+.table-surface {
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: 12px;
+  box-shadow: var(--mat-sys-level1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nemesis-table {
+  width: 100%;
+  min-width: 480px;
+  background-color: var(--mat-sys-surface-container);
+}
+
+.numeric-col {
+  text-align: right;
+}
+
+@media (max-width: 767.98px) {
+  .nemesis {
+    max-width: 100%;
+  }
 }
