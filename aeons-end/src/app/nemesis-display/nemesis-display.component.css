@@ -18,22 +18,20 @@
   margin-top: 30px;
 }
 
+.table-surface {
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--mat-sys-level1);
+}
+
 .nemesis-table {
   width: 100%;
-  border-collapse: collapse;
+  background-color: var(--mat-sys-surface-container);
 }
 
-.nemesis-table th,
-.nemesis-table td {
-  padding: 4px 8px;
-  border-top: 1px solid var(--mat-sys-outline-variant);
-  text-align: left;
-}
-
-.nemesis-table thead th {
-  background-color: var(--mat-sys-surface-variant);
-  color: var(--mat-sys-on-surface-variant);
-  border-bottom: 2px solid var(--mat-sys-outline);
+.numeric-col {
+  text-align: right;
 }
 
 @media (max-width: 767.98px) {
