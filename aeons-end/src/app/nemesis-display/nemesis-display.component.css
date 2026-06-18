@@ -8,12 +8,17 @@
 }
 
 .nemesis {
-  background-color: indianred;
+  background-color: #ef9a9a;
   border: 1px solid var(--mat-sys-outline-variant);
   padding: 8px;
   width: 100%;
   max-width: 50%;
-  color: #000;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+:host-context(.dark) .nemesis {
+  background-color: #5c2b2b;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .nemesis-name {

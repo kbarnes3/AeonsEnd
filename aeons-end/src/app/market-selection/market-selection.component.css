@@ -8,7 +8,7 @@
   border: 1px solid var(--mat-sys-outline-variant);
   padding: 8px;
   min-height: 120px;
-  color: #000;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .card-name {
@@ -26,13 +26,29 @@
 }
 
 .gem-card {
-    background-color: plum;
+    background-color: #e1bee7;
 }
 
 .relic-card {
-    background-color: lightskyblue;
+    background-color: #b3e0f2;
 }
 
 .spell-card {
-    background-color: gold;
+    background-color: #ffe082;
+}
+
+:host-context(.dark) .card-tile {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+:host-context(.dark) .gem-card {
+    background-color: #4a3550;
+}
+
+:host-context(.dark) .relic-card {
+    background-color: #264a5c;
+}
+
+:host-context(.dark) .spell-card {
+    background-color: #5a4a1a;
 }
