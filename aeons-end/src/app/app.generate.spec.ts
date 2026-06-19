@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { MarketService } from './market.service';
@@ -8,7 +7,7 @@ describe('AppComponent Generate button', () => {
   beforeEach(async () => {
     localStorage.clear();
     await TestBed.configureTestingModule({
-      imports: [AppComponent, NoopAnimationsModule],
+      imports: [AppComponent],
     }).compileComponents();
   });
 
