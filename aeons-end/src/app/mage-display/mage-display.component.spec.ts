@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MageDisplayComponent } from './mage-display.component';
 
@@ -6,10 +6,10 @@ describe('MageDisplayComponent', () => {
   let component: MageDisplayComponent;
   let fixture: ComponentFixture<MageDisplayComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({})
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({})
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MageDisplayComponent);

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FinishExpeditionDisplayComponent } from './finish-expedition-display.component';
 
@@ -6,10 +6,10 @@ describe('FinishExpeditionDisplayComponent', () => {
   let component: FinishExpeditionDisplayComponent;
   let fixture: ComponentFixture<FinishExpeditionDisplayComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({})
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({})
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FinishExpeditionDisplayComponent);

@@ -33,7 +33,7 @@ describe('ExpansionSelectionService', () => {
     service.selectedExpansions = [ Expansion.Legacy, Expansion.DiceTowerPromo, Expansion.LegacyPromo ];
 
     const json = localStorage.getItem('Expansions');
-    const storedExpansions: Expansion[] = JSON.parse(json);
+    const storedExpansions: Expansion[] = JSON.parse(json!);
     expect(storedExpansions.length).toBe(3);
     expect(storedExpansions[0]).toBe(Expansion.Legacy);
     expect(storedExpansions[1]).toBe(Expansion.DiceTowerPromo);

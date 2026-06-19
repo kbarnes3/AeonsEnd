@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SingleGameMarketDisplayComponent } from './single-game-market-display.component';
 import { Component } from '@angular/core';
@@ -14,8 +14,8 @@ describe('SingleGameMarketDisplayComponent', () => {
   let component: SingleGameMarketDisplayComponent;
   let fixture: ComponentFixture<SingleGameMarketDisplayComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({})
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({})
     .overrideComponent(SingleGameMarketDisplayComponent, {
       remove: {
         imports: [MarketSelectionComponent],
@@ -25,7 +25,7 @@ describe('SingleGameMarketDisplayComponent', () => {
       },
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SingleGameMarketDisplayComponent);

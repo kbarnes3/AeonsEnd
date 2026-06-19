@@ -13,10 +13,10 @@ export class MageDisplayComponent implements OnInit {
   private mageService = inject(MageService);
 
 
-  mages: Mage[];
+  mages: Mage[] | null = null;
 
   ngOnInit() {
-    this.mageService.mages$.subscribe((mages: Mage[]) => {
+    this.mageService.mages$.subscribe((mages: Mage[] | null) => {
       this.mages = mages;
     });
     this.mages = this.mageService.mages;

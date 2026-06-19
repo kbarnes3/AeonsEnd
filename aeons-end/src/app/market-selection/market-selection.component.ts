@@ -17,11 +17,11 @@ export class MarketSelectionComponent implements OnInit {
   private gameModeService = inject(GameModeService);
 
 
-  cards: MarketCard[];
-  expeditionMode: boolean;
+  cards: MarketCard[] | null = null;
+  expeditionMode!: boolean;
 
   ngOnInit() {
-    this.marketService.marketCards$.subscribe((cards: MarketCard[]) => {
+    this.marketService.marketCards$.subscribe((cards: MarketCard[] | null) => {
       this.cards = cards;
     });
     this.cards = this.marketService.marketCards;

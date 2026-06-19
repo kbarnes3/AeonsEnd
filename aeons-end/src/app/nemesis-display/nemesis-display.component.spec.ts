@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NemesisDisplayComponent } from './nemesis-display.component';
 
@@ -6,10 +6,10 @@ describe('NemesisDisplayComponent', () => {
   let component: NemesisDisplayComponent;
   let fixture: ComponentFixture<NemesisDisplayComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({})
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({})
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NemesisDisplayComponent);

@@ -14,9 +14,9 @@ export class MageService {
   private expansionSelectionService = inject(ExpansionSelectionService);
   private gameModeService = inject(GameModeService);
 
-  private magesSubject: BehaviorSubject<Mage[]>;
+  private magesSubject: BehaviorSubject<Mage[] | null>;
 
-  mages$: Observable<Mage[]>;
+  mages$: Observable<Mage[] | null>;
 
   private static getRandomItem<T>(items: T[]): T {
     const itemIndex = MageService.randNumber(items.length);
@@ -65,7 +65,7 @@ export class MageService {
   }
 
   constructor() {
-    this.magesSubject = new BehaviorSubject<Mage[]>([]);
+    this.magesSubject = new BehaviorSubject<Mage[] | null>([]);
     this.mages$ = this.magesSubject.asObservable();
     this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {
       this.generateRandomMages(expansions);
@@ -79,7 +79,7 @@ export class MageService {
     this.generateRandomMages(this.expansionSelectionService.selectedExpansions);
   }
 
-  get mages(): Mage[] {
+  get mages(): Mage[] | null {
     return this.magesSubject.getValue();
   }
 

@@ -46,8 +46,8 @@ export class NemesisDisplayComponent implements OnInit {
   private gameModeService = inject(GameModeService);
   private nemesisService = inject(NemesisService);
 
-  nemesis: Nemesis;
-  battleNumber: number;
+  nemesis: Nemesis | null = null;
+  battleNumber: number | null = null;
   displayedColumns: string[] = ['cards', 'p1', 'p2', 'p3', 'p4'];
   nemesisDeck: NemesisDeckRow[] = [];
 
@@ -57,7 +57,7 @@ export class NemesisDisplayComponent implements OnInit {
     });
     this.updateBattleNumber(this.gameModeService.selectedGameMode);
 
-    this.nemesisService.nemesis$.subscribe((nemesis: Nemesis) => {
+    this.nemesisService.nemesis$.subscribe((nemesis: Nemesis | null) => {
       this.nemesis = nemesis;
     });
     this.nemesis = this.nemesisService.nemesis;
@@ -80,7 +80,7 @@ export class NemesisDisplayComponent implements OnInit {
       default:
         this.battleNumber = null;
     }
-    this.nemesisDeck = NEMESIS_DECKS[this.battleNumber] ?? [];
+    this.nemesisDeck = this.battleNumber != null ? (NEMESIS_DECKS[this.battleNumber] ?? []) : [];
   }
 
 }

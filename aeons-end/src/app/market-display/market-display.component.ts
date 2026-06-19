@@ -27,7 +27,7 @@ import { ExpeditionLoseDisplayComponent } from '../expedition-lose-display/exped
 export class MarketDisplayComponent implements OnInit {
   private gameModeService = inject(GameModeService);
 
-  gameMode: GameMode;
+  gameMode!: GameMode;
   gameModeEnum = GameMode;
 
   ngOnInit() {

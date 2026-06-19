@@ -2,18 +2,20 @@ import { Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ExpeditionLoseChoice, GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
+import { MarketSelectionComponent } from '../market-selection/market-selection.component';
+import { MageDisplayComponent } from '../mage-display/mage-display.component';
 
 @Component({
     selector: 'app-expedition-lose-display',
-    imports: [MatButtonModule],
+    imports: [MatButtonModule, MarketSelectionComponent, MageDisplayComponent],
     templateUrl: './expedition-lose-display.component.html',
     styleUrls: ['./expedition-lose-display.component.css'],
 })
 export class ExpeditionLoseDisplayComponent implements OnInit {
   private gameModeService = inject(GameModeService);
 
-  treasuresUnlocked: boolean;
-  loseChoice: ExpeditionLoseChoice;
+  treasuresUnlocked!: boolean;
+  loseChoice!: ExpeditionLoseChoice;
   loseChoiceEnum = ExpeditionLoseChoice;
 
   ngOnInit() {

@@ -18,9 +18,9 @@ export class MarketService {
   private expansionSelectionService = inject(ExpansionSelectionService);
   private gameModeService = inject(GameModeService);
 
-  private marketCardsSubject: BehaviorSubject<MarketCard[]>;
+  private marketCardsSubject: BehaviorSubject<MarketCard[] | null>;
 
-  marketCards$: Observable<MarketCard[]>;
+  marketCards$: Observable<MarketCard[] | null>;
 
   private static getRandomItem<T>(items: T[]): T {
     const itemIndex = MarketService.randNumber(items.length);
@@ -90,7 +90,7 @@ export class MarketService {
   }
 
   constructor() {
-    this.marketCardsSubject = new BehaviorSubject<MarketCard[]>([]);
+    this.marketCardsSubject = new BehaviorSubject<MarketCard[] | null>([]);
     this.marketCards$ = this.marketCardsSubject.asObservable();
     this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {
       this.generateRandomMarket(expansions);
@@ -104,7 +104,7 @@ export class MarketService {
     this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
   }
 
-  get marketCards(): MarketCard[] {
+  get marketCards(): MarketCard[] | null {
     return this.marketCardsSubject.getValue();
   }
 
@@ -112,7 +112,7 @@ export class MarketService {
     this.generateRandomMarket(this.expansionSelectionService.selectedExpansions);
   }
 
-  private getMarketConfiguration(): MarketConfiguration {
+  private getMarketConfiguration(): MarketConfiguration | null {
     const gameMode: GameMode = this.gameModeService.selectedGameMode;
     switch (gameMode) {
       case GameMode.SingleGame:
@@ -145,7 +145,7 @@ export class MarketService {
   }
 
   private generateRandomMarket(source: Expansion[]): void {
-    const configuration: MarketConfiguration = this.getMarketConfiguration();
+    const configuration: MarketConfiguration | null = this.getMarketConfiguration();
     if (configuration) {
       const newCards: MarketCard[] = MarketService.getCardsInMarket(configuration, source);
       this.marketCardsSubject.next(newCards);

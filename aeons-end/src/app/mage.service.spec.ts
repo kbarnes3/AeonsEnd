@@ -29,7 +29,7 @@ describe('MageService', () => {
     const gameModeService: MockGameModeService = (TestBed.inject(GameModeService) as unknown) as MockGameModeService;
     gameModeService.selectedGameMode = GameMode.ExpeditionStartBattle1;
     expansionSelectionService.selectedExpansions = [ Expansion.Base ];
-    const mages: Mage[] = service.mages;
+    const mages: Mage[] = service.mages!;
     expect(mages.length).toEqual(4);
     mages.forEach((mage: Mage) => {
       expect(mage).toBeTruthy();
@@ -45,7 +45,7 @@ describe('MageService', () => {
     gameModeService.selectedGameMode = GameMode.ExpeditionLoseBattle1;
     gameModeService.selectedExpeditionLoseChoice = ExpeditionLoseChoice.AddMage;
     expansionSelectionService.selectedExpansions = [ Expansion.Base ];
-    const mages: Mage[] = service.mages;
+    const mages: Mage[] = service.mages!;
     expect(mages.length).toEqual(1);
   });
 });

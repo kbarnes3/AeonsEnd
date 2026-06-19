@@ -50,12 +50,12 @@ import { SOUTHERN_VILLAGE_MAGES } from './mages-data/southern-village-mages-data
 import { SOUTHER_VILLAGE_NEMESES } from './nemeses-data/southern-village-nemeses-data';
 
 export class ExpansionInfo {
-  expansion: Expansion;
-  name: string;
-  shortName: string;
-  marketCards: MarketCard[];
-  mages: Mage[];
-  nemeses: Nemesis[];
+  expansion!: Expansion;
+  name!: string;
+  shortName!: string;
+  marketCards!: MarketCard[];
+  mages!: Mage[] | null;
+  nemeses!: Nemesis[] | null;
 }
 
 export const EXPANSION_INFO: Record<number, ExpansionInfo> = {};
@@ -214,8 +214,8 @@ EXPANSION_INFO[Expansion.SouthernVillage] = {
 };
 
 export class ExpansionDependency {
-  expansion: Expansion;
-  requiredExpansion: Expansion;
+  expansion!: Expansion;
+  requiredExpansion!: Expansion;
 }
 
 export const EXPANSION_DEPENDENCIES: ExpansionDependency[] = [

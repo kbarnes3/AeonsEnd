@@ -13,7 +13,7 @@ import { MarketSelectionComponent } from '../market-selection/market-selection.c
 export class ExpeditionWinDisplayComponent implements OnInit {
   private gameModeService = inject(GameModeService);
 
-  expeditionNumber: number;
+  expeditionNumber!: number;
 
   ngOnInit() {
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {

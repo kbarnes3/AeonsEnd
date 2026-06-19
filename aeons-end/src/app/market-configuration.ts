@@ -1,8 +1,8 @@
 import {Predicate, Predicates} from './predicates';
 
 export class MarketConfiguration {
-    name: string;
-    cards: Predicate[];
+    name!: string;
+    cards!: Predicate[];
 }
 
 export const SINGLE_GAME_MARKET_CONFIGURATIONS: MarketConfiguration[] = [

@@ -25,7 +25,7 @@ export class ExpansionDisplay {
 export class ExpansionChooserComponent {
   private expansionSelectionService = inject(ExpansionSelectionService);
 
-  @ViewChild('allCheck', { static: true }) allCheck: ExpansionChooserItemComponent;
+  @ViewChild('allCheck', { static: true }) allCheck!: ExpansionChooserItemComponent;
 
   constructor() {
     this.displayedExpansions = {};
@@ -55,9 +55,9 @@ export class ExpansionChooserComponent {
   }
 
   expansionOrder: Expansion[];
-  displayedExpansions: Record<number, ExpansionDisplay>;
+  displayedExpansions: Record<string, ExpansionDisplay>;
 
-  shortLabel: string;
+  shortLabel!: string;
 
   private _allIncluded: boolean;
 
@@ -109,7 +109,7 @@ export class ExpansionChooserComponent {
   private updateShortLabel(): void {
     // The short label will either say "n expansions" or the name of a single expansion
     // if exactly 1 is selected, or "Choose expansions" if none are, or "All expansions" if all are.
-    let singleExpansionName: string;
+    let singleExpansionName = '';
     let countOfIncludedExpansions = 0;
     for (const key of Object.keys(this.displayedExpansions)) {
       const value: ExpansionDisplay = this.displayedExpansions[key];

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExpeditionStartBattleDisplayComponent } from './expedition-start-battle-display.component';
 import { NemesisDisplayComponent } from '../nemesis-display/nemesis-display.component';
@@ -14,8 +14,8 @@ describe('ExpeditionStartBattleDisplayComponent', () => {
   let component: ExpeditionStartBattleDisplayComponent;
   let fixture: ComponentFixture<ExpeditionStartBattleDisplayComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({})
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({})
     .overrideComponent(ExpeditionStartBattleDisplayComponent, {
       remove: {
         imports: [NemesisDisplayComponent]
@@ -25,7 +25,7 @@ describe('ExpeditionStartBattleDisplayComponent', () => {
       }
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ExpeditionStartBattleDisplayComponent);
