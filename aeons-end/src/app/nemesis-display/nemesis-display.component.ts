@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { Nemesis } from '../nemesis';
 import { NemesisService } from '../nemesis.service';
@@ -45,20 +45,23 @@ const NEMESIS_DECKS: Record<number, NemesisDeckRow[]> = {
 export class NemesisDisplayComponent implements OnInit {
   private gameModeService = inject(GameModeService);
   private nemesisService = inject(NemesisService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
-  nemesis: Nemesis;
-  battleNumber: number;
+  nemesis: Nemesis | null = null;
+  battleNumber: number | null = null;
   displayedColumns: string[] = ['cards', 'p1', 'p2', 'p3', 'p4'];
   nemesisDeck: NemesisDeckRow[] = [];
 
   ngOnInit() {
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {
       this.updateBattleNumber(newGameMode);
+      this.changeDetectorRef.markForCheck();
     });
     this.updateBattleNumber(this.gameModeService.selectedGameMode);
 
-    this.nemesisService.nemesis$.subscribe((nemesis: Nemesis) => {
+    this.nemesisService.nemesis$.subscribe((nemesis: Nemesis | null) => {
       this.nemesis = nemesis;
+      this.changeDetectorRef.markForCheck();
     });
     this.nemesis = this.nemesisService.nemesis;
   }
@@ -80,7 +83,7 @@ export class NemesisDisplayComponent implements OnInit {
       default:
         this.battleNumber = null;
     }
-    this.nemesisDeck = NEMESIS_DECKS[this.battleNumber] ?? [];
+    this.nemesisDeck = this.battleNumber != null ? (NEMESIS_DECKS[this.battleNumber] ?? []) : [];
   }
 
 }

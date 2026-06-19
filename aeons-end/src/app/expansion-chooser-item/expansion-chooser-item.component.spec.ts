@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExpansionChooserItemComponent } from './expansion-chooser-item.component';
 
@@ -6,10 +6,10 @@ describe('ExpansionChooserItemComponent', () => {
   let component: ExpansionChooserItemComponent;
   let fixture: ComponentFixture<ExpansionChooserItemComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({})
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({})
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ExpansionChooserItemComponent);

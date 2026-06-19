@@ -60,6 +60,12 @@
                   "maximumWarning": "6kb"
                 }
               ]
+            },
+            "testing": {
+              "aot": false,
+              "polyfills": [
+                "@angular/localize/init"
+              ]
             }
           }
         },
@@ -81,23 +87,18 @@
           }
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": [
-              "@angular/localize/init",
-              "zone.js"
-            ],
             "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.scss",
-              "node_modules/github-fork-ribbon-css/gh-fork-ribbon.css"
+            "reporters": [
+              "default",
+              ["junit", { "outputFile": "test-results/TESTS.xml" }]
             ],
-            "scripts": [],
-            "assets": [
-              "src/assets"
-            ]
+            "setupFiles": [
+              "src/test-setup.ts"
+            ],
+            "buildTarget": ":build:testing",
+            "runner": "vitest"
           }
         },
         "lint": {

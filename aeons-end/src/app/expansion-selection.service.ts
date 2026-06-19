@@ -19,7 +19,7 @@ export class ExpansionSelectionService {
   }
 
   private initializeSelectedExpansions(): Expansion[] {
-    const jsonExpansions: string = localStorage.getItem(this.storageId);
+    const jsonExpansions: string | null = localStorage.getItem(this.storageId);
     if (!jsonExpansions) {
       return this.initialExpansionSelection;
     } else {

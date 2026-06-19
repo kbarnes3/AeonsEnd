@@ -37,7 +37,7 @@ describe('GameModeService', () => {
     service.selectedGameMode = GameMode.ExpeditionLoseBattle1;
 
     const json = localStorage.getItem('GameMode');
-    const storedGameMode: GameMode = JSON.parse(json);
+    const storedGameMode: GameMode = JSON.parse(json!);
     expect(storedGameMode).toBe(GameMode.ExpeditionLoseBattle1);
   });
 });

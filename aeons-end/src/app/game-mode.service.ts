@@ -23,7 +23,7 @@ export class GameModeService {
   }
 
   private initializeSelectedGameMode(): GameMode {
-    const jsonGameMode: string = localStorage.getItem(this.storageId);
+    const jsonGameMode: string | null = localStorage.getItem(this.storageId);
     if (!jsonGameMode) {
       return this.initialGameMode;
     } else {

@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import {Component} from '@angular/core';
@@ -18,8 +18,8 @@ class MockMarketDisplayComponent {}
 class MockMarketSettingsComponent {}
 
 describe('AppComponent', () => {
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [NoopAnimationsModule]
     })
     .overrideComponent(AppComponent, {
@@ -31,7 +31,7 @@ describe('AppComponent', () => {
       }
     })
     .compileComponents();
-  }));
+  });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);

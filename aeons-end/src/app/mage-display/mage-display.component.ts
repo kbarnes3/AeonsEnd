@@ -1,5 +1,5 @@
 
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { Mage } from '../mage';
 import { MageService } from '../mage.service';
 
@@ -11,13 +11,15 @@ import { MageService } from '../mage.service';
 })
 export class MageDisplayComponent implements OnInit {
   private mageService = inject(MageService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
 
-  mages: Mage[];
+  mages: Mage[] | null = null;
 
   ngOnInit() {
-    this.mageService.mages$.subscribe((mages: Mage[]) => {
+    this.mageService.mages$.subscribe((mages: Mage[] | null) => {
       this.mages = mages;
+      this.changeDetectorRef.markForCheck();
     });
     this.mages = this.mageService.mages;
   }

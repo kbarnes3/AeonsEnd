@@ -31,7 +31,7 @@ describe('MarketService', () => {
     const expansionSelectionService: MockExpansionSelectionService =
       (TestBed.inject(ExpansionSelectionService) as unknown) as MockExpansionSelectionService;
     expansionSelectionService.selectedExpansions = [ Expansion.Base ];
-    const cards: MarketCard[] = service.marketCards;
+    const cards: MarketCard[] = service.marketCards!;
     expect(cards.length).toEqual(9);
     cards.forEach((card: MarketCard) => {
       expect(card).toBeTruthy();
@@ -44,7 +44,7 @@ describe('MarketService', () => {
     const expansionSelectionService: MockExpansionSelectionService =
       (TestBed.inject(ExpansionSelectionService) as unknown) as MockExpansionSelectionService;
     expansionSelectionService.selectedExpansions = [ Expansion.WarEternal ];
-    const cards: MarketCard[] = service.marketCards;
+    const cards: MarketCard[] = service.marketCards!;
     expect(cards[0]).toBeTruthy();
     expect(cards[0].expansion).toEqual(Expansion.WarEternal);
     // Note that we don't check all the cards because sometimes this will fail to generate a full market

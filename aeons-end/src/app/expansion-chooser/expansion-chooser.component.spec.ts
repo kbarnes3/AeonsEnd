@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Expansion } from '../expansion';
 import { ExpansionChooserComponent } from './expansion-chooser.component';
@@ -15,8 +15,8 @@ const numberOfExpansions: number = Object.keys(EXPANSION_INFO).length;
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class MockExpansionChooserItemComponent {
-  @Input() title: string;
-  private _included: boolean;
+  @Input() title!: string;
+  private _included!: boolean;
   get included(): boolean {
     return this._included;
   }
@@ -36,15 +36,15 @@ class MockExpansionChooserItemComponent {
 describe('ExpansionChooserComponent', () => {
   let component: ExpansionChooserComponent;
   let fixture: ComponentFixture<ExpansionChooserComponent>;
-  let expansionSelectionService: Partial<ExpansionSelectionService>;
+  let expansionSelectionService: ExpansionSelectionService;
   const mockExpansionSelectionService: MockExpansionSelectionService = new MockExpansionSelectionService();
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       providers: [ {provide: ExpansionSelectionService, useValue: mockExpansionSelectionService } ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ExpansionChooserComponent);

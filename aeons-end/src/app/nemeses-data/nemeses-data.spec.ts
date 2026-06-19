@@ -2,13 +2,13 @@ import { EXPANSION_INFO, ExpansionInfo } from '../expansion-info';
 
 describe('NemesesData', () => {
     it('should only contain nemeses with unique names', () => {
-      const seenNemeses = {};
+      const seenNemeses: Record<string, string> = {};
       for (const key in EXPANSION_INFO) {
         if (Object.prototype.hasOwnProperty.call(EXPANSION_INFO, key)) {
-          const info: ExpansionInfo = EXPANSION_INFO[key];
+          const info: ExpansionInfo = EXPANSION_INFO[Number(key)];
           if (info.nemeses) {
             for (const nemesis of info.nemeses) {
-              expect(seenNemeses[nemesis.name]).withContext(
+              expect(seenNemeses[nemesis.name],
                 nemesis.name + ' seen in both ' + seenNemeses[nemesis.name] + ' and ' + info.name).toBeFalsy();
               seenNemeses[nemesis.name] = info.name;
             }

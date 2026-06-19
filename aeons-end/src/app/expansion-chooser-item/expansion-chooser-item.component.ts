@@ -8,10 +8,10 @@ import {MatCheckbox, MatCheckboxModule} from '@angular/material/checkbox';
     styleUrls: ['./expansion-chooser-item.component.css'],
 })
 export class ExpansionChooserItemComponent {
-  @ViewChild('checkboxElement', { static: true }) checkboxElement: MatCheckbox;
+  @ViewChild('checkboxElement', { static: true }) checkboxElement!: MatCheckbox;
 
-  @Input() title: string;
-  private _included: boolean;
+  @Input() title!: string;
+  private _included!: boolean;
   get included(): boolean {
     return this._included;
   }

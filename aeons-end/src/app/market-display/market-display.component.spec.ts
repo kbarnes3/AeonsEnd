@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MarketDisplayComponent } from './market-display.component';
 import { SingleGameMarketDisplayComponent } from '../single-game-market-display/single-game-market-display.component';
@@ -56,8 +56,8 @@ describe('MarketDisplayComponent', () => {
   let component: MarketDisplayComponent;
   let fixture: ComponentFixture<MarketDisplayComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({})
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({})
     .overrideComponent(MarketDisplayComponent, {
       remove: {
         imports: [
@@ -81,7 +81,7 @@ describe('MarketDisplayComponent', () => {
       }
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MarketDisplayComponent);

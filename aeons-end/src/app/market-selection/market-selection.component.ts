@@ -1,5 +1,5 @@
 
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import {MarketCard} from '../market-card';
 import {MarketCardType} from '../market-card-type';
 import {MarketService} from '../market.service';
@@ -15,19 +15,22 @@ import { GameMode } from '../game-mode';
 export class MarketSelectionComponent implements OnInit {
   private marketService = inject(MarketService);
   private gameModeService = inject(GameModeService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
 
-  cards: MarketCard[];
-  expeditionMode: boolean;
+  cards: MarketCard[] | null = null;
+  expeditionMode!: boolean;
 
   ngOnInit() {
-    this.marketService.marketCards$.subscribe((cards: MarketCard[]) => {
+    this.marketService.marketCards$.subscribe((cards: MarketCard[] | null) => {
       this.cards = cards;
+      this.changeDetectorRef.markForCheck();
     });
     this.cards = this.marketService.marketCards;
 
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {
       this.updateExpeditionMode(newGameMode);
+      this.changeDetectorRef.markForCheck();
     });
     this.updateExpeditionMode(this.gameModeService.selectedGameMode);
   }

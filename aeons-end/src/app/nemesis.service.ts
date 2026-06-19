@@ -16,9 +16,9 @@ export class NemesisService {
   private expansionSelectionService = inject(ExpansionSelectionService);
   private gameModeService = inject(GameModeService);
 
-  private nemesisSubject: BehaviorSubject<Nemesis>;
+  private nemesisSubject: BehaviorSubject<Nemesis | null>;
 
-  nemesis$: Observable<Nemesis>;
+  nemesis$: Observable<Nemesis | null>;
 
   private static getRandomItem<T>(items: T[]): T {
     const itemIndex = NemesisService.randNumber(items.length);
@@ -49,7 +49,7 @@ export class NemesisService {
   }
 
   constructor() {
-    this.nemesisSubject = new BehaviorSubject<Nemesis>(BASE_NEMESES[0]);
+    this.nemesisSubject = new BehaviorSubject<Nemesis | null>(BASE_NEMESES[0]);
     this.nemesis$ = this.nemesisSubject.asObservable();
     this.expansionSelectionService.selectedExpansions$.subscribe((expansions: Expansion[]) => {
       this.generateRandomNemesis(expansions);
@@ -60,7 +60,7 @@ export class NemesisService {
     this.generateRandomNemesis(this.expansionSelectionService.selectedExpansions);
   }
 
-  get nemesis(): Nemesis {
+  get nemesis(): Nemesis | null {
     return this.nemesisSubject.getValue();
   }
 
