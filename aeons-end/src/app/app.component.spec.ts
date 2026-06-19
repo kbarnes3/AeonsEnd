@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import {Component} from '@angular/core';
 import { MarketSettingsComponent } from './market-settings/market-settings.component';
@@ -20,7 +19,7 @@ class MockMarketSettingsComponent {}
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule]
+      imports: []
     })
     .overrideComponent(AppComponent, {
       remove: {
