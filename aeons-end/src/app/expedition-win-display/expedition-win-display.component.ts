@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 import { MarketSelectionComponent } from '../market-selection/market-selection.component';
@@ -12,12 +12,14 @@ import { MarketSelectionComponent } from '../market-selection/market-selection.c
 })
 export class ExpeditionWinDisplayComponent implements OnInit {
   private gameModeService = inject(GameModeService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
   expeditionNumber!: number;
 
   ngOnInit() {
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {
       this.updateExpeditionNumber(newGameMode);
+      this.changeDetectorRef.markForCheck();
     });
     this.updateExpeditionNumber(this.gameModeService.selectedGameMode);
   }

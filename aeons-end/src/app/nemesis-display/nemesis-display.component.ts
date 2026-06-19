@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { Nemesis } from '../nemesis';
 import { NemesisService } from '../nemesis.service';
@@ -45,6 +45,7 @@ const NEMESIS_DECKS: Record<number, NemesisDeckRow[]> = {
 export class NemesisDisplayComponent implements OnInit {
   private gameModeService = inject(GameModeService);
   private nemesisService = inject(NemesisService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
   nemesis: Nemesis | null = null;
   battleNumber: number | null = null;
@@ -54,11 +55,13 @@ export class NemesisDisplayComponent implements OnInit {
   ngOnInit() {
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {
       this.updateBattleNumber(newGameMode);
+      this.changeDetectorRef.markForCheck();
     });
     this.updateBattleNumber(this.gameModeService.selectedGameMode);
 
     this.nemesisService.nemesis$.subscribe((nemesis: Nemesis | null) => {
       this.nemesis = nemesis;
+      this.changeDetectorRef.markForCheck();
     });
     this.nemesis = this.nemesisService.nemesis;
   }

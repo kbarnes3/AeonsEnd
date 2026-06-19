@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
 
@@ -26,6 +26,7 @@ import { ExpeditionLoseDisplayComponent } from '../expedition-lose-display/exped
 })
 export class MarketDisplayComponent implements OnInit {
   private gameModeService = inject(GameModeService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
   gameMode!: GameMode;
   gameModeEnum = GameMode;
@@ -33,6 +34,7 @@ export class MarketDisplayComponent implements OnInit {
   ngOnInit() {
     this.gameModeService.selectedGameMode$.subscribe((newGameMode: GameMode) => {
       this.gameMode = newGameMode;
+      this.changeDetectorRef.markForCheck();
     });
     this.gameMode = this.gameModeService.selectedGameMode;
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ExpeditionLoseChoice, GameMode } from '../game-mode';
 import { GameModeService } from '../game-mode.service';
@@ -13,6 +13,7 @@ import { MageDisplayComponent } from '../mage-display/mage-display.component';
 })
 export class ExpeditionLoseDisplayComponent implements OnInit {
   private gameModeService = inject(GameModeService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
   treasuresUnlocked!: boolean;
   loseChoice!: ExpeditionLoseChoice;
@@ -21,10 +22,12 @@ export class ExpeditionLoseDisplayComponent implements OnInit {
   ngOnInit() {
     this.gameModeService.selectedGameMode$.subscribe((newMode: GameMode) => {
       this.treasuresUnlocked = (newMode !== GameMode.ExpeditionLoseBattle1);
+      this.changeDetectorRef.markForCheck();
     });
     this.treasuresUnlocked = (this.gameModeService.selectedGameMode !== GameMode.ExpeditionLoseBattle1);
     this.gameModeService.selectedExpeditionLoseChoice$.subscribe((newChoice: ExpeditionLoseChoice) => {
       this.loseChoice = newChoice;
+      this.changeDetectorRef.markForCheck();
     });
     this.loseChoice = this.gameModeService.selectedExpeditionLoseChoice;
   }

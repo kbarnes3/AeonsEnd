@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +15,7 @@ import { Subscription } from 'rxjs';
 })
 export class ThemeSwitcherComponent implements OnInit, OnDestroy {
   private themeService = inject(ThemeService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
 
   currentTheme: Theme = 'auto';
   private subscription?: Subscription;
@@ -23,6 +24,7 @@ export class ThemeSwitcherComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.themeService.theme$.subscribe(theme => {
       this.currentTheme = theme;
+      this.changeDetectorRef.markForCheck();
     });
   }
 
