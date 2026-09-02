@@ -32,6 +32,7 @@ jobs:
       - name: Build Angular app
         run: |
           cd aeons-end
+          npm install --location=global npm@12
           npm ci
           npm run build
       - name: Build And Deploy
